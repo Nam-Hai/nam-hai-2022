@@ -1,3 +1,6 @@
-body {
-    background-color: red;
-}
+@forward './base/reset.scss';
+@forward './base/fonts.scss';
+@forward './base/base.scss';
+
+@forward './pages/preloader.scss';
+@forward './pages/home.scss';

@@ -1,0 +1,10 @@
+// @use '../utils/variables.scss' as *;
+
+@font-face {
+    font-family: 'League spartan';
+    src: url('/fonts/leaguespartan.woff2') format('woff2'),
+        url('/fonts/leaguespartan.woff') format('woff');
+    font-weight: 700;
+    font-style: normal  ;
+    font-display: swap;
+}

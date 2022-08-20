@@ -1,0 +1,28 @@
+@use '../utils/mixins.scss' as *;
+
+*, *::after, *::before {
+  box-sizing: border-box;
+}
+
+html {
+  @include cover;
+}
+
+body {
+  font-family: 'League spartan';
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1;
+  background-color: black;
+
+
+  padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
+}
+
+a {
+  color: inherit;
+  outline: none;
+  text-decoration: none;
+  cursor: pointer;
+}
+
