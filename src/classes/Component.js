@@ -9,14 +9,15 @@ export default class Component {
 
     this.render()
     this.create(element)
-    this.addEventListener()
   }
 
   create(selector) {
     this.element = selector instanceof window.HTMLElement ? selector : N.Select(selector);
+    console.log(selector, this.element);
   }
 
   render() {
+    console.log(this.element, this.content);
     this.element.innerHTML = this.content
   }
 
