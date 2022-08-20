@@ -1,0 +1,18 @@
+{
+  "name": "portfolio-1",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "vite": "^3.0.7"
+  },
+  "dependencies": {
+    "ogl": "^0.0.97",
+    "sass": "^1.54.5"
+  }
+}
