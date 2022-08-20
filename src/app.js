@@ -1,6 +1,7 @@
 import './styles/index.scss'
 import Router from './classes/Router'
 import { N } from './utils/namhai'
+import ressortButton from './components/ressortButton/ressortButton'
 
 class App {
   constructor() {
@@ -20,7 +21,10 @@ class App {
     page.innerHTML = divContent.innerHTML
 
 
-
+    let ressort = N.getAll('ressortButton', page)
+    console.log(ressort);
+    ressort = [...ressort].map(el => new ressortButton({ element: el }));
+    console.log(ressort);
   }
 }
 

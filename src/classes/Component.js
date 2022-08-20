@@ -1,10 +1,15 @@
 import { N } from "../utils/namhai"
 
+
 export default class Component {
   constructor({ element, content }) {
     this.element = element
     // this.elements = elements
     this.content = content
+
+    this.render()
+    this.create(element)
+    this.addEventListener()
   }
 
   create(selector) {
