@@ -14,4 +14,14 @@ export default class Component {
   render() {
     this.element.innerHTML = this.content
   }
+
+  addEventListener() {
+
+  }
+
+  removeEventListener() {
+
+  }
+
+
 }
