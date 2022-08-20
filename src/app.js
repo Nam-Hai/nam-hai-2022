@@ -2,7 +2,7 @@ import './styles/index.scss'
 import Router from './classes/Router'
 import { N } from './utils/namhai'
 import ressortButton from './components/ressortButton/ressortButton'
-import Preloader from './Pages/preloader'
+import Preloader from './Pages/preloader/preloader'
 
 class App {
   constructor() {

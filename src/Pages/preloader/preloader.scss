@@ -1,6 +1,12 @@
 .preloader__wrapper {
 
   color: white;
+
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  column-gap: 2rem;
 }
 
 .preloader__number {
@@ -8,4 +14,6 @@
 
   display: block;
   line-height: 100%;
+
+  display: none;
 }

@@ -1,4 +1,4 @@
-import Preloader from '../Pages/preloader';
+import Preloader from '../Pages/preloader/preloader';
 import homeTemplate from '../views/home.html?raw'
 
 export default class Router {

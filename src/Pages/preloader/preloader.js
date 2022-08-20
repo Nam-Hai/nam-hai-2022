@@ -1,6 +1,6 @@
-import Page from "../classes/Page"
-import ressortButton from "../components/ressortButton/ressortButton"
-import preloaderTemplate from "../views/preloader.html?raw"
+import Page from "../../classes/Page"
+import ressortButton from "../../components/ressortButton/ressortButton"
+import preloaderTemplate from "./preloader.html?raw"
 
 export default class Preloader extends Page {
   constructor() {

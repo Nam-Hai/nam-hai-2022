@@ -10,10 +10,11 @@ export default class ressortButton extends Component {
     super({
       name, content, node,
       input: {
-        color: 'white',
+        color: 'red',
         rotate: 0
       }
     })
+    this.isActivated = false
 
   }
 
@@ -30,7 +31,8 @@ export default class ressortButton extends Component {
 
   addEventListener(node) {
     this.button.addEventListener('click', () => {
-      this.button.style.backgroundColor = 'white'
+      this.isActivated = !this.isActivated
+      this.button.style.backgroundColor = this.isActivated ? 'white' : this.color
     })
   }
 
