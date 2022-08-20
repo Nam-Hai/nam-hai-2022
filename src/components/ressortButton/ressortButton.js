@@ -24,15 +24,12 @@ export default class ressortButton extends Component {
     this.button = N.get('button', this.element)
     // console.log(this.element, this.color, this.button);
 
-    this.button.style.backgroundColor = this.color
-    this.button.style.transform = `rotate(${this.rotate}deg)`
 
   }
 
   addEventListener(node) {
     this.button.addEventListener('click', () => {
       this.isActivated = !this.isActivated
-      this.button.style.backgroundColor = this.isActivated ? 'white' : this.color
     })
   }
 

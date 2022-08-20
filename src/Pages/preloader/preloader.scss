@@ -6,7 +6,6 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  column-gap: 2rem;
 }
 
 .preloader__number {
@@ -14,6 +13,30 @@
 
   display: block;
   line-height: 100%;
-
+  left: 0;
   display: none;
+  position: absolute;
+
+}
+
+.ressort__demo__wrapper{
+  display: flex;
+  align-items: center;
+  width: 7rem;
+  position: relative;
+
+  ressort-button {
+    height: 7rem;
+    width: 7rem;
+    border-radius: 5px;
+    box-shadow: 0 0 50px 0 rgb(255 255 255 / 38%);
+  }
+
+  .ressort__demo__tooltip {
+    font-size: 40px;
+    line-height: 37px;
+    width: 315px;
+    position: absolute;
+    left: 9rem;
+  }
 }
