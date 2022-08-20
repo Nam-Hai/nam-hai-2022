@@ -16,7 +16,6 @@ class App {
   createPreloader() {
     this.preloader = new Preloader()
     this.preloader.render(this.main)
-    console.log(this.main, this.preloader, this.preloader.content);
   }
 
   createPage() {
@@ -25,7 +24,6 @@ class App {
   }
 
   // handleRoute() {
-  //   console.log(this.router.path == '/');
   //   let template = Object.entries(this.router.paths).filter(([path, template]) => path == this.router.path).map(a => a[1])
   //   template = template.length ? template[0] : this.router.paths['/'] && window.history.pushState('historyInfo', 'Nam Hai', '/')
 

@@ -18,24 +18,33 @@ export default class Page {
       this.elements[key] = N.getAll(tag, this.content)
     })
 
+    console.log('this.content', this.content);
     Object.entries(this.components).forEach(([key, componentType]) => {
 
-      // this.components[key + 's'] = [];
-
       this.components[key] = [...N.getAll(key, this.content)].map(component => {
-        return new componentType({ element: component })
+
+        return new componentType({ name: key, node: component })
       })
     })
-    console.log(this.components);
   }
 
   render(nodeParent) {
+
+
     nodeParent.innerHTML = this.content.innerHTML
 
-    console.log(document);
+    console.log('render Nodeparent Page', nodeParent, this.components);
     Object.values(this.components).forEach((components) => {
-      components.forEach(component => component.addEventListener())
+
+      components.forEach(component => {
+        // console.log('component current', component);
+        // let nodeComponent = N.get(component.selector, nodeParent)
+        component.render(nodeParent)
+        component.addEventListener(nodeParent)
+      })
     })
+
+    // nodeParent.innerHTML = this.content.innerHTML
   }
 
   // querySelectRec(selectorObject) {

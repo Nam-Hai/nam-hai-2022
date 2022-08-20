@@ -3,21 +3,19 @@ import { N } from "../../utils/namhai";
 import content from './ressortButton.html?raw'
 
 export default class ressortButton extends Component {
-  constructor({ element }) {
+  constructor({ name, node }) {
 
-    super({ element, content })
+    super({ name, content, node })
 
   }
+  // render() {
+  //   super.render()
+  // }
 
-  addEventListener() {
+  addEventListener(node) {
     let button = N.get('.ressortButton', this.element)
-    console.log('addEventListener', this.element, button);
-    this.element.addEventListener('click', () => {
-      console.log('Click le bouton');
-      button.style.backgroundColor = white
-    })
     button.addEventListener('click', () => {
-      console.log('ressort');
+      button.style.backgroundColor = 'white'
     })
   }
 

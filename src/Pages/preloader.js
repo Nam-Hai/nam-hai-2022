@@ -10,7 +10,7 @@ export default class Preloader extends Page {
         number: '.preloader__number'
       },
       components: {
-        'ressortButton': ressortButton
+        'ressort-button': ressortButton
       },
       content: preloaderTemplate,
       name: 'preloader'
