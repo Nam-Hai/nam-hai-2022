@@ -13,12 +13,10 @@ export default class Page {
 
   create() {
     this.elements = {};
-    // this.elements = this.querySelectRec(this.selectorChildren)
     Object.entries(this.selectorChildren).forEach(([key, tag]) => {
       this.elements[key] = N.getAll(tag, this.content)
     })
 
-    console.log('this.content', this.content);
     Object.entries(this.components).forEach(([key, componentType]) => {
 
       this.components[key] = [...N.getAll(key, this.content)].map(component => {
@@ -33,7 +31,6 @@ export default class Page {
 
     nodeParent.innerHTML = this.content.innerHTML
 
-    console.log('render Nodeparent Page', nodeParent, this.components);
     Object.values(this.components).forEach((components) => {
 
       components.forEach(component => {
