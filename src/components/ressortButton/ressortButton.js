@@ -28,7 +28,8 @@ export default class ressortButton extends Component {
         distance: '96',
         both: '0',
         animeOnCompletion: null,
-        animeOnMarker: null
+        animeOnMarker: null,
+        link: null
       }
     })
 
@@ -60,7 +61,10 @@ export default class ressortButton extends Component {
   }
 
   createFixation(d) {
-    let w = N.Cr('div')
+    let w = N.Cr('a')
+    if (this.link) {
+      w.setAttribute('href', this.link)
+    }
     w.innerHTML = this.crossTemplate.innerHTML
     w.classList.add('cross__wrapper')
     const x = this.axis === 'x' ? d : 0,
