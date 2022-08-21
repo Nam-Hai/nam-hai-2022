@@ -124,6 +124,9 @@ export default class ressortButton extends Component {
       this.isToggled = true
       N.pe(this.button, 'none')
 
+
+      let link = N.get('a', this.element)
+      link.click()
       if (this.animeOnCompletion) {
         let anime = new (animeCompletionMap.get(this.animeOnCompletion))()
         anime.play()

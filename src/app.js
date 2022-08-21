@@ -33,10 +33,10 @@ class App {
     for (const link of links) {
       console.log('link', link);
       link.addEventListener('click', (e) => {
-        console.log('object');
         const href = link.href
         N.PD(e)
-        // this.onChange({ url: href, button: link })
+        // window.history.pushState('', 'Home', href)
+        this.onChange({ url: href, button: link })
       })
     }
   }
@@ -57,6 +57,11 @@ class App {
 
   onMouseUp(e) {
     this.page.onMouseUp(e)
+  }
+
+  onChange({ url, button }) {
+
+    window.history.pushState('', 'Nam Hai portfolio', url)
   }
 }
 
