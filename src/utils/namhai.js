@@ -540,7 +540,7 @@ N.M = class {
     const i = s + e === 0 ? 0 : "translate3d(" + s + "," + e + ",0)",
       a = N.Has(t, "r") ? 'rotate' + "(" + r[t.r].curr + "deg)" : 0,
       n = N.Has(t, "r2") ? r[t.r2].name + "(" + r[t.r2].curr + "deg)" : 0,
-      o = N.Has(t, "s") ? r[t.s].name + "(" + r[t.s].curr + ")" : 0;
+      o = N.Has(t, "s") ? 'scale' + "(" + r[t.s].curr + ")" : 0;
     var h = i + a + n + o === 0 ? 0 : [i, a, n, o].filter(t => 0 !== t).join(" "),
       l = N.Has(t, "o") ? r[t.o].curr : -1,
       d = N.Has(r, "g") ? "grayscale(" + t[r.g].curr + ")" : -1;
@@ -582,7 +582,7 @@ N.TL = class {
     this.arr = [], this.del = 0
   }
   from(t) {
-    this.del += N.Has(t, "delay") ? t.delay : 0
+    this.del = N.Has(t, "delay") ? t.delay : 0
     // ligne qui sert a priori a rien car dans N.M() t est pris a 0 si undefined
     t.delay = this.del
     let M = new N.M(t)
