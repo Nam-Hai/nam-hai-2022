@@ -1,6 +1,8 @@
 import Page from "../../classes/Page"
 import ressortButton from "../../components/ressortButton/ressortButton"
 import preloaderTemplate from "./preloader.html?raw"
+import { N } from "../../utils/namhai";
+import { stringLetterToDoubleSpan } from '../../utils/utilsText'
 
 export default class Preloader extends Page {
   constructor() {
@@ -19,6 +21,14 @@ export default class Preloader extends Page {
     this.components['ressort-button'].forEach(element => {
       element.addCallback()
     });
+  }
+
+  render(node) {
+    super.render(node)
+
+    // let succes = N.get('.ressort__demo__success')
+
+    // stringLetterToDoubleSpan(succes, 'tooltip__span')
   }
 
   onMouseMove(e) {

@@ -4,22 +4,23 @@ export default class PreloaderTooltipAnimation {
   constructor(b) {
 
     let tooltip = N.get('.ressort__demo__tooltip')
-    let succes = N.get('.ressort__demo__success')
+    let spanTooltip = N.getAll('span span', tooltip)
+    let succes = N.getAll('.ressort__demo__success span span')
     this.tl = new N.TL
 
     let tooltipO = {
-      o: b ? [1, 0] : [0, 1],
+      o: b ? [0, 102] : [101, 0],
       delay: b ? 0 : 200
     }
 
     let successO = {
-      o: b ? [0, 1] : [1, 0],
+      o: b ? [100, 0] : [0, 100],
       delay: b ? 200 : 0
     }
     this.tl.from({
-      el: tooltip,
+      el: spanTooltip,
       p: {
-        o: tooltipO.o
+        x: tooltipO.o
       },
       d: 450,
       e: 'o5',
@@ -29,7 +30,7 @@ export default class PreloaderTooltipAnimation {
     this.tl.from({
       el: succes,
       p: {
-        o: successO.o
+        x: successO.o
       },
       d: 450,
       e: 'o5',
