@@ -87,7 +87,7 @@ export default class {
           this.mesh.scale.y = N.Lerp(initY, targetY, t.progE)
 
           this.program.uniforms.radius.value = Math.max(this.buttonBounds.width, this.buttonBounds.height) * 4
-          this.program.uniforms.force.value = N.Lerp(4, 0, N.Ease.o5(t.prog))
+          this.program.uniforms.force.value = N.Lerp(2.5, 0, N.Ease.o5(t.prog))
         },
         cb: () => {
           this.program.uniforms.o.value = 0
