@@ -43,19 +43,26 @@ export default class Preloader extends Page {
   }
 
   async hide() {
-    console.log(this.components['ressort-button'][0].element);
+    this.ressort = this.components['ressort-button'][0]
+    console.log('huide', this.ressort.button);
     return new Promise(res => {
-      let motion = new N.M({
-        el: this.components['ressort-button'][0].button,
-        p: {
-          s: [1, 2]
-        },
-        d: 1000,
-        cb: () => {
-          res()
+      let raf = new N.RafR(() => {
+        if (this.ressort.end) {
+          let motion = new N.M({
+            el: this.components['ressort-button'][0].button,
+            p: {
+              s: [1, 2]
+            },
+            d: 1000,
+            cb: () => {
+              res()
+            }
+          })
+          motion.play()
+          raf.stop()
         }
       })
-      motion.play()
+      raf.run()
     })
   }
 }

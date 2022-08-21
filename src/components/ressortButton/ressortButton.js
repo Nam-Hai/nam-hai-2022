@@ -33,7 +33,7 @@ export default class ressortButton extends Component {
       }
     })
 
-    this.isToggled = false
+    this.end = false
     this.markerOn = false
     this.markerRot = 0
 
@@ -169,6 +169,9 @@ export default class ressortButton extends Component {
 
     if (Math.abs(this.coor.acc) <= 0.005) {
       this.raf.stop()
+      if (this.markerOn) {
+        this.end = true
+      }
     }
 
     this.coor.acc = 0
