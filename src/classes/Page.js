@@ -37,7 +37,7 @@ export default class Page {
         // console.log('component current', component);
         // let nodeComponent = N.get(component.selector, nodeParent)
         component.render(nodeParent)
-        component.addEventListener(nodeParent)
+        component.addEventListener()
       })
     })
 

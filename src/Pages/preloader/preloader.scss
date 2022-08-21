@@ -29,14 +29,23 @@
     height: 7rem;
     width: 7rem;
     border-radius: 5px;
-    box-shadow: 0 0 50px 0 rgb(255 255 255 / 38%);
   }
 
-  .ressort__demo__tooltip {
-    font-size: 40px;
-    line-height: 37px;
-    width: 315px;
+
+}
+.ressort__demo__tooltip__wrapper {
+  width: 315px;
+  position: absolute;
+  left: 9rem;
+  font-size: 40px;
+  line-height: 37px;
+
+  > div {
+    transform: translateY(-50%);
     position: absolute;
-    left: 9rem;
+    &:nth-child(2) {
+      opacity: 0;
+    }
   }
 }
+

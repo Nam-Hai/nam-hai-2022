@@ -472,23 +472,6 @@ N.M = class {
     this.raf.stop(), this.delay && this.delay.stop()
   }
   vUpd(t) {
-    // var r = t || {},
-    //     s = N.Has(r, "reverse") ? "start" : "end";
-    // if (N.Has(this.v, "prop"))
-    //     for (let t = 0; t < this.v.propL; t++) this.v.prop[t].end = this.v.prop[t].origin[s], this.v.prop[t].start = this.v.prop[t].curr, N.Has(r, "p") && N.Has(r.p, this.v.prop[t].name) && (N.Has(r.p[this.v.prop[t].name], "newEnd") && (this.v.prop[t].end = r.p[this.v.prop[t].name].newEnd), N.Has(r.p[this.v.prop[t].name], "newStart") && (this.v.prop[t].start = r.p[this.v.prop[t].name].newStart));
-    // else if (N.Has(this.v, "svg")) N.Has(r, "svg") && N.Has(r.svg, "start") ? this.v.svg.arr.start = r.svg.start : this.v.svg.arr.start = N.Svg.split(this.v.svg.curr), N.Has(r, "svg") && N.Has(r.svg, "end") ? this.v.svg.arr.end = r.svg.end : this.v.svg.arr.end = this.v.svg.originArr[s];
-    // else if (N.Has(this.v, "line")) {
-    //     for (let t = 0; t < this.v.elL; t++) this.v.line.start[t] = this.v.line.curr[t];
-    //     if (N.Has(r, "line") && N.Has(r.line, "end")) {
-    //         this.v.line.coeff.end = (100 - r.line.end) / 100;
-    //         for (let t = 0; t < this.v.elL; t++) this.v.line.end[t] = this.v.line.coeff.end * this.v.line.shapeL[t]
-    //     } else
-    //         for (let t = 0; t < this.v.elL; t++) this.v.line.end[t] = this.v.line.origin[s][t]
-    // }
-    // this.v.d.curr = N.Has(r, "d") ? r.d : N.R(this.v.d.origin - this.v.d.curr + this.v.elapsed), this.v.e.curve = r.e || this.v.e.curve, this.v.e.calc = N.Is.str(this.v.e.curve) ? N.Ease[this.v.e.curve] : N.Ease4(this.v.e.curve), this.v.delay = (N.Has(r, "delay") ? r : this.v).delay, this.v.cb = (N.Has(r, "cb") ? r : this.v).cb, this.v.prog = this.v.progE = 0 === this.v.d.curr ? 1 : 0, this.delay = new N.Delay(this.gRaf, this.v.delay)
-
-
-
     ///////////////
 
     let r = t || {}
