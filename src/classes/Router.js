@@ -17,7 +17,7 @@ export default class Router {
   }
 
   getPage(route) {
-    this.pageManager[route]
+    return this.pageManager[route]
   }
 
 
