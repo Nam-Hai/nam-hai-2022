@@ -51,10 +51,10 @@ export default class Preloader extends Page {
           let motion = new N.M({
             el: this.components['ressort-button'][0].button,
             p: {
-              s: [1, 7]
+              s: [1, 9]
             },
             d: 1000,
-            e: 'io5',
+            e: 'o6',
             cb: () => {
               res()
             }

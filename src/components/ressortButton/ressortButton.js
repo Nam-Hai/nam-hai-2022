@@ -1,15 +1,15 @@
 import Component from "../../classes/Component";
 import { N } from "../../utils/namhai";
 import content from './ressortButton.html?raw'
-import testAnimation from "../../animation/test";
 import PreloaderTooltipAnimation from "../../animation/preloaderTooltipAnimation";
+import preloaderComplete from "../../animation/preloaderComplete";
 
 const k = 0.05
 const c = 0.2
 const l0 = 0;
 
 const animeCompletionMap = new Map([
-  ['testAnimation', testAnimation],
+  ['preloaderComplete', preloaderComplete],
 ])
 
 const animeOnMarkerMap = new Map([

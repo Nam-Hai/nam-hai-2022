@@ -68,14 +68,14 @@ class App {
   async onChange({ url, button, push = true }) {
 
     await this.preloader.hide()
-    this.page = null
-    this.page = this.createPage(url)
+    // this.page = null
+    // this.page = this.createPage(url)
 
 
 
-    this.page.render(this.main)
+    // this.page.render(this.main)
 
-    if (push) window.history.pushState('', 'Nam Hai portfolio', url)
+    // if (push) window.history.pushState('', 'Nam Hai portfolio', url)
   }
 
   onPopState() {
