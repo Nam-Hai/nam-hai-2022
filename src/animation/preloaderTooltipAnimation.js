@@ -9,7 +9,7 @@ export default class PreloaderTooltipAnimation {
     this.tl = new N.TL
 
     let tooltipO = {
-      o: b ? [0, 102] : [101, 0],
+      x: b ? [0, 102] : [101, 0],
       delay: b ? 0 : 200
     }
 
@@ -20,7 +20,7 @@ export default class PreloaderTooltipAnimation {
     this.tl.from({
       el: spanTooltip,
       p: {
-        x: tooltipO.o
+        x: tooltipO.x
       },
       d: 450,
       e: 'o5',
