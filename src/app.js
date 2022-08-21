@@ -22,8 +22,7 @@ class App {
   }
 
   createPage() {
-    this.template = Object.entries(this.router.paths).filter(([path, template]) => path == this.router.path).map(a => a[1])
-
+    this.page = new this.router.pageManager[this.router.path]
   }
 
   addLinkLinstener(context) {
@@ -51,19 +50,23 @@ class App {
   }
 
   onMouseMove(e) {
-    this.page.onMouseMove(e)
+    if (this.page) {
+      this.page.onMouseMove(e)
+    }
   }
 
   onMouseUp(e) {
-    this.page.onMouseUp(e)
+    if (this.page) {
+      this.page.onMouseUp(e)
+    }
   }
 
   async onChange({ url, button }) {
 
     window.history.pushState('', 'Nam Hai portfolio', url)
-    console.log('test');
     await this.preloader.hide()
-    console.log('lewgo');
+    this.page = null
+    this.createPage()
   }
 }
 
