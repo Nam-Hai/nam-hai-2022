@@ -6,23 +6,23 @@ import Home from '../Pages/Home/home';
 export default class Router {
 
   constructor() {
-    this.path = window.location.pathname
     this.pageManager = {
-      '/home': Home
+      'home': Home
     }
-  }
-
-  updatePath() {
-    this.path = window.location.pathname
   }
 
   getPage(route) {
     return this.pageManager[route] || Home
   }
 
+  getRoute() {
+    return this.path
+  }
+
 
   resetPath() {
     window.history.pushState('', 'Nam Hai portfolio', '/')
+    this.path = 'preloader'
   }
 
 }

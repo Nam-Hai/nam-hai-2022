@@ -3,6 +3,7 @@ import Router from './classes/Router'
 import { N } from './utils/namhai'
 import ressortButton from './components/ressortButton/ressortButton'
 import Preloader from './Pages/preloader/preloader'
+import Canvas from './Canvas/canvas'
 
 class App {
   constructor() {
@@ -20,6 +21,11 @@ class App {
     this.preloader.render(this.main)
     this.addLinkLinstener(this.main)
     this.addEventListener()
+    this.createCanvas()
+  }
+
+  createCanvas() {
+    this.canvas = new Canvas({ route: this.router.getRoute() })
   }
 
   createPage(route) {
@@ -68,14 +74,15 @@ class App {
   async onChange({ url, button, push = true }) {
 
     await this.preloader.hide()
-    // this.page = null
-    // this.page = this.createPage(url)
+    this.page = null
+    this.page = this.createPage(url)
 
 
 
-    // this.page.render(this.main)
+    this.page.render(this.main)
 
-    // if (push) window.history.pushState('', 'Nam Hai portfolio', url)
+    this.router.path = url
+    if (push) window.history.pushState('', 'Nam Hai portfolio', url)
   }
 
   onPopState() {
