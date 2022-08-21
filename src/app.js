@@ -14,6 +14,7 @@ class App {
   }
 
   createPreloader() {
+    this.router.resetPath()
     this.preloader = new Preloader()
     this.page = this.preloader
     this.preloader.render(this.main)
@@ -21,8 +22,8 @@ class App {
     this.addEventListener()
   }
 
-  createPage() {
-    this.page = new this.router.pageManager[this.router.path]
+  createPage(route) {
+    return new (this.router.getPage(route))()
   }
 
   addLinkLinstener(context) {
@@ -32,7 +33,9 @@ class App {
     for (const link of links) {
       console.log('link', link);
       link.addEventListener('click', (e) => {
-        const href = link.href
+        console.log(link);
+        const href = N.Ga(link, 'href')
+        // const href = link.href
         N.PD(e)
         this.onChange({ url: href, button: link })
       })
@@ -43,6 +46,7 @@ class App {
     window.addEventListener('mousedown', this.onMouseDown.bind(this))
     window.addEventListener('mousemove', this.onMouseMove.bind(this))
     window.addEventListener('mouseup', this.onMouseUp.bind(this))
+    window.addEventListener('popstate', this.onPopState.bind(this))
   }
 
   onMouseDown(e) {
@@ -61,12 +65,24 @@ class App {
     }
   }
 
-  async onChange({ url, button }) {
+  async onChange({ url, button, push = true }) {
 
-    window.history.pushState('', 'Nam Hai portfolio', url)
     await this.preloader.hide()
     this.page = null
-    this.createPage()
+    this.page = this.createPage(url)
+
+
+
+    this.page.render(this.main)
+
+    if (push) window.history.pushState('', 'Nam Hai portfolio', url)
+  }
+
+  onPopState() {
+    this.onChange({
+      url: window.location.pathname,
+      push: false
+    })
   }
 }
 

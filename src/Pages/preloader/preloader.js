@@ -39,7 +39,23 @@ export default class Preloader extends Page {
   onMouseUp(e) {
     this.components['ressort-button'].forEach(c => {
       c.onMouseUp(e)
-      console.log('addeventlistner');
+    })
+  }
+
+  async hide() {
+    console.log(this.components['ressort-button'][0].element);
+    return new Promise(res => {
+      let motion = new N.M({
+        el: this.components['ressort-button'][0].button,
+        p: {
+          s: [1, 2]
+        },
+        d: 1000,
+        cb: () => {
+          res()
+        }
+      })
+      motion.play()
     })
   }
 }

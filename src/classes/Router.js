@@ -16,7 +16,14 @@ export default class Router {
     this.path = window.location.pathname
   }
 
+  getPage(route) {
+    this.pageManager[route]
+  }
 
+
+  resetPath() {
+    window.history.pushState('', 'Nam Hai portfolio', '/')
+  }
 
 }
 

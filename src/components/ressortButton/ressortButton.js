@@ -63,6 +63,7 @@ export default class ressortButton extends Component {
   createFixation(d) {
     let w = N.Cr('a')
     if (this.link) {
+      console.log(this.link);
       w.setAttribute('href', this.link)
     }
     w.innerHTML = this.crossTemplate.innerHTML
@@ -148,8 +149,10 @@ export default class ressortButton extends Component {
         this.marker.style.transform = `rotate(${t}deg)`
       }
     })
+    let anime = []
     if (this.animeOnMarker) {
-      new (animeOnMarkerMap.get(this.animeOnMarker))(b).play()
+      let tl = new (animeOnMarkerMap.get(this.animeOnMarker))(b).tl
+      this.timeline.arr.push(...tl.arr)
     }
 
     this.timeline.play()
