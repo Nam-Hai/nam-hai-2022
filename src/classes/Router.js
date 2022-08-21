@@ -17,7 +17,7 @@ export default class Router {
   }
 
   getPage(route) {
-    return this.pageManager[route]
+    return this.pageManager[route] || Home
   }
 
 

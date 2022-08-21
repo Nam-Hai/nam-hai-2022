@@ -5,7 +5,8 @@ export default class Page {
     this.selectorChildren = elements
     this.components = components
 
-    this.content = N.Cr('preloader')
+    this.content = N.Cr(name)
+    this.name = name
     this.content.innerHTML = content
     this.create()
   }
@@ -30,6 +31,8 @@ export default class Page {
 
 
     nodeParent.innerHTML = this.content.innerHTML
+    nodeParent.setAttribute('data-template', this.name)
+    console.log('render', nodeParent);
 
     Object.values(this.components).forEach((components) => {
 
