@@ -47,7 +47,18 @@ export default class Canvas {
       height: height,
       width: height * this.camera.aspect
     }
+  }
 
+  update() {
+
+    this.renderer.render({
+      camera: this.camera,
+      scene: this.scene
+    })
+  }
+
+  show() {
+    if (this[this.route] && this[this.route].show) this[this.route].show()
   }
 
 }
