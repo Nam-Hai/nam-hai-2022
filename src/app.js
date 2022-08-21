@@ -35,7 +35,6 @@ class App {
       link.addEventListener('click', (e) => {
         const href = link.href
         N.PD(e)
-        // window.history.pushState('', 'Home', href)
         this.onChange({ url: href, button: link })
       })
     }
@@ -59,9 +58,12 @@ class App {
     this.page.onMouseUp(e)
   }
 
-  onChange({ url, button }) {
+  async onChange({ url, button }) {
 
     window.history.pushState('', 'Nam Hai portfolio', url)
+    console.log('test');
+    await this.preloader.hide()
+    console.log('lewgo');
   }
 }
 
