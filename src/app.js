@@ -22,6 +22,7 @@ class App {
     this.addLinkLinstener(this.main)
     this.addEventListener()
     this.createCanvas()
+    this.canvas.show()
   }
 
   createCanvas() {
@@ -74,6 +75,8 @@ class App {
   async onChange({ url, button, push = true }) {
 
     await this.preloader.hide()
+    await this.canvas.hide()
+    console.log('fin');
     this.page = null
     this.page = this.createPage(url)
 

@@ -1,8 +1,15 @@
 import { Renderer, Camera, Transform } from 'ogl'
+import { N } from '../utils/namhai';
+import PreloaderCanvas from './preloader/PreloaderCanvas';
 
 export default class Canvas {
   constructor({ route }) {
     this.route = route
+
+    this.mapRouteObject = {
+      home: this.createHome,
+      preloader: this.createPreloader
+    };
 
     this.sizePixel = {
       width: window.innerWidth,
@@ -13,11 +20,16 @@ export default class Canvas {
     this.createScene()
 
     this.onResize()
+    this.onChange(route)
 
+    N.BM(this, ['update'])
+    this.raf = new N.RafR(this.update)
   }
 
   createRenderer() {
-    this.renderer = new Renderer()
+    this.renderer = new Renderer({
+      alpha: true
+    })
     this.gl = this.renderer.gl
     document.body.appendChild(this.gl.canvas)
   }
@@ -29,6 +41,22 @@ export default class Canvas {
     this.scene = new Transform()
   }
 
+  createPreloader() {
+    this.preloader = new PreloaderCanvas({
+      gl: this.gl,
+      scene: this.scene,
+      canvasSize: this.size,
+      canvasSizePixel: this.sizePixel
+    })
+  }
+
+  onChange(route) {
+    console.log('canvas onchange', route);
+    if (this.mapRouteObject.hasOwnProperty(route)) {
+      const createNewObject = this.mapRouteObject[route].bind(this)
+      createNewObject()
+    }
+  }
 
   onResize() {
     this.renderer.setSize(window.innerWidth, window.innerHeight)
@@ -55,10 +83,17 @@ export default class Canvas {
       camera: this.camera,
       scene: this.scene
     })
+
   }
 
   show() {
     if (this[this.route] && this[this.route].show) this[this.route].show()
+
+    this.raf.run()
+  }
+  async hide() {
+    console.log('canvas', this.route, this.preloader, this[this.route], this[this.route].hide);
+    await this.preloader.hide()
   }
 
 }

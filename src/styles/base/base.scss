@@ -51,3 +51,8 @@ button {
     // transform: translateX(50%);
   }
 }
+
+canvas {
+  position: relative;
+  pointer-events: none;
+}
