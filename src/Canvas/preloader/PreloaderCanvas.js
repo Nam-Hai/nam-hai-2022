@@ -29,13 +29,19 @@ export default class {
       uniforms: {
         o: {
           value: 0
+        },
+        force: {
+          value: 0
+        },
+        radius: {
+          value: 2
         }
       }
     })
 
     this.geometry = new Plane(this.gl, {
-      heightSegments: 10,
-      widthSegments: 10
+      heightSegments: 80,
+      widthSegments: 80
     })
 
     this.mesh = new Mesh(this.gl, {
@@ -51,6 +57,7 @@ export default class {
       width: this.buttonBoundsPixel.width * this.canvasSize.width / this.canvasSizePixel.width,
       height: this.buttonBoundsPixel.height * this.canvasSize.height / this.canvasSizePixel.height
     }
+
 
     this.setScalePos()
   }
@@ -68,16 +75,19 @@ export default class {
     const initX = this.mesh.scale.x,
       initY = this.mesh.scale.y,
       targetX = this.canvasSize.width,
-      targetY = this.canvasSize.height
+      targetY = this.canvasSize.height;
+    console.log(targetY, targetX);
     this.program.uniforms.o.value = 1
     await new Promise(res => {
       let motion = new N.M({
-        d: 1000,
+        d: 2000,
         e: 'o6',
         update: t => {
-          console.log(t);
           this.mesh.scale.x = N.Lerp(initX, targetX, t.progE)
           this.mesh.scale.y = N.Lerp(initY, targetY, t.progE)
+
+          this.program.uniforms.radius.value = Math.max(this.buttonBounds.width, this.buttonBounds.height) * 4
+          this.program.uniforms.force.value = N.Lerp(4, 0, N.Ease.o5(t.prog))
         },
         cb: () => {
           this.program.uniforms.o.value = 0
