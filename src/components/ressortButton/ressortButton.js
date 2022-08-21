@@ -17,7 +17,8 @@ export default class ressortButton extends Component {
       input: {
         axis: 'null',
         distance: '96',
-        both: '0'
+        both: '0',
+        link: 'null'
       }
     })
 
@@ -59,22 +60,22 @@ export default class ressortButton extends Component {
     this.element.appendChild(w)
   }
 
-  render() {
+  addCallback(cb) {
+
+  }
+
+  render(node) {
     super.render()
 
     this.button = N.get('button', this.element)
     this.marker = N.get('.cross__container__neutral', this.element)
-    this.tooltip = N.get('.ressort__demo__toolip')
-    this.succes = N.get('.ressort__demo__succes')
-    console.log(this.tooltip, this.succes);
+    this.tooltip = N.get('.ressort__demo__tooltip', node)
+    this.succes = N.get('.ressort__demo__success')
     this.passivBounds = this.button.getBoundingClientRect()
-    console.log(this.button, this.passivBounds);
   }
 
   addEventListener() {
     this.button.addEventListener('mousedown', this.onMouseDown)
-    window.addEventListener('mousemove', this.onMouseMove)
-    window.addEventListener('mouseup', this.onMouseUp)
   }
 
   onMouseDown(e) {
@@ -108,7 +109,8 @@ export default class ressortButton extends Component {
     this.raf.run()
 
     if (this.markerOn) {
-      new N.Delay(this.turnMarker(false), 1000)
+      N.pe(this.button, 'none')
+      // new N.Delay(this.turnMarker(false), 1000)
     }
   }
 
@@ -126,22 +128,33 @@ export default class ressortButton extends Component {
         this.marker.style.transform = `rotate(${t}deg)`
       }
     })
+
+    let tooltipO = {
+      o: b ? [1, 0] : [0, 1],
+      delay: b ? 0 : 200
+    }
+    let successO = {
+      o: b ? [0, 1] : [1, 0],
+      delay: b ? 200 : 0
+    }
     this.timeline.from({
       el: this.tooltip,
       p: {
-        o: [1, 0]
+        o: tooltipO.o
       },
-      d: 250,
-      e: 'o5'
+      d: 450,
+      e: 'o5',
+      delay: tooltipO.delay
     })
 
     this.timeline.from({
       el: this.succes,
       p: {
-        o: [0, 1]
+        o: successO.o
       },
-      d: 250,
-      e: 'o5'
+      d: 450,
+      e: 'o5',
+      delay: successO.delay
     })
 
     this.timeline.play()

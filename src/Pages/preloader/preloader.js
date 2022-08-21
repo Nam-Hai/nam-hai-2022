@@ -15,5 +15,22 @@ export default class Preloader extends Page {
       content: preloaderTemplate,
       name: 'preloader'
     })
+
+    this.components['ressort-button'].forEach(element => {
+      console.log(element);
+      element.addCallback()
+    });
+  }
+
+  onMouseMove(e) {
+    this.components['ressort-button'].forEach(c => {
+      c.onMouseMove(e)
+    })
+  }
+  onMouseUp(e) {
+    this.components['ressort-button'].forEach(c => {
+      c.onMouseUp(e)
+      console.log('addeventlistner');
+    })
   }
 }

@@ -34,30 +34,22 @@ export default class Page {
     Object.values(this.components).forEach((components) => {
 
       components.forEach(component => {
-        // console.log('component current', component);
-        // let nodeComponent = N.get(component.selector, nodeParent)
         component.render(nodeParent)
         component.addEventListener()
       })
     })
 
-    // nodeParent.innerHTML = this.content.innerHTML
   }
 
-  // querySelectRec(selectorObject) {
-  //   let elements = {}
-  //   for (const [key, entry] of Object.entries(selectorObject)) {
-  //     if (entry instanceof window.HTMLElement || entry instanceof window.NodeList || Array.isArray(entry)) {
-  //       elements[key] = entry;
-  //     } else {
-  //       let r;
-  //       if (Object.prototype.toString.call(entry) === '[object Object]') r = this.querySelectRec(entry)
-  //       else r = N.get(entry, this.element);
-  //       elements[key] = r
-  //     }
-  //   }
-  //   return elements
-  // }
+  onMouseDown(e) {
 
+  }
+
+  onMouseMove(e) {
+
+  }
+  onMouseUp(e) {
+
+  }
 
 }

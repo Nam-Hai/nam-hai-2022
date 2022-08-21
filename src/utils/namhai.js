@@ -756,6 +756,9 @@ function normalizeWheel( /*object*/event) /*object*/ {
 }
 
 N.Ga = (t, r) => t.getAttribute(r)
+N.PD = t => {
+  t.cancelable && t.preventDefault()
+}
 
 export { normalizeWheel };
 export { N, Raf }
