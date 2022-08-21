@@ -2,15 +2,19 @@ import Component from "../../classes/Component";
 import { N } from "../../utils/namhai";
 import content from './ressortButton.html?raw'
 import testAnimation from "../../animation/test";
+import PreloaderTooltipAnimation from "../../animation/preloaderTooltipAnimation";
 
 const k = 0.05
 const c = 0.2
 const l0 = 0;
 
-const animeMap = new Map([
-  ['testAnimation', testAnimation]
+const animeCompletionMap = new Map([
+  ['testAnimation', testAnimation],
 ])
 
+const animeOnMarkerMap = new Map([
+  ['preloaderTooltip', PreloaderTooltipAnimation]
+])
 
 export default class ressortButton extends Component {
   constructor({ name, node }) {
@@ -23,7 +27,8 @@ export default class ressortButton extends Component {
         axis: null,
         distance: '96',
         both: '0',
-        anime: null
+        animeOnCompletion: null,
+        animeOnMarker: null
       }
     })
 
@@ -74,8 +79,6 @@ export default class ressortButton extends Component {
 
     this.button = N.get('button', this.element)
     this.marker = N.get('.cross__container__neutral', this.element)
-    this.tooltip = N.get('.ressort__demo__tooltip', node)
-    this.succes = N.get('.ressort__demo__success')
     this.passivBounds = this.button.getBoundingClientRect()
   }
 
@@ -114,10 +117,11 @@ export default class ressortButton extends Component {
     this.raf.run()
 
     if (this.markerOn) {
+      this.isToggled = true
       N.pe(this.button, 'none')
 
-      if (this.anime) {
-        let anime = new (animeMap.get(this.anime))(this.button)
+      if (this.animeOnCompletion) {
+        let anime = new (animeCompletionMap.get(this.animeOnCompletion))()
         anime.play()
       }
     }
@@ -137,34 +141,9 @@ export default class ressortButton extends Component {
         this.marker.style.transform = `rotate(${t}deg)`
       }
     })
-
-    let tooltipO = {
-      o: b ? [1, 0] : [0, 1],
-      delay: b ? 0 : 200
+    if (this.animeOnMarker) {
+      new (animeOnMarkerMap.get(this.animeOnMarker))(b).play()
     }
-    let successO = {
-      o: b ? [0, 1] : [1, 0],
-      delay: b ? 200 : 0
-    }
-    this.timeline.from({
-      el: this.tooltip,
-      p: {
-        o: tooltipO.o
-      },
-      d: 450,
-      e: 'o5',
-      delay: tooltipO.delay
-    })
-
-    this.timeline.from({
-      el: this.succes,
-      p: {
-        o: successO.o
-      },
-      d: 450,
-      e: 'o5',
-      delay: successO.delay
-    })
 
     this.timeline.play()
   }
