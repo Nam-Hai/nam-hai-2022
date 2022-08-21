@@ -1,10 +1,15 @@
 import Component from "../../classes/Component";
 import { N } from "../../utils/namhai";
 import content from './ressortButton.html?raw'
+import testAnimation from "../../animation/test";
 
 const k = 0.05
 const c = 0.2
 const l0 = 0;
+
+const animeMap = new Map([
+  ['testAnimation', testAnimation]
+])
 
 
 export default class ressortButton extends Component {
@@ -15,10 +20,10 @@ export default class ressortButton extends Component {
     super({
       name, content, node,
       input: {
-        axis: 'null',
+        axis: null,
         distance: '96',
         both: '0',
-        link: 'null'
+        anime: null
       }
     })
 
@@ -110,7 +115,11 @@ export default class ressortButton extends Component {
 
     if (this.markerOn) {
       N.pe(this.button, 'none')
-      // new N.Delay(this.turnMarker(false), 1000)
+
+      if (this.anime) {
+        let anime = new (animeMap.get(this.anime))(this.button)
+        anime.play()
+      }
     }
   }
 

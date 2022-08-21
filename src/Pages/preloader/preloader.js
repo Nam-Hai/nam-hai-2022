@@ -17,7 +17,6 @@ export default class Preloader extends Page {
     })
 
     this.components['ressort-button'].forEach(element => {
-      console.log(element);
       element.addCallback()
     });
   }
