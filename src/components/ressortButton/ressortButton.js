@@ -75,10 +75,6 @@ export default class ressortButton extends Component {
     this.element.appendChild(w)
   }
 
-  addCallback(cb) {
-
-  }
-
   render(node) {
     super.render()
 
@@ -95,6 +91,7 @@ export default class ressortButton extends Component {
     this.coor.velo = 0
     this.coor.acc = 0
     this.raf.stop()
+
 
     this.clicked = true
     this.currentOffsetClick = this.passivBounds[this.axis] + this.coor.pos - e[this.axis]
@@ -123,11 +120,15 @@ export default class ressortButton extends Component {
 
     if (this.markerOn) {
       this.isToggled = true
-      N.pe(this.button, 'none')
+      if (this.link) {
+        N.pe(this.button, 'none')
+      }
 
 
       let link = N.get('a', this.element)
-      link.click()
+      if (N.Ga(link, 'href')) {
+        link.click()
+      }
       if (this.animeOnCompletion) {
         let anime = new (animeCompletionMap.get(this.animeOnCompletion))()
         anime.play()

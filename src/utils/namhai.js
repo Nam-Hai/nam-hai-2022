@@ -537,7 +537,6 @@ N.M = class {
     // gestion de transform s'il y a translate + rotate + ...
     var s = N.Has(t, "x") ? r[t.x].curr + r[t.x].unit : 0,
       e = N.Has(t, "y") ? r[t.y].curr + r[t.y].unit : 0;
-    console.log('translate', s);
     const i = s + e === 0 ? 0 : "translate3d(" + s + "," + e + ",0)",
       a = N.Has(t, "r") ? r[t.r].name + "(" + r[t.r].curr + "deg)" : 0,
       n = N.Has(t, "r2") ? r[t.r2].name + "(" + r[t.r2].curr + "deg)" : 0,

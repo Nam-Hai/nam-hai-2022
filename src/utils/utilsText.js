@@ -21,3 +21,18 @@ export function stringLetterToDoubleSpan(element, className) {
 
   }
 }
+export function stringLetterToSpan(element) {
+
+  let innerHTML = element.innerHTML.toString().trim()
+  element.innerHTML = ''
+
+  let letters = innerHTML.split('')
+  for (const letter of letters) {
+    let span = N.Cr('span')
+    span.classList.add('singlespan__container')
+
+    span.innerHTML = letter === ' ' ? '&nbsp' : letter
+    element.appendChild(span)
+
+  }
+}

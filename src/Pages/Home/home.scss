@@ -1,13 +1,46 @@
+@use '../../styles/utils/variables.scss' as *;
 main[data-template=home] {
   background-color: white;
+
+  ressort-button {
+
+    position: absolute;
+    z-index: 5;
+    width: 2.5rem;
+    height: 2.5rem;
+    // border-radius: 5px;
+  }
+  ressort-button.c_s {
+    left: 89px;
+    top: 678px;
+    color: #FF4A0B;
+  > button {
+    background-color: #FF4A0B;
+  }
+
+  }
+  ressort-button.c_w {
+    color: $primary-blue;
+    bottom: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+    & > button {
+      background-color: $primary-blue;
+    }
+  }
 }
+
 .home__title {
   font-size: 5rem;
 
   color: black;
+
 }
 
+
+
 .hero {
+  z-index: 2;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -17,3 +50,57 @@ main[data-template=home] {
     width: 38rem;
   }
 }
+
+.background-text {
+  position: absolute;
+  width: 187px;
+  height: 162px;
+  top: 477px;
+  right: -3rem;
+
+  font-size: 20px;
+  line-height: 18px;
+  text-align: right;
+}
+
+.background__flavour-text {
+  z-index: 1;
+  position: absolute;
+  width: 187px;
+  height: 264px;
+  top: calc(50% + 16rem);
+  transform: translate(calc(-50% - 17rem),-50%);
+  left: 50%;
+
+  font-size: 24px;
+  line-height: 22px;
+  text-transform: uppercase;
+  // color: #FF4A0B;
+  // color: ;
+}
+
+.background__title {
+  position: absolute;
+  width: 1349px;
+  height: 255px;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 86px;
+
+  font-family: 'Migra';
+  font-style: normal;
+  font-weight: 800;
+  font-size: 128px;
+  line-height: 155px;
+  text-align: right;
+  // letter-spacing: -0.195em;
+  text-transform: uppercase;
+
+  color: $primary-blue;
+}
+
+.singlespan__container {
+  display: inline-block
+  // margin-left: -0.195rem
+}
+
