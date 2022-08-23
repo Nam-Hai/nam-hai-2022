@@ -18,8 +18,9 @@ export default class Page {
 
     Object.entries(this.components).forEach(([key, componentType]) => {
 
+      console.log('create componenet', key, componentType);
       this.components[key] = [...N.getAll(key, this.content)].map(component => {
-
+        console.log(component);
         return new componentType({ name: key, node: component })
       })
     })

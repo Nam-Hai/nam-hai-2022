@@ -18,6 +18,7 @@ class App {
 
   initPage() {
     this.page = this.createPage('home')
+    console.log(this.page);
     this.page.render(this.main)
     this.addLinkLinstener(this.main)
     this.addEventListener()

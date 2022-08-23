@@ -1,0 +1,14 @@
+grid-fixation {
+  position: absolute;
+  top: 35px;
+  left: 50%;
+  transform: translateX(-50%);
+
+  .fixation {
+    position: absolute;
+    width: 2px;
+    height: 30rem;
+    background-color: #0D3A95;
+  }
+}
+
