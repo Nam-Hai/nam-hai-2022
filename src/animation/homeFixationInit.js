@@ -14,7 +14,7 @@ export default class homeFixationInit {
           x: [0, -(8 + 7 * 21) + 42 * index + 2 * (index - 1), 'px']
         },
         el: fixation,
-        // delay: indexToDelay[index] * 200,
+        delay: indexToDelay[index] * 200,
         e: 'io5',
       })
     })
