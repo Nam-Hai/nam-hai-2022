@@ -8,15 +8,13 @@ export default class Page {
     this.content = N.Cr(name)
     this.name = name
     this.content.innerHTML = content
+
     this.create()
   }
 
 
   create() {
     this.elements = {};
-    Object.entries(this.selectorChildren).forEach(([key, tag]) => {
-      this.elements[key] = N.getAll(tag, this.content)
-    })
 
     Object.entries(this.components).forEach(([key, componentType]) => {
 
@@ -32,7 +30,6 @@ export default class Page {
 
     nodeParent.innerHTML = this.content.innerHTML
     nodeParent.setAttribute('data-template', this.name)
-    console.log('render', nodeParent);
 
     Object.values(this.components).forEach((components) => {
 

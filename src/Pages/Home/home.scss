@@ -6,3 +6,28 @@ main[data-template=home] {
 
   color: black;
 }
+
+.fixation-grid__wrapper {
+  position: absolute;
+  top: 35px;
+  left: 50%;
+  transform: translateX(-50%);
+
+  .fixation {
+    position: absolute;
+    width: 2px;
+    height: 30rem;
+    background-color: #0D3A95;
+  }
+}
+
+.hero {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  img {
+    height: 38rem;
+    width: 38rem;
+  }
+}

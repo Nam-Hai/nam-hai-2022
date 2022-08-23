@@ -8,9 +8,6 @@ export default class Preloader extends Page {
   constructor() {
 
     super({
-      elements: {
-        number: '.preloader__number'
-      },
       components: {
         'ressort-button': ressortButton
       },
@@ -18,12 +15,13 @@ export default class Preloader extends Page {
       name: 'preloader'
     })
 
-    this.components['ressort-button'].forEach(element => {
-      element.addCallback()
-    });
+    // this.components['ressort-button'].forEach(element => {
+    //   element.addCallback()
+    // });
   }
 
   render(node) {
+
     super.render(node)
 
     // let succes = N.get('.ressort__demo__success')

@@ -80,14 +80,14 @@ export default class {
     this.program.uniforms.o.value = 1
     await new Promise(res => {
       let motion = new N.M({
-        d: 2000,
+        d: 1000,
         e: 'o6',
         update: t => {
           this.mesh.scale.x = N.Lerp(initX, targetX, t.progE)
           this.mesh.scale.y = N.Lerp(initY, targetY, t.progE)
 
           this.program.uniforms.radius.value = Math.max(this.buttonBounds.width, this.buttonBounds.height) * 4
-          this.program.uniforms.force.value = N.Lerp(2.5, 0, N.Ease.o5(t.prog))
+          this.program.uniforms.force.value = N.Lerp(-2.5, 0, N.Ease.o5(t.prog))
         },
         cb: () => {
           this.program.uniforms.o.value = 0

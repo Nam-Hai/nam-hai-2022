@@ -537,10 +537,11 @@ N.M = class {
     // gestion de transform s'il y a translate + rotate + ...
     var s = N.Has(t, "x") ? r[t.x].curr + r[t.x].unit : 0,
       e = N.Has(t, "y") ? r[t.y].curr + r[t.y].unit : 0;
+    console.log('translate', s);
     const i = s + e === 0 ? 0 : "translate3d(" + s + "," + e + ",0)",
-      a = N.Has(t, "r") ? 'rotate' + "(" + r[t.r].curr + "deg)" : 0,
+      a = N.Has(t, "r") ? r[t.r].name + "(" + r[t.r].curr + "deg)" : 0,
       n = N.Has(t, "r2") ? r[t.r2].name + "(" + r[t.r2].curr + "deg)" : 0,
-      o = N.Has(t, "s") ? 'scale' + "(" + r[t.s].curr + ")" : 0;
+      o = N.Has(t, "s") ? r[t.s].name + "(" + r[t.s].curr + ")" : 0;
     var h = i + a + n + o === 0 ? 0 : [i, a, n, o].filter(t => 0 !== t).join(" "),
       l = N.Has(t, "o") ? r[t.o].curr : -1,
       d = N.Has(r, "g") ? "grayscale(" + t[r.g].curr + ")" : -1;
@@ -657,8 +658,8 @@ N.Fetch = r => {
 N.Svg = {
   shapeL: e => {
     var t, r, s, i;
-    if ("circle" === e.tagName) return 2 * R.Ga(e, "r") * Math.PI;
-    if ("line" === e.tagName) return t = R.Ga(e, "x1"), r = R.Ga(e, "x2"), s = R.Ga(e, "y1"), i = R.Ga(e, "y2"), Math.sqrt((r -= t) * r + (i -= s) * i);
+    if ("circle" === e.tagName) return 2 * N.Ga(e, "r") * Math.PI;
+    if ("line" === e.tagName) return t = N.Ga(e, "x1"), r = N.Ga(e, "x2"), s = N.Ga(e, "y1"), i = N.Ga(e, "y2"), Math.sqrt((r -= t) * r + (i -= s) * i);
     if ("polyline" !== e.tagName) return e.getTotalLength(); {
       let r = 0,
         s;
@@ -755,7 +756,7 @@ function normalizeWheel( /*object*/event) /*object*/ {
   };
 }
 
-N.Ga = (t, r) => t.getAttribute(r)
+N.Ga = (c, r) => c.getAttribute(r)
 N.PD = t => {
   t.cancelable && t.preventDefault()
 }

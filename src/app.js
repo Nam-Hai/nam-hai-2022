@@ -10,8 +10,19 @@ class App {
     this.main = N.get('main')
     this.router = new Router()
 
-    this.createPreloader()
+    // this.createPreloader()
+    // this.onChange({ url: 'home' })
 
+    this.initPage()
+  }
+
+  initPage() {
+    this.page = this.createPage('home')
+    this.page.render(this.main)
+    this.addLinkLinstener(this.main)
+    this.addEventListener()
+    this.createCanvas()
+    this.canvas.show()
   }
 
   createPreloader() {
@@ -74,7 +85,7 @@ class App {
 
   async onChange({ url, button, push = true }) {
 
-    await this.preloader.hide()
+    await this.page.hide()
     await this.canvas.hide()
     console.log('fin');
     this.page = null
@@ -83,6 +94,7 @@ class App {
 
 
     this.page.render(this.main)
+    this.main.setAttribute('data-init', 'false')
 
     this.router.path = url
     if (push) window.history.pushState('', 'Nam Hai portfolio', url)
