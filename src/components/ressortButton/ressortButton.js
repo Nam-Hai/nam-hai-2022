@@ -4,6 +4,8 @@ import content from './ressortButton.html?raw'
 import PreloaderTooltipAnimation from "../../animation/preloaderTooltipAnimation";
 import preloaderComplete from "../../animation/preloaderComplete";
 import homeTextTransform from "../../animation/homeTextTransform";
+import test1 from "../../animation/test";
+import test2 from "../../animation/test copy";
 
 const k = 0.05
 const c = 0.2
@@ -14,10 +16,16 @@ const animeCompletionMap = new Map([
   ['homeTextTransform', homeTextTransform]
 ])
 
-const animeOnMarkerMap = new Map([
-  ['preloaderTooltip', PreloaderTooltipAnimation],
+const animeCompletionMap2 = new Map([
 ])
 
+const animeOnMarkerMap = new Map([
+  ['preloaderTooltip', PreloaderTooltipAnimation],
+  ['test1', test1]
+])
+const animeOnMarkerMap2 = new Map([
+  ['test2', test2]
+])
 export default class ressortButton extends Component {
   constructor({ name, node }) {
 
@@ -28,9 +36,11 @@ export default class ressortButton extends Component {
       input: {
         axis: null,
         distance: '96',
-        both: '0',
+        both: null,
         animeOnCompletion: null,
+        animeOnCompletion2: null,
         animeOnMarker: null,
+        animeOnMarker2: null,
         link: null
       }
     })
@@ -48,7 +58,7 @@ export default class ressortButton extends Component {
       acc: 0
     }
 
-    N.BM(this, ['update', 'onMouseDown', 'onMouseMove', 'onMouseUp'])
+    N.BM(this, ['update', 'onMouseDown', 'onMouseMove', 'onMouseUp', 'turnMarker'])
     this.raf = new N.RafR(this.update)
 
     this.timeline = new N.TL
@@ -107,12 +117,14 @@ export default class ressortButton extends Component {
       y = this.axis === 'y' ? this.coor.pos : 0
     N.T(this.button, x, y, 'px')
 
-    if (!this.markerOn && this.coor.pos > this.distance / 2) {
-      this.turnMarker(true)
+    let pos = this.both ? Math.abs(this.coor.pos) : this.coor.pos
+    if (!this.markerOn && pos > this.distance / 2) {
+      this.turnMarker(true, this.coor.pos > -this.distance / 2)
     }
-    if (this.markerOn && this.coor.pos <= this.distance / 2) {
+    if (this.markerOn && pos <= this.distance / 2) {
       this.turnMarker(false)
     }
+
   }
 
   onMouseUp(e) {
@@ -134,11 +146,16 @@ export default class ressortButton extends Component {
         let anime = new (animeCompletionMap.get(this.animeOnCompletion))()
         anime.play()
       }
+      // if (this.animeOnCompletion2) {
+      //   let anime2 = new (animeCompletionMap2.get(this.animeOnCompletion))()
+      //   anime2.play()
+      // }
     }
     this.turnMarker(false)
   }
 
-  turnMarker(b) {
+  turnMarker(b, secondMarker = false) {
+    const a = (2 * secondMarker - 1)
     this.markerOn = b
     this.timeline.pause()
     this.timeline = new N.TL
@@ -148,14 +165,19 @@ export default class ressortButton extends Component {
       update: t => {
         this.markerRot = t.prog
         t = N.Ease.io4(t.prog) * 135
-        t = b ? t : 135 - t
+        t = b ? a * t : 135 - t
         this.marker.style.transform = `rotate(${t}deg)`
       }
     })
-    let anime = []
+    console.log(this.animeOnMarker2, this.animeOnMarker);
     if (this.animeOnMarker) {
-      let tl = new (animeOnMarkerMap.get(this.animeOnMarker))(b).tl
-      this.timeline.arr.push(...tl.arr)
+      if (!secondMarker) {
+        let tl = new (animeOnMarkerMap.get(this.animeOnMarker))(b).tl
+        this.timeline.arr.push(...tl.arr)
+      } else {
+        let tl = new (animeOnMarkerMap2.get(this.animeOnMarker2))(b).tl
+        this.timeline.arr.push(...tl.arr)
+      }
     }
 
     this.timeline.play()
