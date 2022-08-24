@@ -20,7 +20,6 @@ export default class gridFixation extends Component {
     this.fixations = N.getAll('.fixation', node)
     let initMain = N.Ga(node, 'data-init')
     if (initMain) {
-      console.log(this.fixations);
       let initAnimation = new homeFixationInit(this.fixations)
       initAnimation.play()
     }

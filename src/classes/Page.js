@@ -20,7 +20,6 @@ export default class Page {
 
       console.log('create componenet', key, componentType);
       this.components[key] = [...N.getAll(key, this.content)].map(component => {
-        console.log(component);
         return new componentType({ name: key, node: component })
       })
     })

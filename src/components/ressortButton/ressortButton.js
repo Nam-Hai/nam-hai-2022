@@ -3,6 +3,7 @@ import { N } from "../../utils/namhai";
 import content from './ressortButton.html?raw'
 import PreloaderTooltipAnimation from "../../animation/preloaderTooltipAnimation";
 import preloaderComplete from "../../animation/preloaderComplete";
+import homeTextTransform from "../../animation/homeTextTransform";
 
 const k = 0.05
 const c = 0.2
@@ -10,10 +11,11 @@ const l0 = 0;
 
 const animeCompletionMap = new Map([
   ['preloaderComplete', preloaderComplete],
+  ['homeTextTransform', homeTextTransform]
 ])
 
 const animeOnMarkerMap = new Map([
-  ['preloaderTooltip', PreloaderTooltipAnimation]
+  ['preloaderTooltip', PreloaderTooltipAnimation],
 ])
 
 export default class ressortButton extends Component {
@@ -63,7 +65,6 @@ export default class ressortButton extends Component {
   createFixation(d) {
     let w = N.Cr('a')
     if (this.link) {
-      console.log(this.link);
       w.setAttribute('href', this.link)
     }
     w.innerHTML = this.crossTemplate.innerHTML
@@ -134,6 +135,7 @@ export default class ressortButton extends Component {
         anime.play()
       }
     }
+    this.turnMarker(false)
   }
 
   turnMarker(b) {

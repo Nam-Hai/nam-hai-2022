@@ -34,11 +34,11 @@ export default class Home extends Page {
     let titles = N.getAll('.background__title div')
     stringLetterToSpan(titles[0])
     stringLetterToSpan(titles[1])
-    let titleSpaned = [N.getAll('span', titles[0]), N.getAll('span', titles[1])]
+    this.titleSpaned = [N.getAll('span', titles[0]), N.getAll('span', titles[1])]
 
-    for (const title of titleSpaned) {
+    for (const title of this.titleSpaned) {
       Object.entries(title).forEach(([index, letter]) => {
-        N.T(letter, 1.195 * (title.length - index - 1), 0, 'rem')
+        N.T(letter, 1.195 * (title.length - index), 0, 'rem')
       })
 
     }

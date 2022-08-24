@@ -30,15 +30,6 @@ main[data-template=home] {
   }
 }
 
-.home__title {
-  font-size: 5rem;
-
-  color: black;
-
-}
-
-
-
 .hero {
   z-index: 2;
   position: absolute;
@@ -93,7 +84,7 @@ main[data-template=home] {
   font-size: 128px;
   line-height: 155px;
   text-align: right;
-  // letter-spacing: -0.195em;
+  letter-spacing: -0.195rem;
   text-transform: uppercase;
 
   color: $primary-blue;
