@@ -13,10 +13,12 @@ const l0 = 0;
 
 const animeCompletionMap = new Map([
   ['preloaderComplete', preloaderComplete],
-  ['homeTextTransform', homeTextTransform]
+  ['homeTextTransform', homeTextTransform],
+  ['test1', test1]
 ])
 
 const animeCompletionMap2 = new Map([
+  ['test2', test2]
 ])
 
 const animeOnMarkerMap = new Map([
@@ -142,19 +144,24 @@ export default class ressortButton extends Component {
       if (N.Ga(link, 'href')) {
         link.click()
       }
-      if (this.animeOnCompletion) {
-        let anime = new (animeCompletionMap.get(this.animeOnCompletion))()
-        anime.play()
+      console.log(this.secondMarker);
+      if (!this.secondMarker) {
+        if (this.animeOnCompletion) {
+          let anime = new (animeCompletionMap.get(this.animeOnCompletion))()
+          anime.play()
+        }
+      } else {
+        if (this.animeOnCompletion2) {
+          let anime2 = new (animeCompletionMap2.get(this.animeOnCompletion2))()
+          anime2.play()
+        }
       }
-      // if (this.animeOnCompletion2) {
-      //   let anime2 = new (animeCompletionMap2.get(this.animeOnCompletion))()
-      //   anime2.play()
-      // }
     }
     this.turnMarker(false)
   }
 
   turnMarker(b, secondMarker = false) {
+    this.secondMarker = secondMarker
     const a = (2 * secondMarker - 1)
     this.markerOn = b
     this.timeline.pause()
