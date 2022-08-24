@@ -6,12 +6,12 @@ export default class test1 {
     let button = N.get('main')
     this.tl = new N.TL
     this.tl.from({
-      d: 1000,
       e: 'io5',
       update: t => {
 
       },
       cb: () => {
+        console.log('red');
         button.style.backgroundColor = 'red'
       }
     })

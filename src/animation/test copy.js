@@ -11,7 +11,7 @@ export default class test2 {
 
       },
       cb: () => {
-        console.log('yoo');
+        console.log('black');
         button.style.backgroundColor = 'black'
       }
     })

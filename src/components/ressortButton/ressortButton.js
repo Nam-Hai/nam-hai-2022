@@ -119,7 +119,7 @@ export default class ressortButton extends Component {
 
     let pos = this.both ? Math.abs(this.coor.pos) : this.coor.pos
     if (!this.markerOn && pos > this.distance / 2) {
-      this.turnMarker(true, this.coor.pos > -this.distance / 2)
+      this.turnMarker(true, this.coor.pos > 0)
     }
     if (this.markerOn && pos <= this.distance / 2) {
       this.turnMarker(false)
@@ -169,7 +169,6 @@ export default class ressortButton extends Component {
         this.marker.style.transform = `rotate(${t}deg)`
       }
     })
-    console.log(this.animeOnMarker2, this.animeOnMarker);
     if (this.animeOnMarker) {
       if (!secondMarker) {
         let tl = new (animeOnMarkerMap.get(this.animeOnMarker))(b).tl
