@@ -1,7 +1,9 @@
 import { N } from "../utils/namhai";
 import homeFixation from "./homeFixation";
 
-
+const delay = t => t * 25
+const ease = 'o6'
+const duration = 800
 const line1ToIndex = [0, 1, 4, 5, 6, 9, 13, 14]
 let currentState = 0
 export default class homeTextTransform {
@@ -29,13 +31,13 @@ export default class homeTextTransform {
           endX = -2.405 * (newLength - newIndex);
 
         this.tl.from({
-          d: 500,
+          d: duration,
           p: {
             x: [initX, endX, 'rem']
           },
           el: letter,
-          delay: index * 20,
-          e: 'io5',
+          delay: delay(index),
+          e: ease,
         })
       })
     }
@@ -53,26 +55,26 @@ export default class homeTextTransform {
             initX = -2.405 * (15 - oldIndex);
 
           this.tl.from({
-            d: 500,
+            d: duration,
             p: {
               x: [initX, endX, 'rem']
             },
             el: letter,
-            delay: index * 20,
-            e: 'io5',
+            delay: delay(index),
+            e: ease,
           })
         } else {
           const initX = -2.405 * (letters.length - index),
             endX = -1.035 * (letters.length - index) + 18;
           this.tl.from({
-            d: 500,
+            d: duration,
             p: {
               x: [initX, endX, 'rem'],
               y: [0, 25, 'rem']
             },
             el: letter,
-            delay: index * 20,
-            e: 'io5',
+            delay: delay(index),
+            e: ease,
           })
         }
 
@@ -90,25 +92,25 @@ export default class homeTextTransform {
           const initX = 1.1 * (letters.length - index) - 40
 
           this.tl.from({
-            d: 500,
+            d: duration,
             p: {
               x: [initX, endX, 'rem']
             },
             el: letter,
-            delay: index * 20,
-            e: 'io5',
+            delay: delay(index),
+            e: ease,
           })
         } else {
           const initX = -1.035 * (letters.length - index) + 18;
           this.tl.from({
-            d: 500,
+            d: duration,
             p: {
               x: [initX, endX, 'rem'],
               y: [25, 0, 'rem']
             },
             el: letter,
-            delay: index * 20,
-            e: 'io5',
+            delay: delay(index),
+            e: ease,
           })
         }
 
