@@ -11,6 +11,8 @@ const k = 0.05
 const c = 0.2
 const l0 = 0;
 
+const rForce = 1.5
+
 const animeCompletionMap = new Map([
   ['preloaderComplete', preloaderComplete],
   ['homeTextTransform', homeTextTransform],
@@ -46,7 +48,9 @@ export default class ressortButton extends Component {
         link: null,
         link2: null
       }
-    })
+    });
+
+    this.distance = +this.distance
 
     this.end = false
     this.markerOn = false
@@ -105,7 +109,6 @@ export default class ressortButton extends Component {
   }
 
   onMouseDown(e) {
-    console.log('click');
     this.coor.velo = 0
     this.coor.acc = 0
     this.raf.stop()
@@ -125,11 +128,14 @@ export default class ressortButton extends Component {
     N.T(this.button, x, y, 'px')
 
     let pos = this.both ? Math.abs(this.coor.pos) : this.coor.pos
-    if (!this.markerOn && pos > this.distance / 1.5) {
-      console.log('markerONNN');
-      this.turnMarker(true, this.coor.pos < 0)
+    // console.log(this.distance + 1);
+    const bD = this.distance > 0 ? pos > this.distance / rForce : pos < this.distance / rForce,
+      bP = this.distance > 0 ? this.coor.pos < 0 : this.coor.pos > 0
+
+    if (!this.markerOn && bD) {
+      this.turnMarker(true, bP)
     }
-    if (this.markerOn && pos <= this.distance / 1.5) {
+    if (this.markerOn && !bD) {
       this.turnMarker(false)
     }
 
@@ -145,9 +151,6 @@ export default class ressortButton extends Component {
         N.pe(this.button, 'none')
       }
 
-
-
-      console.log(this.secondMarker, 'secondMarker', this.link);
       if (!this.secondMarker) {
         if (this.animeOnCompletion) {
           let anime = new (animeCompletionMap.get(this.animeOnCompletion))(this.link)
