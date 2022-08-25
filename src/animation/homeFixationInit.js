@@ -8,13 +8,13 @@ export default class homeFixationInit {
     this.tl = new N.TL
     Object.entries(fixations).forEach(([index, fixation]) => {
       this.tl.from({
-        d: 1000,
+        d: 800,
         p: {
           x: [0, -(8 + 7 * 21) + 42 * index + 2 * (index - 1), 'px']
         },
         // cb: t => fixationInit = true,
         el: fixation,
-        delay: indexToDelay[index] * 100,
+        delay: indexToDelay[index] * 0,
         e: 'io5',
       })
     })

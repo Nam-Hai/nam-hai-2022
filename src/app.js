@@ -17,7 +17,7 @@ class App {
   }
 
   initPage() {
-    this.page = this.createPage('home')
+    this.page = this.createPage('collections')
     console.log(this.page);
     this.page.render(this.main)
     this.addLinkLinstener(this.main)
@@ -52,7 +52,7 @@ class App {
     for (const link of links) {
       console.log('link', link);
       link.addEventListener('click', (e) => {
-        console.log(link);
+        console.log(link, 'clicked link');
         const href = N.Ga(link, 'href')
         // const href = link.href
         N.PD(e)
@@ -86,10 +86,11 @@ class App {
 
   async onChange({ url, button, push = true }) {
 
+    console.log('onchange');
     await this.page.hide()
     await this.canvas.hide()
-    console.log('fin');
     this.page = null
+
     this.page = this.createPage(url)
 
 

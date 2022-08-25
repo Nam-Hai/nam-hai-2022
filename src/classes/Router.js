@@ -1,14 +1,17 @@
 import Preloader from '../Pages/preloader/preloader';
 // import homeTemplate from '../views/home.html?raw'
 import Home from '../Pages/Home/home';
+import Collections from '../Pages/Collections/collections';
 
 
 export default class Router {
 
   constructor() {
     this.pageManager = {
-      'home': Home
+      'home': Home,
+      'collections': Collections
     }
+
   }
 
   getPage(route) {

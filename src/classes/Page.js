@@ -16,9 +16,10 @@ export default class Page {
   create() {
     this.elements = {};
 
+    if (!this.components) return
     Object.entries(this.components).forEach(([key, componentType]) => {
 
-      console.log('create componenet', key, componentType);
+      // console.log('create componenet', key, componentType);
       this.components[key] = [...N.getAll(key, this.content)].map(component => {
         return new componentType({ name: key, node: component })
       })
@@ -29,15 +30,20 @@ export default class Page {
 
 
     nodeParent.innerHTML = this.content.innerHTML
+    nodeParent.setAttribute('style', '')
     nodeParent.setAttribute('data-template', this.name)
 
-    Object.values(this.components).forEach((components) => {
+    console.log(nodeParent);
+    if (this.components) {
+      Object.values(this.components).forEach((components) => {
 
-      components.forEach(component => {
-        component.render(nodeParent)
-        component.addEventListener()
+        components.forEach(component => {
+          component.render(nodeParent)
+          component.addEventListener()
+        })
       })
-    })
+
+    }
     this.nodeParent = nodeParent
 
   }

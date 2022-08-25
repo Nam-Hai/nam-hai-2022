@@ -43,7 +43,8 @@ export default class ressortButton extends Component {
         animeOnCompletion2: null,
         animeOnMarker: null,
         animeOnMarker2: null,
-        link: null
+        link: null,
+        link2: null
       }
     })
 
@@ -67,17 +68,20 @@ export default class ressortButton extends Component {
 
     this.crossTemplate = N.get('.cross__wrapper', this.element)
 
-    this.createFixation(this.distance)
+    this.createFixation(this.distance, 1)
     if (this.both == '1') {
-      this.createFixation(-this.distance)
+      this.createFixation(-this.distance, 2)
     }
 
   }
 
-  createFixation(d) {
+  createFixation(d, n = 1) {
     let w = N.Cr('a')
-    if (this.link) {
-      w.setAttribute('href', this.link)
+    if (n) {
+      let link = n === 1 ? this.link : this.link2
+      if (this.link) {
+        w.setAttribute('href', link)
+      }
     }
     w.innerHTML = this.crossTemplate.innerHTML
     w.classList.add('cross__wrapper')
@@ -101,6 +105,7 @@ export default class ressortButton extends Component {
   }
 
   onMouseDown(e) {
+    console.log('click');
     this.coor.velo = 0
     this.coor.acc = 0
     this.raf.stop()
@@ -121,6 +126,7 @@ export default class ressortButton extends Component {
 
     let pos = this.both ? Math.abs(this.coor.pos) : this.coor.pos
     if (!this.markerOn && pos > this.distance / 1.5) {
+      console.log('markerONNN');
       this.turnMarker(true, this.coor.pos < 0)
     }
     if (this.markerOn && pos <= this.distance / 1.5) {
@@ -140,14 +146,11 @@ export default class ressortButton extends Component {
       }
 
 
-      let link = N.get('a', this.element)
-      if (N.Ga(link, 'href')) {
-        link.click()
-      }
-      console.log(this.secondMarker, 'secondMarker');
+
+      console.log(this.secondMarker, 'secondMarker', this.link);
       if (!this.secondMarker) {
         if (this.animeOnCompletion) {
-          let anime = new (animeCompletionMap.get(this.animeOnCompletion))()
+          let anime = new (animeCompletionMap.get(this.animeOnCompletion))(this.link)
           anime.play()
         }
       } else {
@@ -179,7 +182,6 @@ export default class ressortButton extends Component {
     })
     if (this.animeOnMarker) {
       if (!secondMarker) {
-        console.log('marker1');
         let tl = new (animeOnMarkerMap.get(this.animeOnMarker))(b).tl
         this.timeline.arr.push(...tl.arr)
       } else {
@@ -202,7 +204,7 @@ export default class ressortButton extends Component {
 
     if (Math.abs(this.coor.acc) <= 0.005) {
       this.raf.stop()
-      if (this.markerOn) {
+      if (this.isToggled) {
         this.end = true
       }
     }

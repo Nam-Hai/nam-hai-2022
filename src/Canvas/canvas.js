@@ -5,6 +5,7 @@ import PreloaderCanvas from './preloader/PreloaderCanvas';
 export default class Canvas {
   constructor({ route }) {
     this.route = route
+    console.log('this.route', this.route);
 
     this.mapRouteObject = {
       home: this.createHome,
@@ -49,12 +50,22 @@ export default class Canvas {
       canvasSizePixel: this.sizePixel
     })
   }
+  createHome() {
+    console.log('this.createHome');
+    this.home = new PreloaderCanvas({
+      gl: this.gl,
+      scene: this.scene,
+      canvasSize: this.size,
+      canvasSizePixel: this.sizePixel
+    })
+  }
 
   onChange(route) {
     console.log('canvas onchange', route);
     if (this.mapRouteObject.hasOwnProperty(route)) {
       const createNewObject = this.mapRouteObject[route].bind(this)
       createNewObject()
+
     }
   }
 
@@ -92,8 +103,8 @@ export default class Canvas {
     this.raf.run()
   }
   async hide() {
-    console.log('canvas', this.route, this.preloader, this[this.route], this[this.route].hide);
-    await this.preloader.hide()
+    if (this[this.route] && this[this.route].hide()) {
+      await this[this.route].hide()
+    }
   }
-
 }

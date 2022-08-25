@@ -2,9 +2,11 @@ import { N } from "../utils/namhai";
 
 export default class preloaderComplete {
   constructor() {
-
+    let link = N.get('a[href="/home"]', this.element)
+    if (N.Ga(link, 'href')) {
+      link.click()
+    }
     let button = N.get('.ressortButton')
-    console.log(button);
     this.tl = new N.TL
     this.tl.from({
       d: 400,

@@ -91,6 +91,7 @@ export default class {
         },
         cb: () => {
           this.program.uniforms.o.value = 0
+          console.log('CB');
           res()
         },
       })

@@ -1,0 +1,60 @@
+
+$text-color: #E5DFDF;
+$background-color: #171717;
+main[data-template=collections] {
+  background-color: $background-color ;
+  color: $text-color;
+
+  ressort-button {
+    color: $text-color;
+    > button {
+      background-color: $text-color;
+    }
+  }
+}
+
+.collections__wrapper {
+  display: flex;
+  top: 91px;
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%);
+  height: 700px;
+  flex-direction: column;
+}
+
+.nav__wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.nav__title__wrapper {
+
+  position: absolute;
+  right: 0;
+  text-transform: uppercase;
+  margin-bottom: -.5rem;
+  .nav__title__flavour {
+    font-size: 2rem;
+    font-weight: 200;
+  }
+  .nav__title__name {
+    font-size: 3rem;
+  }
+}
+
+.display__container {
+  margin-top: 2.75rem;
+  height: 37.5rem;
+  display: flex;
+  flex-wrap: nowrap;
+  img {
+    height: 100%;
+    object-fit: contain;
+  }
+
+}
+
+
+
