@@ -1,7 +1,7 @@
 grid-fixation {
   position: absolute;
   top: 35px;
-  left: 50%;
+  left: calc(50% + 2px);
   transform: translateX(-50%);
 
   .fixation {

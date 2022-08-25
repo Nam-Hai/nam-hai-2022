@@ -1,3 +1,4 @@
+@use '../../styles/utils/responsive.scss' as *;
 
 $text-color: #E5DFDF;
 $background-color: #171717;
@@ -11,9 +12,25 @@ main[data-template=collections] {
       background-color: $text-color;
     }
   }
+
+  grid-fixation {
+    z-index: 0;
+    top: unset;
+    bottom: calc(35px + 30rem);
+    .fixation {
+      background-color: $text-color;
+    }
+  }
+}
+
+ressort-button.r_br{
+  position: absolute;
+  right: 3rem;
+  bottom: 2rem;
 }
 
 .collections__wrapper {
+  z-index: 1;
   display: flex;
   top: 91px;
   position: absolute;
@@ -35,6 +52,13 @@ main[data-template=collections] {
   right: 0;
   text-transform: uppercase;
   margin-bottom: -.5rem;
+
+  @include respond-to('<medium') {
+
+    transform-origin: right;
+    transform: translate(1.5rem ,22rem) scale(1.5) rotate(90deg);
+    z-index: 0;
+  }
   .nav__title__flavour {
     font-size: 2rem;
     font-weight: 200;
@@ -45,13 +69,17 @@ main[data-template=collections] {
 }
 
 .display__container {
+  position:relative;
+  max-width: calc(100vw - 17rem);
   margin-top: 2.75rem;
   height: 37.5rem;
+  width: 75rem;
   display: flex;
   flex-wrap: nowrap;
   img {
     height: 100%;
-    object-fit: contain;
+    width: 50%;
+    object-fit: cover;
   }
 
 }
