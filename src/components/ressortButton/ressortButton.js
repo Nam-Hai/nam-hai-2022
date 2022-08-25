@@ -120,10 +120,10 @@ export default class ressortButton extends Component {
     N.T(this.button, x, y, 'px')
 
     let pos = this.both ? Math.abs(this.coor.pos) : this.coor.pos
-    if (!this.markerOn && pos > this.distance / 2) {
-      this.turnMarker(true, this.coor.pos > 0)
+    if (!this.markerOn && pos > this.distance / 1.5) {
+      this.turnMarker(true, this.coor.pos < 0)
     }
-    if (this.markerOn && pos <= this.distance / 2) {
+    if (this.markerOn && pos <= this.distance / 1.5) {
       this.turnMarker(false)
     }
 
@@ -144,7 +144,7 @@ export default class ressortButton extends Component {
       if (N.Ga(link, 'href')) {
         link.click()
       }
-      console.log(this.secondMarker);
+      console.log(this.secondMarker, 'secondMarker');
       if (!this.secondMarker) {
         if (this.animeOnCompletion) {
           let anime = new (animeCompletionMap.get(this.animeOnCompletion))()
@@ -163,6 +163,7 @@ export default class ressortButton extends Component {
   turnMarker(b, secondMarker = false) {
     this.secondMarker = secondMarker
     const a = (2 * secondMarker - 1)
+    if (this.markerOn == b) return
     this.markerOn = b
     this.timeline.pause()
     this.timeline = new N.TL
@@ -178,6 +179,7 @@ export default class ressortButton extends Component {
     })
     if (this.animeOnMarker) {
       if (!secondMarker) {
+        console.log('marker1');
         let tl = new (animeOnMarkerMap.get(this.animeOnMarker))(b).tl
         this.timeline.arr.push(...tl.arr)
       } else {

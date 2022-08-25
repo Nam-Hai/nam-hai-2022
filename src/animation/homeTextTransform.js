@@ -4,12 +4,14 @@ import homeFixation from "./homeFixation";
 const delay = t => t * 25
 const ease = 'o6'
 const duration = 800
-const line1ToIndex = [0, 1, 4, 5, 6, 9, 13, 14]
+const line1ToIndex = [-3, -2, 4, 5, 6, 9, 13, 14]
 let currentState = 0
 export default class homeTextTransform {
   constructor() {
     const stateToAnimiation = [this.firstAnimation.bind(this), this.secondAnimation.bind(this), this.thirdAnimation.bind(this)]
     this.tl = new N.TL
+
+    console.log('alo');
 
     if (currentState == 3) currentState = 0
 
