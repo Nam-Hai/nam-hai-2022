@@ -1,5 +1,6 @@
 import { Renderer, Camera, Transform } from 'ogl'
 import { N } from '../utils/namhai';
+import HomeCanvas from './Home/HomeCanvas';
 import PreloaderCanvas from './preloader/PreloaderCanvas';
 
 export default class Canvas {
@@ -52,16 +53,19 @@ export default class Canvas {
   }
   createHome() {
     console.log('this.createHome');
-    this.home = new PreloaderCanvas({
+    this.home = new HomeCanvas({
       gl: this.gl,
       scene: this.scene,
       canvasSize: this.size,
       canvasSizePixel: this.sizePixel
     })
+
+    console.log('this[this.route]', this[this.route]);
   }
 
   onChange(route) {
     console.log('canvas onchange', route);
+    this.route = route
     if (this.mapRouteObject.hasOwnProperty(route)) {
       const createNewObject = this.mapRouteObject[route].bind(this)
       createNewObject()

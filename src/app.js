@@ -10,10 +10,10 @@ class App {
     this.main = N.get('main')
     this.router = new Router()
 
-    // this.createPreloader()
-    // this.onChange({ url: 'home' })
+    this.createPreloader()
+    this.onChange({ url: 'home' })
 
-    this.initPage()
+    // this.initPage()
   }
 
   initPage() {
@@ -50,7 +50,6 @@ class App {
     if (!links) return
     if (!(links instanceof window.NodeList)) links = [links]
     for (const link of links) {
-      console.log('link', link);
       link.addEventListener('click', (e) => {
         console.log(link, 'clicked link');
         const href = N.Ga(link, 'href')
@@ -96,6 +95,9 @@ class App {
 
 
     this.page.render(this.main)
+    this.addLinkLinstener(this.main)
+    this.canvas.onChange(url)
+
     this.main.setAttribute('data-init', 'false')
 
     this.router.path = url
