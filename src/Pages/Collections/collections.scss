@@ -23,13 +23,25 @@ main[data-template=collections] {
   }
 }
 
+.collections__wrapper {
+  background-color: $background-color;
+}
+
+.buffer__background {
+  background-color: rosybrown;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  opacity: 0.0;
+}
+
 ressort-button.r_br{
   position: absolute;
   right: 3rem;
   bottom: 2rem;
 }
 
-.collections__wrapper {
+.display__wrapper {
   z-index: 1;
   display: flex;
   top: 91px;
@@ -66,6 +78,10 @@ ressort-button.r_br{
   .nav__title__name {
     font-size: 3rem;
   }
+}
+
+.buffer__title {
+  opacity: 0;
 }
 
 .display__container {
