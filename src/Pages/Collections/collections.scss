@@ -8,11 +8,11 @@ main[data-template=collections] {
 
   ressort-button {
     z-index: 5;
-    color: $text-color;
+    color: transparent;
     transition: color 1s;
     > button {
       transition: background-color 1s;
-      background-color: $text-color;
+      background-color: transparent;
     }
   }
 
@@ -21,7 +21,8 @@ main[data-template=collections] {
     top: unset;
     bottom: calc(35px + 30rem);
     .fixation {
-      background-color: $text-color;
+      transition: background-color 1s;
+      background-color: transparent;
     }
   }
 

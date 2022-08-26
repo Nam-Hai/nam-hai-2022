@@ -17,17 +17,34 @@ export default class Collections extends Page {
       name: 'collections'
     })
 
-    collectionsService.currentPage = 0
   }
 
   render(node) {
     super.render(node)
 
-    let navTitleName = N.get('.nav__title__name')
-    stringLetterToDoubleSpan(navTitleName, 'tooltip__span')
+    const info = collectionsService.getInfo()
 
-    let navTitleFlavour = N.get('.nav__title__flavour')
-    stringLetterToDoubleSpan(navTitleFlavour, 'tooltip__span')
+    const fixations = N.getAll('.fixation')
+    fixations.forEach(f => {
+      f.style.backgroundColor = info.c
+    })
+    let navn = N.get('.nav__title__name')
+    navn.innerHTML = info.name
+    stringLetterToDoubleSpan(navn, 'tooltip__span')
+
+    let navf = N.get('.nav__title__flavour')
+    navf.innerHTML = info.flavour
+    stringLetterToDoubleSpan(navf, 'tooltip__span')
+
+    navf.style.color = info.c
+    navn.style.color = info.c
+    let r = N.getAll('ressort-button')
+    r.forEach(r => {
+      r.style.color = info.c
+      N.get('button', r).style.backgroundColor = info.c
+    })
+
+    N.get('main').style.backgroundColor = info.bg
   }
   onMouseMove(e) {
     this.components['ressort-button'].forEach(c => {
