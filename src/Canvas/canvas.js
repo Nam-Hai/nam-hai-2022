@@ -3,11 +3,8 @@ import { N } from '../utils/namhai';
 import HomeCanvas from './Home/HomeCanvas';
 import PreloaderCanvas from './preloader/PreloaderCanvas';
 
-export default class Canvas {
-  constructor({ route }) {
-    this.route = route
-    console.log('this.route', this.route);
-
+class Canvas {
+  constructor() {
     this.mapRouteObject = {
       home: this.createHome,
       preloader: this.createPreloader
@@ -22,7 +19,6 @@ export default class Canvas {
     this.createScene()
 
     this.onResize()
-    this.onChange(route)
 
     N.BM(this, ['update'])
     this.raf = new N.RafR(this.update)
@@ -43,6 +39,10 @@ export default class Canvas {
     this.scene = new Transform()
   }
 
+  getCurrent() {
+    return this[this.route]
+  }
+
   createPreloader() {
     this.preloader = new PreloaderCanvas({
       gl: this.gl,
@@ -52,7 +52,6 @@ export default class Canvas {
     })
   }
   createHome() {
-    console.log('this.createHome');
     this.home = new HomeCanvas({
       gl: this.gl,
       scene: this.scene,
@@ -112,3 +111,5 @@ export default class Canvas {
     }
   }
 }
+
+export let canvas = new Canvas()

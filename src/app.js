@@ -3,7 +3,7 @@ import Router from './classes/Router'
 import { N } from './utils/namhai'
 import ressortButton from './components/ressortButton/ressortButton'
 import Preloader from './Pages/preloader/preloader'
-import Canvas from './Canvas/canvas'
+import { canvas } from './Canvas/canvas'
 
 class App {
   constructor() {
@@ -38,7 +38,9 @@ class App {
   }
 
   createCanvas() {
-    this.canvas = new Canvas({ route: this.router.getRoute() })
+    this.canvas = canvas
+    // this.canvas = new Canvas({ route: this.router.getRoute() })
+    this.canvas.onChange(this.router.getRoute())
   }
 
   createPage(route) {

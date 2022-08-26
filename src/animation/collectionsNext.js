@@ -1,8 +1,12 @@
+import { canvas } from "../Canvas/canvas"
 import { N } from "../utils/namhai"
 import { stringLetterToDoubleSpan } from "../utils/utilsText"
 
+let currentPage = 0
 export default class collectionsNext {
   constructor() {
+    this.canvas = canvas
+    console.log(this.canvas.getCurrent());
 
     let backgroundBuffer = N.get('.buffer__background')
     this.titleWrapperBuffer = N.get('.buffer__title')
@@ -47,14 +51,23 @@ export default class collectionsNext {
         x: [-100, 0],
       },
       cb: () => {
-        navf.innerHTML = navfB.innerHTML
-        navn.innerHTML = navnB.innerHTML
+        this.calculNextState(navf, navn, navfB, navnB)
       },
       e: 'o5',
       delay: 200
     })
 
 
+  }
+
+  calculNextState(navf, navn, navfB, navnB) {
+    navf.innerHTML = navfB.innerHTML
+    navn.innerHTML = navnB.innerHTML
+
+    navfB.innerHTML = 'yo'
+    navnB.innerHTML = 'testyo'
+    currentPage++
+    N.O(this.titleWrapperBuffer, 0)
   }
 
   play() {
