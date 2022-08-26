@@ -15,7 +15,6 @@ export default class Home extends Page {
       content: homeTemplate,
       name: 'home'
     })
-
   }
   onMouseMove(e) {
     this.components['ressort-button'].forEach(c => {

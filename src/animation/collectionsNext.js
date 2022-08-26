@@ -6,15 +6,26 @@ const collectionsInfo = [
   { bg: '#171717', c: '#E5DFDF', flavour: 'IA', name: 'Midjourney' },
   { bg: '#F0BDBD', c: '#FF4A0B', flavour: 'Typography', name: 'Travis' },
   { bg: '#131721', c: '#DA2607', flavour: 'ia', name: 'midjourney' },
+  { bg: '#171717', c: '#E5DFDF', flavour: 'IA', name: 'Midjourney' },
 
 ]
 
-let currentPage = 0
+class CollectionsService {
+  constructor() {
+    this.currentPage = 2
+  }
+  increaseCounter() {
+    this.currentPage++
+    if (this.currentPage === collectionsInfo.length - 1) this.currentPage = 0
+  }
+}
+export const collectionsService = new CollectionsService();
+
 export default class collectionsNext {
   constructor() {
-    currentPage++
+    collectionsService.increaseCounter()
+    const currentPage = collectionsService.currentPage
     this.canvas = canvas
-    console.log(this.canvas.getCurrent());
 
     this.r = N.getAll('ressort-button')
 
@@ -30,6 +41,8 @@ export default class collectionsNext {
 
     let navnB = N.get('.buffer__title .nav__title__name')
     let navfB = N.get('.buffer__title .nav__title__flavour')
+    navnB.innerHTML = collectionsInfo[currentPage].name
+    navfB.innerHTML = collectionsInfo[currentPage].flavour
     navnB.style.color = collectionsInfo[currentPage].c
     navfB.style.color = collectionsInfo[currentPage].c
 
@@ -80,23 +93,19 @@ export default class collectionsNext {
   calculNextState(navf, navn, navfB, navnB) {
 
 
-    N.get('main').style.backgroundColor = collectionsInfo[currentPage].bg
+    N.get('main').style.backgroundColor = collectionsInfo[collectionsService.currentPage].bg
     navf.innerHTML = navfB.innerHTML
     navn.innerHTML = navnB.innerHTML
 
-    navf.style.color = collectionsInfo[currentPage].c
-    navn.style.color = collectionsInfo[currentPage].c
-
-    navfB.innerHTML = 'yo'
-    navnB.innerHTML = 'testyo'
-
+    navf.style.color = collectionsInfo[collectionsService.currentPage].c
+    navn.style.color = collectionsInfo[collectionsService.currentPage].c
     N.O(this.titleWrapperBuffer, 0)
   }
 
   play() {
     this.r.forEach(r => {
-      r.style.color = collectionsInfo[currentPage].c
-      N.get('button', r).style.backgroundColor = collectionsInfo[currentPage].c
+      r.style.color = collectionsInfo[collectionsService.currentPage].c
+      N.get('button', r).style.backgroundColor = collectionsInfo[collectionsService.currentPage].c
     })
     N.O(this.titleWrapperBuffer, 1)
     this.tl.play()
