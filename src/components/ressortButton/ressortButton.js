@@ -176,7 +176,7 @@ export default class ressortButton extends Component {
     this.timeline.pause()
     this.timeline = new N.TL
     this.timeline.from({
-      d: 500,
+      d: 300,
       e: 'o5',
       update: t => {
         this.markerRot = t.prog
