@@ -8,7 +8,8 @@ export default class collectionsNext {
     this.canvas = canvas
     console.log(this.canvas.getCurrent());
 
-    let backgroundBuffer = N.get('.buffer__background')
+    let bB = N.get('.buffer__background')
+    bB.style.backgroundColor = N.Ga(bB, 'data-color')
     this.titleWrapperBuffer = N.get('.buffer__title')
 
     let navf = N.get('.true__title .nav__title__flavour')
@@ -28,7 +29,7 @@ export default class collectionsNext {
     this.tl = new N.TL
     this.tl.from({
       d: 1000,
-      el: backgroundBuffer,
+      el: bB,
       p: {
         o: [0, 1]
       },
@@ -51,7 +52,7 @@ export default class collectionsNext {
         x: [-100, 0],
       },
       cb: () => {
-        this.calculNextState(navf, navn, navfB, navnB)
+        this.calculNextState(navf, navn, navfB, navnB, bB)
       },
       e: 'o5',
       delay: 200
@@ -60,7 +61,10 @@ export default class collectionsNext {
 
   }
 
-  calculNextState(navf, navn, navfB, navnB) {
+  calculNextState(navf, navn, navfB, navnB, bB) {
+
+    let a = N.get('main').style.backgroundColor = N.Ga(bB, 'data-color')
+    bB.setAttribute('data-color', '#131721')
     navf.innerHTML = navfB.innerHTML
     navn.innerHTML = navnB.innerHTML
 
