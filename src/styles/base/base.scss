@@ -23,6 +23,7 @@ body {
 main {
   @include cover;
 
+  z-index: 1;
   background-color: black;
 }
 
@@ -51,7 +52,12 @@ button {
   }
 }
 
+img[data-src] {
+  opacity: 0;
+}
+
 canvas {
+  z-index: 2;
   position: relative;
   pointer-events: none;
 }

@@ -106,7 +106,7 @@ class Canvas {
     this.raf.run()
   }
   async hide() {
-    if (this[this.route] && this[this.route].hide()) {
+    if (this[this.route] && this[this.route].hide) {
       await this[this.route].hide()
     }
   }

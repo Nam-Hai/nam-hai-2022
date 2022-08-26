@@ -5,8 +5,9 @@ import PreloaderTooltipAnimation from "../../animation/preloaderTooltipAnimation
 import preloaderComplete from "../../animation/preloaderComplete";
 import homeTextTransform from "../../animation/homeTextTransform";
 import collectionsNext from "../../animation/collectionsNext";
-import homeTooltipInspiration from "../../animation/homeTooltipInspiration";
 import homeTooltipContact from "../../animation/homeTooltipContact";
+import collectionsNav from "../../animation/collectionsNav";
+import homeNav1 from "../../animation/homeNav1";
 
 const k = 0.05
 const c = 0.2
@@ -17,7 +18,9 @@ const rForce = 1.5
 const animeCompletionMap = new Map([
   ['preloaderComplete', preloaderComplete],
   ['homeTextTransform', homeTextTransform],
+  ['homeNav1', homeNav1],
   ['collectionsNext', collectionsNext],
+  ['collectionsNav', collectionsNav]
 ])
 
 const animeCompletionMap2 = new Map([
@@ -25,7 +28,6 @@ const animeCompletionMap2 = new Map([
 
 const animeOnMarkerMap = new Map([
   ['preloaderTooltip', PreloaderTooltipAnimation],
-  ['homeTooltipInspiration', homeTooltipInspiration]
 ])
 const animeOnMarkerMap2 = new Map([
   ['homeTooltipContact', homeTooltipContact]
