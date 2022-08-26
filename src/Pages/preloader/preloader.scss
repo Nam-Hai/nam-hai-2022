@@ -6,6 +6,10 @@
   display: flex;
   justify-content: center;
   align-items: center;
+
+  .doublespan__container {
+    margin-inline: -5px;
+  }
 }
 
 .preloader__number {

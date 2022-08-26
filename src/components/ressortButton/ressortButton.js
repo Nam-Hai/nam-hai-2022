@@ -6,6 +6,7 @@ import preloaderComplete from "../../animation/preloaderComplete";
 import homeTextTransform from "../../animation/homeTextTransform";
 import test1 from "../../animation/test";
 import test2 from "../../animation/test copy";
+import collectionsNext from "../../animation/collectionsNext";
 
 const k = 0.05
 const c = 0.2
@@ -16,6 +17,7 @@ const rForce = 1.5
 const animeCompletionMap = new Map([
   ['preloaderComplete', preloaderComplete],
   ['homeTextTransform', homeTextTransform],
+  ['collectionsNext', collectionsNext],
   ['test1', test1]
 ])
 

@@ -22,6 +22,7 @@ main[data-template=collections] {
       background-color: $text-color;
     }
   }
+
 }
 
 .collections__wrapper {
@@ -66,13 +67,24 @@ ressort-button.r_br{
   right: 0;
   text-transform: uppercase;
   margin-bottom: -.5rem;
+  > div {
+    position: absolute;
+    transform: translate(-100%, -50%);
+    @include respond-to('<medium') {
 
-  @include respond-to('<medium') {
-
-    transform-origin: right;
-    transform: translate(1.5rem ,22rem) scale(1.5) rotate(90deg);
-    z-index: 0;
+      transform-origin: left;
+      transform: translate(1.5rem ,-2rem) scale(1.5) rotate(90deg);
+      z-index: 0;
+    }
+    > div {
+      display: flex;
+    }
+    .doublespan__container {
+      margin-bottom: unset;
+    }
   }
+
+
   .nav__title__flavour {
     font-size: 2rem;
     font-weight: 200;
@@ -84,6 +96,10 @@ ressort-button.r_br{
 
 .buffer__title {
   opacity: 0;
+
+  span span {
+    transform: translateX(-100%);
+  }
 }
 
 .display__container {
