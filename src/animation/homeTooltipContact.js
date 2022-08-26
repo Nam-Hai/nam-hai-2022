@@ -1,6 +1,6 @@
 import { N } from "../utils/namhai";
 
-export default class test2 {
+export default class homeTooltipContact {
   constructor(b) {
     console.log('test2');
     let button = N.get('main')

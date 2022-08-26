@@ -1,6 +1,6 @@
 import { N } from "../utils/namhai";
 
-export default class test1 {
+export default class homeTooltipInspiration {
   constructor(b) {
     let link = N.get('a[href="collections"]', this.element)
     console.log(link);

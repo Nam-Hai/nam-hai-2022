@@ -4,9 +4,9 @@ import content from './ressortButton.html?raw'
 import PreloaderTooltipAnimation from "../../animation/preloaderTooltipAnimation";
 import preloaderComplete from "../../animation/preloaderComplete";
 import homeTextTransform from "../../animation/homeTextTransform";
-import test1 from "../../animation/test";
-import test2 from "../../animation/test copy";
 import collectionsNext from "../../animation/collectionsNext";
+import homeTooltipInspiration from "../../animation/homeTooltipInspiration";
+import homeTooltipContact from "../../animation/homeTooltipContact";
 
 const k = 0.05
 const c = 0.2
@@ -18,19 +18,17 @@ const animeCompletionMap = new Map([
   ['preloaderComplete', preloaderComplete],
   ['homeTextTransform', homeTextTransform],
   ['collectionsNext', collectionsNext],
-  ['test1', test1]
 ])
 
 const animeCompletionMap2 = new Map([
-  ['test2', test2]
 ])
 
 const animeOnMarkerMap = new Map([
   ['preloaderTooltip', PreloaderTooltipAnimation],
-  ['test1', test1]
+  ['homeTooltipInspiration', homeTooltipInspiration]
 ])
 const animeOnMarkerMap2 = new Map([
-  ['test2', test2]
+  ['homeTooltipContact', homeTooltipContact]
 ])
 export default class ressortButton extends Component {
   constructor({ name, node }) {
