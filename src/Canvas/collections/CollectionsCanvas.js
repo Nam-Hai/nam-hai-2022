@@ -12,8 +12,6 @@ export default class {
     this.group = new Transform()
 
     this.collectionsImg = N.getAll('.display__container img')
-    console.log(this.collectionsImg);
-
 
     this.geometry = new Plane(this.gl, {
       heightSegments: 20,

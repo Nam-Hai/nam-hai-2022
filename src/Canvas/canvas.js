@@ -31,7 +31,6 @@ class Canvas {
       alpha: true
     })
     this.gl = this.renderer.gl
-    console.log('yo renderer', this.renderer);
     document.body.appendChild(this.gl.canvas)
   }
   createCamera() {

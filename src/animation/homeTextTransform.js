@@ -11,8 +11,6 @@ export default class homeTextTransform {
     const stateToAnimiation = [this.firstAnimation.bind(this), this.secondAnimation.bind(this), this.thirdAnimation.bind(this)]
     this.tl = new N.TL
 
-    console.log('alo');
-
     if (currentState == 3) currentState = 0
 
     stateToAnimiation[currentState]()

@@ -2,7 +2,6 @@ import { N } from "../utils/namhai";
 
 export default class homeTooltipContact {
   constructor(b) {
-    console.log('test2');
     let button = N.get('main')
     this.tl = new N.TL
     this.tl.from({
@@ -11,7 +10,6 @@ export default class homeTooltipContact {
 
       },
       cb: () => {
-        console.log('black');
         button.style.backgroundColor = 'black'
       }
     })
