@@ -4,7 +4,7 @@ import { stringLetterToDoubleSpan } from "../utils/utilsText"
 
 class CollectionsService {
   constructor() {
-    this.currentPage = 1
+    this.currentPage = 0
 
     this.collectionsInfo = [
       { bg: '#171717', c: '#E5DFDF', flavour: 'IA', name: 'Midjourney' },

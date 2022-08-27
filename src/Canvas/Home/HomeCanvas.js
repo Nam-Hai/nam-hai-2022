@@ -69,7 +69,6 @@ export default class {
 
     this.mesh.scale.x = this.heroBounds.width
     this.mesh.scale.y = this.heroBounds.height
-    console.log('bounds', this.heroBounds);
     this.mesh.position.x = 0
     this.mesh.position.y = 0
   }

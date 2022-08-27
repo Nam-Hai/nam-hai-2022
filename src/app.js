@@ -17,8 +17,9 @@ class App {
   }
 
   initPage() {
-    this.page = this.createPage('collections')
-    console.log(this.page);
+    const url = 'collections'
+    this.page = this.createPage(url)
+    this.router.path = url
     this.page.render(this.main)
     this.addLinkLinstener(this.main)
     this.addEventListener()
@@ -39,8 +40,10 @@ class App {
 
   createCanvas() {
     this.canvas = canvas
+    console.log(canvas, canvas.renderer);
     // this.canvas = new Canvas({ route: this.router.getRoute() })
     this.canvas.onChange(this.router.getRoute())
+    console.log('create canvas route, ', this.router.getRoute());
   }
 
   createPage(route) {

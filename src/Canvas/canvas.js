@@ -1,5 +1,6 @@
 import { Renderer, Camera, Transform } from 'ogl'
 import { N } from '../utils/namhai';
+import CollectionsCanvas from './collections/CollectionsCanvas';
 import HomeCanvas from './Home/HomeCanvas';
 import PreloaderCanvas from './preloader/PreloaderCanvas';
 
@@ -7,7 +8,8 @@ class Canvas {
   constructor() {
     this.mapRouteObject = {
       home: this.createHome,
-      preloader: this.createPreloader
+      preloader: this.createPreloader,
+      collections: this.createCollections
     };
 
     this.sizePixel = {
@@ -29,6 +31,7 @@ class Canvas {
       alpha: true
     })
     this.gl = this.renderer.gl
+    console.log('yo renderer', this.renderer);
     document.body.appendChild(this.gl.canvas)
   }
   createCamera() {
@@ -58,12 +61,17 @@ class Canvas {
       canvasSize: this.size,
       canvasSizePixel: this.sizePixel
     })
-
-    console.log('this[this.route]', this[this.route]);
+  }
+  createCollections() {
+    this.collections = new CollectionsCanvas({
+      gl: this.gl,
+      scene: this.scene,
+      canvasSize: this.size,
+      canvasSizePixel: this.sizePixel
+    })
   }
 
   onChange(route) {
-    console.log('canvas onchange', route);
     this.route = route
     if (this.mapRouteObject.hasOwnProperty(route)) {
       const createNewObject = this.mapRouteObject[route].bind(this)
@@ -112,4 +120,4 @@ class Canvas {
   }
 }
 
-export let canvas = new Canvas()
+export const canvas = new Canvas()

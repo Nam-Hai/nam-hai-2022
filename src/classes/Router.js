@@ -22,7 +22,6 @@ export default class Router {
     return this.path
   }
 
-
   resetPath() {
     window.history.pushState('', 'Nam Hai portfolio', '/')
     this.path = 'preloader'
