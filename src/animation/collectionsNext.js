@@ -38,7 +38,7 @@ export default class collectionsNext extends collectionsAnime {
         [...medias, ...mediasBuffer].forEach(m => {
           m.program.uniforms.target.value = m.canvasSize.width * (.5 - t.progE / 2)
         })
-        let nT = N.Clamp(N.iLerp(t.progE, 0.3, 1), 0, 1)
+        let nT = N.Clamp(N.iLerp(t.progE, 0.25, 1), 0, 1)
         m.mesh.scale.x = m.bounds.width * (1 - nT)
         m.mesh.position.x = (m.boundsPixel.x - m.canvasSizePixel.width / 2) * m.canvasSize.width / m.canvasSizePixel.width + m.bounds.width * (1 - nT) / 2
 
