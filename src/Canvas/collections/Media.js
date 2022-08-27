@@ -25,6 +25,8 @@ export default class {
 
   }
 
+
+
   createTexture() {
     this.texture = new Texture(this.gl)
     this.image = new window.Image()
@@ -48,7 +50,7 @@ export default class {
           value: .5
         },
         radius: {
-          value: 1
+          value: 2
         },
         s: {
           value: [1, 1]
@@ -71,6 +73,9 @@ export default class {
     this.setScale()
   }
   setScale() {
+    this.program.uniforms.s.value = [1, 1]
+    this.program.uniforms.t.value = [0, 0]
+
     this.mesh.scale.x = this.bounds.width
     this.mesh.scale.y = this.bounds.height
 

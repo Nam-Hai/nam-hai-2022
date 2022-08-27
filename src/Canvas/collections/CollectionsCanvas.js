@@ -24,6 +24,11 @@ export default class {
       return new Media({ el, gl, scene: this.group, canvasSize, canvasSizePixel, geometry: this.geometry })
     })
 
+    this.mediasBuffer = Object.entries(this.collectionsImg).map(([index, el]) => {
+      return new Media({ el, gl, scene: this.group, canvasSize, canvasSizePixel, geometry: this.geometry })
+    })
+
+
     this.group.setParent(this.scene)
   }
 
