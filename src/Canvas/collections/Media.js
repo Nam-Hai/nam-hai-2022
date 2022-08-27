@@ -52,6 +52,9 @@ export default class {
         radius: {
           value: 2
         },
+        angle: {
+          value: 0.3
+        },
         s: {
           value: [1, 1]
         },

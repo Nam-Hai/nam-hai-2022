@@ -10,7 +10,7 @@ export default class collectionsPrevious extends collectionsAnime {
 
   canvasAnimation() {
     const d = 600, delay = 1000, e = 'io5', zF = -0.5
-    const force = -1.5
+    const force = -1.3
     this.canvas = canvas
     Object.entries(this.canvas.collections.mediasBuffer).forEach(([index, mB]) => {
       collectionsService.getBufferImg(mB, index)
@@ -38,6 +38,7 @@ export default class collectionsPrevious extends collectionsAnime {
           mB2.program.uniforms.force.value = N.map(t.prog, 0, 0.3, 0, force)
         }
         [...medias, ...mediasBuffer].forEach(m => {
+          m.program.uniforms.angle.value = N.Lerp(.4, 0, t.progE)
           m.program.uniforms.target.value = m.canvasSize.width * (-.5 + t.progE / 2)
         })
         let nT = N.Clamp(N.iLerp(t.progE, 0.3, 1), 0, 1)
@@ -61,6 +62,7 @@ export default class collectionsPrevious extends collectionsAnime {
       e: 'o2',
       update: (t) => {
         [...medias, ...mediasBuffer].forEach(m => {
+          m.program.uniforms.angle.value = N.Lerp(0, -.4, t.progE)
           m.program.uniforms.target.value = m.canvasSize.width * (-.5 + (1 + t.progE) / 2)
         })
         let nT = N.Clamp(N.iLerp(t.progE, 0, 0.8), 0, 1)

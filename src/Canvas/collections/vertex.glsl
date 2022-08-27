@@ -14,6 +14,7 @@ uniform mat4 projectionMatrix;
 uniform float target;
 uniform float force;
 uniform float radius;
+uniform float angle;
 
 uniform vec2 s;
 uniform vec2 t;
@@ -23,7 +24,7 @@ varying vec2 vUv;
 void main() {
 
   vec4 canvasPos = modelViewMatrix * vec4(position, 1.0);
-  float l = abs(canvasPos.x - .3 * canvasPos.y   - target);
+  float l = abs(canvasPos.x - angle * canvasPos.y   - target);
   canvasPos.z -= (force - io2(l/radius) * force) * step(l,radius);
   gl_Position = projectionMatrix  * canvasPos;
 
