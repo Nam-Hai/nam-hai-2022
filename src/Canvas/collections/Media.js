@@ -40,6 +40,12 @@ export default class {
       uniforms: {
         tMap: {
           value: this.texture
+        },
+        s: {
+          value: [1, 1]
+        },
+        t: {
+          value: [0, 0]
         }
       }
     })

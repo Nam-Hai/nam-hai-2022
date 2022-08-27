@@ -20,7 +20,7 @@ export default class {
       widthSegments: 1
     })
 
-    this.medias = Object.values(this.collectionsImg).map(el => {
+    this.medias = Object.entries(this.collectionsImg).map(([index, el]) => {
       return new Media({ el, gl, scene: this.group, canvasSize, canvasSizePixel, geometry: this.geometry })
     })
 
