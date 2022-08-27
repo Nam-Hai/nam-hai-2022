@@ -40,10 +40,8 @@ class App {
 
   createCanvas() {
     this.canvas = canvas
-    console.log(canvas, canvas.renderer);
     // this.canvas = new Canvas({ route: this.router.getRoute() })
     this.canvas.onChange(this.router.getRoute())
-    console.log('create canvas route, ', this.router.getRoute());
   }
 
   createPage(route) {
@@ -90,7 +88,6 @@ class App {
 
   async onChange({ url, button, push = true }) {
 
-    console.log('onchange');
     await this.page.hide()
     await this.canvas.hide()
     this.page = null
