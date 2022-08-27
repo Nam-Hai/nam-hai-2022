@@ -121,12 +121,15 @@ export default class collectionsNext {
   }
 
   canvasAnimation() {
-    const d = 1000, delay = 0, e = 'io5'
+    const d = 1000, delay = 600, e = 'io5', zF = -0.5
     this.canvas = canvas
     let medias = this.canvas.collections.medias
 
     let m = medias[1]
+
+
     this.tl.from({
+      delay,
       d: d,
       e,
       update: (t) => {
@@ -150,6 +153,7 @@ export default class collectionsNext {
         m2.program.uniforms.t.value = [0.5 - t.progE / 2, 0]
       },
     })
+
   }
 
 
