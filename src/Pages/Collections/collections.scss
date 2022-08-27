@@ -3,7 +3,7 @@
 $text-color: #E5DFDF;
 $background-color: #171717;
 main[data-template=collections] {
-  background-color: $background-color ;
+  // background-color: $background-color ;
   color: $text-color;
 
   ressort-button {
@@ -30,6 +30,8 @@ main[data-template=collections] {
 
 .collections__wrapper {
   background-color: $background-color;
+  height: 100%;
+  width: 100%;
 }
 
 .buffer__background {

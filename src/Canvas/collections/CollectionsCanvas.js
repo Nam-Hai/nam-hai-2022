@@ -19,7 +19,7 @@ export default class {
     })
 
     this.medias = Object.entries(this.collectionsImg).map(([index, el]) => {
-      return new Media({ el, gl, scene: this.group, canvasSize, canvasSizePixel, geometry: this.geometry })
+      return new Media({ el, gl, scene: this.group, canvasSize, canvasSizePixel, geometry: this.geometry, index })
     })
 
     this.mediasBuffer = Object.entries(this.collectionsImg).map(([index, el]) => {

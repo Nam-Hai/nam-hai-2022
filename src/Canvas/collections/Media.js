@@ -1,10 +1,12 @@
 import { Transform, Plane, Program, Mesh, Texture } from 'ogl'
+import { collectionsService } from '../../animation/collectionsAnimation'
 import { N } from '../../utils/namhai'
 import fragment from './fragment.glsl?raw'
 import vertex from './vertex.glsl?raw'
 
 export default class {
-  constructor({ el, gl, geometry, scene, canvasSize, canvasSizePixel }) {
+  constructor({ el, gl, geometry, scene, canvasSize, canvasSizePixel, index }) {
+    this.index = index
     this.gl = gl
     this.el = el
     this.geometry = geometry
@@ -29,10 +31,12 @@ export default class {
 
   createTexture() {
     this.texture = new Texture(this.gl)
-    this.image = new window.Image()
-    this.image.crossOrigin = 'anonymous'
-    this.image.src = N.Ga(this.el, 'data-src')
-    this.image.onload = () => this.texture.image = this.image
+    // this.image = new window.Image()
+    // this.image.crossOrigin = 'anonymous'
+    // this.image.src = N.Ga(this.el, 'data-src')
+    // this.image.onload = () => this.texture.image = this.image
+    console.log('index', this.index);
+    collectionsService.getBufferImg(this, this.index)
   }
 
   createProgram() {
