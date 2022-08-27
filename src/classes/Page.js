@@ -19,7 +19,6 @@ export default class Page {
     if (!this.components) return
     Object.entries(this.components).forEach(([key, componentType]) => {
 
-      // console.log('create componenet', key, componentType);
       this.components[key] = [...N.getAll(key, this.content)].map(component => {
         return new componentType({ name: key, node: component })
       })
@@ -33,7 +32,6 @@ export default class Page {
     nodeParent.setAttribute('style', '')
     nodeParent.setAttribute('data-template', this.name)
 
-    console.log(nodeParent);
     if (this.components) {
       Object.values(this.components).forEach((components) => {
 

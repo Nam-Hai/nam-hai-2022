@@ -34,7 +34,6 @@ export default class Component {
   }
 
   render(node) {
-    // console.log(this.selector);
     let proscedHTML = this.element.innerHTML
     this.element = N.get(this.selector, node)
     this.element.innerHTML = proscedHTML
