@@ -16,8 +16,8 @@ export default class {
 
 
     this.geometry = new Plane(this.gl, {
-      heightSegments: 1,
-      widthSegments: 1
+      heightSegments: 20,
+      widthSegments: 80
     })
 
     this.medias = Object.entries(this.collectionsImg).map(([index, el]) => {

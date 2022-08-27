@@ -41,6 +41,15 @@ export default class {
         tMap: {
           value: this.texture
         },
+        target: {
+          value: 5
+        },
+        force: {
+          value: .5
+        },
+        radius: {
+          value: 1
+        },
         s: {
           value: [1, 1]
         },

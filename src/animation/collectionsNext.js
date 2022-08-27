@@ -121,36 +121,61 @@ export default class collectionsNext {
   }
 
   canvasAnimation() {
-    const d = 1000, delay = 600, e = 'io5', zF = -0.5
+    const d = 1000, delay = 1000, e = 'io5', zF = -0.5
     this.canvas = canvas
     let medias = this.canvas.collections.medias
 
     let m = medias[1]
 
+    this.tl.from({
+      d: d / 4,
+      e: 'i1',
+      update: (t) => {
+        medias.forEach(m => {
+          m.program.uniforms.force.value = N.Lerp(0, 1, t.progE)
+        })
+      }
+    })
 
     this.tl.from({
-      delay,
+      d: d * 2,
+      e: 'io5',
+      update: t => {
+        medias.forEach(m => {
+          m.program.uniforms.target.value = m.canvasSize.width * (0.5 - t.progE)
+        })
+      }
+    })
+    this.tl.from({
       d: d,
-      e,
+      e: 'i5',
       update: (t) => {
         m.mesh.scale.x = m.bounds.width * t.progE
         m.mesh.position.x = (m.boundsPixel.x - m.canvasSizePixel.width / 2) * m.canvasSize.width / m.canvasSizePixel.width + m.bounds.width * (2 - t.progE) / 2
 
         m.program.uniforms.s.value = [1 / t.progE, 1]
         m.program.uniforms.t.value = [0.5 - t.progE / 2, 0]
+        if (t.progE < .3) {
+          // m2.program.uniforms.force.value = N.map(t.prog, 0, .3, 0, 1)
+        }
       },
     })
     let m2 = medias[0]
     this.tl.from({
-      delay,
+      delay: d,
       d: d,
-      e,
+      e: 'o5',
       update: (t) => {
         m2.mesh.scale.x = m2.bounds.width * t.progE
         m2.mesh.position.x = (m2.boundsPixel.x - m2.canvasSizePixel.width / 2) * m2.canvasSize.width / m2.canvasSizePixel.width + m2.bounds.width * (2 - t.progE) / 2
 
         m2.program.uniforms.s.value = [1 / t.progE, 1]
         m2.program.uniforms.t.value = [0.5 - t.progE / 2, 0]
+
+
+        if (t.progE > .7) {
+          m2.program.uniforms.force.value = N.map(t.prog, 0.7, 1, 1, 0)
+        }
       },
     })
 
