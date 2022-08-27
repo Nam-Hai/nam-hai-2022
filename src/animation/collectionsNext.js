@@ -89,6 +89,7 @@ export default class collectionsNext {
       delay: 200
     })
 
+    this.canvasAnimation()
 
   }
 
@@ -117,6 +118,28 @@ export default class collectionsNext {
     })
     N.O(this.titleWrapperBuffer, 1)
     this.tl.play()
+  }
+
+  canvasAnimation() {
+    console.log('canvasAnimation');
+    this.canvas = canvas
+    let medias = this.canvas.collections.medias
+
+    this.tl.from({
+      d: 1000,
+      e: 'o5',
+      update: (t) => {
+        console.log(t);
+        medias.forEach(m => {
+
+          m.mesh.scale.x = m.bounds.width * t.progE
+          m.mesh.position.x = (m.boundsPixel.x - m.canvasSizePixel.width / 2) * m.canvasSize.width / m.canvasSizePixel.width + m.bounds.width * (2 - t.progE) / 2
+
+          m.program.uniforms.s.value = [1 / t.progE, 1]
+          m.program.uniforms.t.value = [0.5 - t.progE / 2, 0]
+        })
+      },
+    })
   }
 
 
