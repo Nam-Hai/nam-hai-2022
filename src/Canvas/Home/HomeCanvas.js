@@ -56,7 +56,6 @@ export default class {
 
   getBounds() {
     this.heroBoundsPixel = this.hero.getBoundingClientRect()
-    console.log(this.heroBoundsPixel);
     this.heroBounds = {
       width: this.heroBoundsPixel.width * this.canvasSize.width / this.canvasSizePixel.width,
       height: this.heroBoundsPixel.height * this.canvasSize.height / this.canvasSizePixel.height
@@ -74,7 +73,6 @@ export default class {
   }
 
   destroy() {
-    console.log(this.group, 'this.gropup');
     this.group.removeChild(this.mesh)
     this.mesh = null;
     this.scene.removeChild(this.group)

@@ -71,12 +71,10 @@ export default class {
   }
 
   async hide() {
-    console.log('hide Canvas preloader');
     const initX = this.mesh.scale.x,
       initY = this.mesh.scale.y,
       targetX = this.canvasSize.width,
       targetY = this.canvasSize.height;
-    console.log(targetY, targetX);
     this.program.uniforms.o.value = 1
     await new Promise(res => {
       let motion = new N.M({
@@ -91,7 +89,6 @@ export default class {
         },
         cb: () => {
           this.program.uniforms.o.value = 0
-          console.log('CB');
           res()
         },
       })
