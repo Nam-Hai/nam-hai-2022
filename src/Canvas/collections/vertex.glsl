@@ -23,9 +23,9 @@ varying vec2 vUv;
 void main() {
 
   vec4 canvasPos = modelViewMatrix * vec4(position, 1.0);
-  float l = abs(canvasPos.x - .0 * canvasPos.y   - target);
+  float l = abs(canvasPos.x - .3 * canvasPos.y   - target);
   canvasPos.z -= (force - io2(l/radius) * force) * step(l,radius);
-  gl_Position = projectionMatrix * canvasPos;
+  gl_Position = projectionMatrix  * canvasPos;
 
 
   vUv = (uv - .5)/s+ .5 + t;
