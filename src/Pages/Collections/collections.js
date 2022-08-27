@@ -4,7 +4,7 @@ import ressortButton from "../../components/ressortButton/ressortButton";
 import { stringLetterToDoubleSpan } from "../../utils/utilsText";
 import collectionsTemplate from './collections.html?raw'
 import { N } from "../../utils/namhai";
-import { collectionsService } from "../../animation/collectionsNext";
+import { collectionsService } from "../../animation/collectionsAnimation";
 
 export default class Collections extends Page {
   constructor() {

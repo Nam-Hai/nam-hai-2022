@@ -64,7 +64,6 @@ export default class {
 
   getBounds() {
     this.boundsPixel = this.el.getBoundingClientRect()
-    console.log(this.boundsPixel);
     this.bounds = {
       width: this.boundsPixel.width * this.canvasSize.width / this.canvasSizePixel.width,
       height: this.boundsPixel.height * this.canvasSize.height / this.canvasSizePixel.height

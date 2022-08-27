@@ -8,6 +8,7 @@ import collectionsNext from "../../animation/collectionsNext";
 import homeTooltipContact from "../../animation/homeTooltipContact";
 import collectionsNav from "../../animation/collectionsNav";
 import homeNav1 from "../../animation/homeNav1";
+import collectionsPrevious from "../../animation/collectionsPrevious";
 
 const k = 0.05
 const c = 0.2
@@ -24,6 +25,7 @@ const animeCompletionMap = new Map([
 ])
 
 const animeCompletionMap2 = new Map([
+  ['collectionsPrevious', collectionsPrevious],
 ])
 
 const animeOnMarkerMap = new Map([
@@ -130,7 +132,6 @@ export default class ressortButton extends Component {
     N.T(this.button, x, y, 'px')
 
     let pos = this.both ? Math.abs(this.coor.pos) : this.coor.pos
-    // console.log(this.distance + 1);
     const bD = this.distance > 0 ? pos > this.distance / rForce : pos < this.distance / rForce,
       bP = this.distance > 0 ? this.coor.pos < 0 : this.coor.pos > 0
 
