@@ -35,11 +35,10 @@ export default class Router {
 
   async transitionOnChange(url, canvas) {
     const key = this.path + ' => ' + url
-    console.log(key);
     let t = transitionMap.get(key)
     if (t) {
       await new Promise(s => {
-        t = new t({ r: false, cb: s, canvas, oldRoute: this.path, route: url })
+        t = new t({ cb: s, canvas, oldRoute: this.path, route: url })
         t.play()
       })
     } else {

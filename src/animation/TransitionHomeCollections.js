@@ -1,10 +1,8 @@
 import { N } from "../utils/namhai";
 
 export default class TransitionHomeCollections {
-  constructor({ r, cb, canvas, oldRoute, route }) {
+  constructor({ cb, canvas, oldRoute, route }) {
     this.tl = new N.TL
-    this.r = r
-
     const m = N.get('main')
     const mB = N.get('.buffer-main')
 
@@ -12,20 +10,24 @@ export default class TransitionHomeCollections {
     // mB.setAttribute('data-template', 'collections')
     canvas.onChange('collections')
     const collectionsMedias = canvas.collections.medias
+
+    const boundsY = collectionsMedias[0].boundsPixel
     this.tl.from({
       d: 1000,
       e: 'o5',
       update: (t) => {
+
         N.T(m, 0, t.progE * 100)
         N.T(mB, 0, t.progE * 100)
         collectionsMedias.forEach(m => {
-          m.mesh.position.y = canvas.size.height * (1 - t.progE)
-
+          m.mesh.position.y = (-boundsY.y + canvas.sizePixel.height / 2) * canvas.size.height / canvas.sizePixel.height - m.bounds.height / 2
+          m.mesh.position.y -= canvas.size.height * t.progE
         });
-        canvas.home.mesh.position.y = -canvas.home.canvasSize.height * t.progE
+        canvas.home.mesh.position.y = -canvas.size.height * t.progE
       },
       cb: _ => {
         canvas.hide(oldRoute)
+        canvas.collections.getBounds()
         cb()
       }
     })

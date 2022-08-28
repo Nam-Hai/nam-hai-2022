@@ -30,6 +30,12 @@ export default class {
     this.group.setParent(this.scene)
   }
 
+  getBounds() {
+    [...this.medias, ...this.mediasBuffer].forEach(m => {
+      m.getBounds()
+    })
+  }
+
   destroy() {
     this.medias.forEach(m => {
       m.scene.removeChild(m.mesh)
