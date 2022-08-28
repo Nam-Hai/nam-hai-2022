@@ -4,9 +4,11 @@ import Home from '../Pages/Home/home';
 import Collections from '../Pages/Collections/collections';
 import TransitionHomeCollections from '../animation/TransitionHomeCollections';
 import TransitionPreloaderHome from '../animation/TransitionPreloaderHome';
+import TransitionCollectionsHome from '../animation/TransitionCollectionsHome';
 
 const transitionMap = new Map([
   ['home => collections', TransitionHomeCollections],
+  ['collections => home', TransitionCollectionsHome],
   ['preloader => home', TransitionPreloaderHome]
 ])
 

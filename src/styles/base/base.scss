@@ -68,9 +68,10 @@ canvas {
   width: 100%;
 }
 .buffer-main__UP{
-  position: absolute;
   bottom: 100%;
   left: 0;
-  height: 100%;
-  width: 100%;
+}
+.buffer-main__DOWN {
+  top: 100%;
+  left: 0;
 }
