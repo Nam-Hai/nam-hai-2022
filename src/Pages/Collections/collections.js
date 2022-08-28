@@ -22,6 +22,8 @@ export default class Collections extends Page {
   render(node) {
     super.render(node)
 
+    let bT = N.get('.back__tooltip')
+    stringLetterToDoubleSpan(bT, 'tooltip__span')
 
   }
   renderComponents(node) {

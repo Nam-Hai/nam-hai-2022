@@ -10,6 +10,7 @@ import homeNav1 from "../../animation/homeNav1";
 import collectionsPrevious from "../../animation/collectionsPrevious";
 import homeTooltipContact from "../../animation/homeTooltipContact";
 import homeTooltipCollections from "../../animation/homeTooltipCollections";
+import collectionsTooltipBack from "../../animation/collectionsTooltipBack";
 
 const k = 0.05
 const c = 0.2
@@ -31,7 +32,8 @@ const animeCompletionMap2 = new Map([
 
 const animeOnMarkerMap = new Map([
   ['preloaderTooltip', PreloaderTooltipAnimation],
-  ['homeTooltipCollections', homeTooltipCollections]
+  ['homeTooltipCollections', homeTooltipCollections],
+  ['collectionsTooltipBack', collectionsTooltipBack]
 ])
 const animeOnMarkerMap2 = new Map([
   ['homeTooltipContact', homeTooltipContact],

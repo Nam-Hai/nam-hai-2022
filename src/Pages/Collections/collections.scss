@@ -42,10 +42,27 @@ $background-color: #171717;
   z-index: 0;
 }
 
-ressort-button.r_br{
+.back__button__wrapper {
   position: absolute;
   right: 3rem;
   bottom: 2rem;
+  display: flex;
+  align-items: center;
+
+  .back__tooltip {
+    font-weight: 700;
+    font-size: 40px;
+    line-height: 37px;
+    /* identical to box height */
+    text-transform: uppercase;
+    margin-right: 1rem;
+
+    span span {
+      transform: translateX(-100%);
+    }
+  }
+  ressort-button.r_br{
+  }
 }
 
 .display__wrapper {
