@@ -31,11 +31,7 @@ export default class {
 
   createTexture() {
     this.texture = new Texture(this.gl)
-    // this.image = new window.Image()
-    // this.image.crossOrigin = 'anonymous'
-    // this.image.src = N.Ga(this.el, 'data-src')
-    // this.image.onload = () => this.texture.image = this.image
-    console.log('index', this.index);
+
     collectionsService.getBufferImg(this, this.index)
   }
 

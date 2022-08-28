@@ -1,5 +1,5 @@
 @use '../../styles/utils/variables.scss' as *;
-main[data-template=home] {
+[data-template=home] {
   background-color: white;
 
   ressort-button {
@@ -36,6 +36,7 @@ main[data-template=home] {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  display: flex;
   img {
     height: 38rem;
     width: 38rem;

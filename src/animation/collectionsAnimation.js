@@ -20,7 +20,6 @@ class CollectionsService {
   }
   decreaseCounter() {
     this.currentPage--
-    console.log('decrease', this.currentPage);
     if (this.currentPage === -1) this.currentPage = this.collectionsInfo.length - 1
   }
 

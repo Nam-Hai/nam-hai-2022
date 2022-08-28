@@ -2,7 +2,7 @@ import { N } from "../utils/namhai";
 
 export default class preloaderComplete {
   constructor() {
-    let link = N.get('a[href="/home"]', this.element)
+    let link = N.get('a[href="home"]', this.element)
     if (N.Ga(link, 'href')) {
       link.click()
     }

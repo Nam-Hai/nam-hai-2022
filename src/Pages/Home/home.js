@@ -30,7 +30,8 @@ export default class Home extends Page {
   render(node) {
     super.render(node)
 
-    let titles = N.getAll('.background__title div')
+    console.log('node', node);
+    let titles = N.getAll('.background__title div', node)
     stringLetterToSpan(titles[0])
     stringLetterToSpan(titles[1])
     this.titleSpaned = [N.getAll('span', titles[0]), N.getAll('span', titles[1])]

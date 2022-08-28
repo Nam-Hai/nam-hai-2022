@@ -61,3 +61,16 @@ canvas {
   position: relative;
   pointer-events: none;
 }
+
+.buffer-main {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+}
+.buffer-main__UP{
+  position: absolute;
+  bottom: 100%;
+  left: 0;
+  height: 100%;
+  width: 100%;
+}

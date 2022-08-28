@@ -24,6 +24,8 @@ export default class Preloader extends Page {
 
     super.render(node)
 
+    this.content.remove()
+
     // let succes = N.get('.ressort__demo__success')
 
     // stringLetterToDoubleSpan(succes, 'tooltip__span')

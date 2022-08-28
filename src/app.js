@@ -18,9 +18,15 @@ class App {
 
   initPage() {
     const url = 'collections'
+    window.history.pushState('', 'Nam Hai portfolio', url)
     this.page = this.createPage(url)
+
+    // this.pageBuffer.render(N.get('.buffer-main'))
+    // this.page.content.remove()
+
     this.router.path = url
     this.page.render(this.main)
+    this.page.renderComponents(this.main)
     this.addLinkLinstener(this.main)
     this.addEventListener()
     this.createCanvas()
@@ -32,6 +38,7 @@ class App {
     this.preloader = new Preloader()
     this.page = this.preloader
     this.preloader.render(this.main)
+    this.page.renderComponents(this.main)
     this.addLinkLinstener(this.main)
     this.addEventListener()
     this.createCanvas()
@@ -88,17 +95,29 @@ class App {
 
   async onChange({ url, button, push = true }) {
 
+    console.log('url', url);
+    this.pageBuffer = this.createPage(url)
+    this.pageBuffer.render(N.get('.buffer-main'))
+    this.pageBuffer.renderComponents(N.get('.buffer-main'))
     await this.page.hide()
-    await this.canvas.hide()
+    await this.router.transitionOnChange(url, this.canvas)
     this.page = null
 
-    this.page = this.createPage(url)
+    // this.pageBuffer.content.remove()
+    this.page = this.pageBuffer
+    this.main.setAttribute('style', '')
+    this.main.setAttribute('data-template', url)
+    this.main.innerHTML = this.page.nodeParent.innerHTML
+
+    this.page.content.remove()
 
 
+    // console.log('page component;', this.page.components);
 
-    this.page.render(this.main)
+    this.page.renderComponents(this.main)
     this.addLinkLinstener(this.main)
-    this.canvas.onChange(url)
+
+    // this.canvas.onChange(url)
 
     this.main.setAttribute('data-init', 'false')
 

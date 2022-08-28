@@ -71,29 +71,8 @@ export default class {
   }
 
   async hide() {
-    const initX = this.mesh.scale.x,
-      initY = this.mesh.scale.y,
-      targetX = this.canvasSize.width,
-      targetY = this.canvasSize.height;
-    this.program.uniforms.o.value = 1
-    await new Promise(res => {
-      let motion = new N.M({
-        d: 1000,
-        e: 'o6',
-        update: t => {
-          this.mesh.scale.x = N.Lerp(initX, targetX, t.progE)
-          this.mesh.scale.y = N.Lerp(initY, targetY, t.progE)
-
-          this.program.uniforms.radius.value = Math.max(this.buttonBounds.width, this.buttonBounds.height) * 4
-          this.program.uniforms.force.value = N.Lerp(-2.5, 0, N.Ease.o5(t.prog))
-        },
-        cb: () => {
-          this.program.uniforms.o.value = 0
-          res()
-        },
-      })
-      motion.play()
-    })
+    this.group.removeChild(this.mesh)
+    this.scene.removeChild(this.group)
   }
 
 }

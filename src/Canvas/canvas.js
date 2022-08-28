@@ -60,6 +60,7 @@ class Canvas {
       canvasSize: this.size,
       canvasSizePixel: this.sizePixel
     })
+    console.log('createHome', this.home);
   }
   createCollections() {
     this.collections = new CollectionsCanvas({
@@ -68,6 +69,7 @@ class Canvas {
       canvasSize: this.size,
       canvasSizePixel: this.sizePixel
     })
+    console.log('createCollections ', this.collections);
   }
 
   onChange(route) {
@@ -108,14 +110,16 @@ class Canvas {
   }
 
   show() {
-    if (this[this.route] && this[this.route].show) this[this.route].show()
+    // if (this[this.route] && this[this.route].show) this[this.route].show()
 
     this.raf.run()
   }
-  async hide() {
-    if (this[this.route] && this[this.route].hide) {
-      await this[this.route].hide()
-    }
+  async hide(route) {
+    // if (this[this.route] && this[this.route].hide) {
+    // await this[this.route].hide()
+    // }
+    if (this[route] && this[route].hide)
+      await this[route].hide()
   }
 }
 

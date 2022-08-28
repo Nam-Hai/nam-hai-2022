@@ -5,10 +5,12 @@ export default class Page {
     this.selectorChildren = elements
     this.components = components
 
-    this.content = N.Cr(name)
+    this.content = N.Cr('div')
+    this.content.classList.add('buffer-main')
     this.name = name
     this.content.innerHTML = content
 
+    document.body.appendChild(this.content)
     this.create()
   }
 
@@ -32,18 +34,19 @@ export default class Page {
     nodeParent.setAttribute('style', '')
     nodeParent.setAttribute('data-template', this.name)
 
+    this.nodeParent = nodeParent
+
+  }
+  renderComponents(nodeParent) {
     if (this.components) {
       Object.values(this.components).forEach((components) => {
-
         components.forEach(component => {
           component.render(nodeParent)
           component.addEventListener()
         })
       })
-
     }
     this.nodeParent = nodeParent
-
   }
 
   onMouseDown(e) {
