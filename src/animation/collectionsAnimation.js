@@ -10,6 +10,7 @@ class CollectionsService {
       { bg: '#171717', c: '#E5DFDF', flavour: 'IA', name: 'Midjourney', image1: 'collections/noise1.png', image2: 'collections/noise2.png' },
       { bg: '#F0BDBD', c: '#FF4A0B', flavour: 'Typography', name: 'Travis', image1: 'collections/travis1.png', image2: 'collections/travis2.png' },
       { bg: '#131721', c: '#DA2607', flavour: 'ia', name: 'midjourney', image1: 'collections/wrath1.png', image2: 'collections/wrath2.png' },
+      { bg: '#B2E8D7', c: '#1B795F', flavour: 'DIGITAL PAINTING', name: 'CHERIFKID', image1: 'collections/cherifkid1.jpg', image2: 'collections/cherifkid2.png' },
       // { bg: '#171717', c: '#E5DFDF', flavour: 'IA', name: 'Midjourney', image1: 'collections/noise1.png', image2: 'collections/noise2.png' },
 
     ]
