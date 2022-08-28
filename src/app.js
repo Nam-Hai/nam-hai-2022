@@ -21,8 +21,7 @@ class App {
     window.history.pushState('', 'Nam Hai portfolio', url)
     this.page = this.createPage(url)
 
-    // this.pageBuffer.render(N.get('.buffer-main'))
-    // this.page.content.remove()
+    this.page.content.remove()
 
     this.router.path = url
     this.page.render(this.main)
