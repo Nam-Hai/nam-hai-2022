@@ -14,7 +14,7 @@ export default class TransitionCollectionsHome {
 
     this.tl.from({
       d: 1000,
-      e: 'o5',
+      e: 'io6',
       update: t => {
         N.T(m, 0, -t.progE * 100)
         N.T(mB, 0, -t.progE * 100)

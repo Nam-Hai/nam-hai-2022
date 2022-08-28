@@ -1,9 +1,9 @@
-import { N } from "../utils/namhai"
+import { N } from "../utils/namhai";
 
-export default class homeTooltipContact {
+export default class homeTooltipCollections {
   constructor(b) {
     this.tl = new N.TL
-    let toolTip = N.getAll('.htC span span')
+    let toolTip = N.getAll('.htI span span')
     const i = b ? 100 : 0,
       f = b ? 0 : 100
 
@@ -17,4 +17,7 @@ export default class homeTooltipContact {
     })
   }
 
+  play() {
+    this.tl.play()
+  }
 }

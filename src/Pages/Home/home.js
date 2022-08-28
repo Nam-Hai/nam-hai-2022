@@ -2,7 +2,7 @@ import Page from "../../classes/Page";
 import gridFixation from "../../components/gridFixation/gridFixation";
 import ressortButton from "../../components/ressortButton/ressortButton";
 import { N } from "../../utils/namhai";
-import { stringLetterToSpan } from "../../utils/utilsText";
+import { stringLetterToDoubleSpan, stringLetterToSpan } from "../../utils/utilsText";
 import homeTemplate from "./home.html?raw"
 
 export default class Home extends Page {
@@ -42,5 +42,10 @@ export default class Home extends Page {
       })
 
     }
+
+    let htI = N.get('.htI', node)
+    stringLetterToDoubleSpan(htI, 'tooltip__span')
+    let htC = N.get('.htC', node)
+    stringLetterToDoubleSpan(htC, 'tooltip__span')
   }
 }

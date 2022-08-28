@@ -5,10 +5,11 @@ import PreloaderTooltipAnimation from "../../animation/preloaderTooltipAnimation
 import preloaderComplete from "../../animation/preloaderComplete";
 import homeTextTransform from "../../animation/homeTextTransform";
 import collectionsNext from "../../animation/collectionsNext";
-import homeTooltipContact from "../../animation/homeTooltipContact";
 import collectionsNav from "../../animation/collectionsNav";
 import homeNav1 from "../../animation/homeNav1";
 import collectionsPrevious from "../../animation/collectionsPrevious";
+import homeTooltipContact from "../../animation/homeTooltipContact";
+import homeTooltipCollections from "../../animation/homeTooltipCollections";
 
 const k = 0.05
 const c = 0.2
@@ -30,9 +31,10 @@ const animeCompletionMap2 = new Map([
 
 const animeOnMarkerMap = new Map([
   ['preloaderTooltip', PreloaderTooltipAnimation],
+  ['homeTooltipCollections', homeTooltipCollections]
 ])
 const animeOnMarkerMap2 = new Map([
-  ['homeTooltipContact', homeTooltipContact]
+  ['homeTooltipContact', homeTooltipContact],
 ])
 export default class ressortButton extends Component {
   constructor({ name, node }) {
@@ -73,6 +75,8 @@ export default class ressortButton extends Component {
     this.raf = new N.RafR(this.update)
 
     this.timeline = new N.TL
+    this.timeline2 = new N.TL
+    this.timeline3 = new N.TL
 
     this.crossTemplate = N.get('.cross__wrapper', this.element)
 
@@ -166,11 +170,10 @@ export default class ressortButton extends Component {
         }
       }
     }
-    this.turnMarker(false)
+    this.turnMarker(false, false, true)
   }
 
-  turnMarker(b, secondMarker = false) {
-    this.secondMarker = secondMarker
+  turnMarker(b, secondMarker = false, onMouseUp = false) {
     const a = (2 * secondMarker - 1)
     if (this.markerOn == b) return
     this.markerOn = b
@@ -186,16 +189,23 @@ export default class ressortButton extends Component {
         this.marker.style.transform = `rotate(${t}deg)`
       }
     })
-    if (this.animeOnMarker) {
-      if (!secondMarker) {
-        let tl = new (animeOnMarkerMap.get(this.animeOnMarker))(b).tl
-        this.timeline.arr.push(...tl.arr)
-      } else {
+    if (this.animeOnMarker && !onMouseUp) {
+      if (this.secondMarker || secondMarker) {
+        this.timeline2.pause()
+        this.timeline2 = new N.TL
         let tl = new (animeOnMarkerMap2.get(this.animeOnMarker2))(b).tl
-        this.timeline.arr.push(...tl.arr)
+        this.timeline2.arr.push(...tl.arr)
+        this.timeline2.play()
+      } else if (!secondMarker) {
+        this.timeline3.pause()
+        this.timeline3 = new N.TL
+        let tl = new (animeOnMarkerMap.get(this.animeOnMarker))(b).tl
+        this.timeline3.arr.push(...tl.arr)
+        this.timeline3.play()
       }
     }
 
+    this.secondMarker = secondMarker
     this.timeline.play()
   }
 

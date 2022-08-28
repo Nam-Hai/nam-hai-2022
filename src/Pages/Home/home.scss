@@ -20,14 +20,31 @@
 
   }
   ressort-button.c_w {
+    position: relative;
     color: $primary-blue;
-    bottom: 50px;
-    left: 50%;
-    transform: translateX(-50%);
     & > button {
       background-color: $primary-blue;
     }
   }
+}
+.home__action__wrapper{
+  bottom: 50px;
+  left: 50%;
+  transform: translateX(-50%);
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.home__action__tooltip{
+  font-family: 'League Spartan';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 40px;
+  line-height: 37px;
+  text-transform: uppercase;
+
+  color: #0D3A95;
 }
 
 .hero {
@@ -96,3 +113,24 @@
   // margin-left: -0.195rem
 }
 
+.home__action__tooltip__wrapper {
+  pointer-events: none;
+  user-select: none; /* supported by Chrome and Opera */
+  -webkit-user-select: none; /* Safari */
+  -khtml-user-select: none; /* Konqueror HTML */
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+  height: 37px;
+  margin-bottom: .5rem;
+}
+.home__action__tooltip {
+  position: absolute;
+  display: flex;
+  transform: translateX(-50%);
+  .doublespan__container {
+    margin-bottom: unset;
+  }
+  span span {
+    transform: translateX(-100%);
+  }
+}
