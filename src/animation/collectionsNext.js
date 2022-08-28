@@ -6,7 +6,7 @@ export default class collectionsNext extends collectionsAnime {
   constructor() {
     collectionsService.increaseCounter()
     super()
-    N.PE.all(this.button)
+    // N.PE.all(this.button)
   }
 
   canvasAnimation() {
@@ -36,6 +36,7 @@ export default class collectionsNext extends collectionsAnime {
           mB2.program.uniforms.force.value = N.map(t.prog, 0, 0.3, 0, force)
         }
         [...medias, ...mediasBuffer].forEach(m => {
+          m.program.uniforms.angle.value = [0.3]
           m.program.uniforms.target.value = m.canvasSize.width * (.5 - t.progE / 2)
         })
         let nT = N.Clamp(N.iLerp(t.progE, 0.25, 1), 0, 1)
