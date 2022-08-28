@@ -75,7 +75,7 @@ export default class {
     this.setScale()
   }
   setScale() {
-    this.program.uniforms.s.value = [1, 1]
+    this.program.uniforms.s.value = [this.bounds.height / this.bounds.width, 1]
     this.program.uniforms.t.value = [0, 0]
 
     this.mesh.scale.x = this.bounds.width
