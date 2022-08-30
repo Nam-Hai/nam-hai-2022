@@ -43,6 +43,8 @@ export default class collectionsAnime {
     N.PE.none(this.button)
     this.canvas = canvas
 
+    const c = collectionsService.getInfo().c
+
 
 
     let bB = N.get('.buffer__background')
@@ -66,6 +68,8 @@ export default class collectionsAnime {
     let navTitleFlavourBufferSpans = N.getAll('span span', navfB)
     let navTitleNameBufferSpans = N.getAll('span span', navnB)
 
+    let backTooltip = N.get('.back__tooltip')
+    backTooltip.style.color = c
 
     this.tl = new N.TL
     this.tl.from({
@@ -91,7 +95,8 @@ export default class collectionsAnime {
 
     this.tl.from({
       d: 450,
-      el: [...navTitleFlavourBufferSpans, ...navTitleNameBufferSpans],
+      el: [...navTitleFlavourBufferSpans, ...navTitleNameBufferSpans
+      ],
       p: {
         x: [-100, 0],
       },

@@ -48,6 +48,7 @@ $background-color: #171717;
   bottom: 2rem;
   display: flex;
   align-items: center;
+  z-index: 5;
 
   .back__tooltip {
     font-weight: 700;
@@ -138,6 +139,3 @@ $background-color: #171717;
   }
 
 }
-
-
-

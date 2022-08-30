@@ -22,8 +22,8 @@ export default class Collections extends Page {
   render(node) {
     super.render(node)
 
-    let bT = N.get('.back__tooltip')
-    stringLetterToDoubleSpan(bT, 'tooltip__span')
+
+    // stringLetterToDoubleSpan(bcT, 'tooltip__span')
 
   }
   renderComponents(node) {
@@ -52,6 +52,20 @@ export default class Collections extends Page {
         if (b) b.style.backgroundColor = info.c
       })
     }
+
+    let bT = N.get('.back__tooltip')
+    stringLetterToDoubleSpan(bT, 'tooltip__span')
+
+
+    const tT = N.get('.total-page'),
+      btT = N.get('.buffer__total-page'),
+      cT = N.get('.current-page'),
+      bcT = N.get('.buffer__current-page'),
+      cInfoL = collectionsService.collectionsInfo.length
+    tT.innerHTML = cInfoL > 9 ? cInfoL : '0' + cInfoL
+    stringLetterToDoubleSpan(tT, 'tooltip__span')
+    stringLetterToDoubleSpan(btT, 'tooltip__span')
+    stringLetterToDoubleSpan(cT, 'tooltip__span')
 
     node.style.backgroundColor = info.bg
   }
