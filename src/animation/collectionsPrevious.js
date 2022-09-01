@@ -1,6 +1,7 @@
 import { canvas } from "../Canvas/canvas";
 import { N } from "../utils/namhai";
-import collectionsAnime, { collectionsService } from "./collectionsAnimation";
+import collectionsAnime from "./collectionsAnimation";
+import { collectionsService } from "./collectionsAnimationService";
 
 export default class collectionsPrevious extends collectionsAnime {
   constructor() {

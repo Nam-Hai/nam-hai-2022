@@ -1,46 +1,11 @@
 import { canvas } from "../Canvas/canvas"
 import { N } from "../utils/namhai"
 import { stringLetterToDoubleSpan } from "../utils/utilsText"
-
-class CollectionsService {
-  constructor() {
-    this.currentPage = 0
-
-    this.collectionsInfo = [
-      { bg: '#171717', c: '#E5DFDF', flavour: 'IA', name: 'Midjourney', image1: 'collections/noise1.png', image2: 'collections/noise2.png' },
-      { bg: '#F0BDBD', c: '#FF4A0B', flavour: 'Typography', name: 'Travis', image1: 'collections/travis1.png', image2: 'collections/travis2.png' },
-      { bg: '#131721', c: '#DA2607', flavour: 'ia', name: 'midjourney', image1: 'collections/wrath1.png', image2: 'collections/wrath2.png' },
-      { bg: '#B2E8D7', c: '#1B795F', flavour: 'DIGITAL PAINTING', name: 'CHERIFKID', image1: 'collections/cherifkid1.jpg', image2: 'collections/cherifkid2.png' },
-      // { bg: '#171717', c: '#E5DFDF', flavour: 'IA', name: 'Midjourney', image1: 'collections/noise1.png', image2: 'collections/noise2.png' },
-
-    ]
-  }
-  increaseCounter() {
-    this.currentPage++
-    if (this.currentPage === this.collectionsInfo.length) this.currentPage = 0
-  }
-  decreaseCounter() {
-    this.currentPage--
-    if (this.currentPage === -1) this.currentPage = this.collectionsInfo.length - 1
-  }
-
-  getBufferImg(media, i) {
-    let image = new window.Image()
-    image.crossOrigin = 'anonymous'
-    image.src = this.collectionsInfo[this.currentPage][`image${+i + 1}`]
-    image.onload = () => media.texture.image = image
-  }
-
-  getInfo() {
-    return this.collectionsInfo[this.currentPage]
-  }
-}
-export const collectionsService = new CollectionsService();
+import { collectionsService } from "./collectionsAnimationService"
 
 export default class collectionsAnime {
   constructor() {
     this.button = N.get('.nR button')
-    N.PE.none(this.button)
     this.canvas = canvas
 
     const c = collectionsService.getInfo().c
@@ -63,13 +28,29 @@ export default class collectionsAnime {
     navnB.style.color = collectionsService.getInfo().c
     navfB.style.color = collectionsService.getInfo().c
 
-    stringLetterToDoubleSpan(navfB, 'tooltip__span')
-    stringLetterToDoubleSpan(navnB, 'tooltip__span')
+    // stringLetterToDoubleSpan(navfB, 'tooltip__span')
+    // stringLetterToDoubleSpan(navnB, 'tooltip__span')
     let navTitleFlavourBufferSpans = N.getAll('span span', navfB)
     let navTitleNameBufferSpans = N.getAll('span span', navnB)
 
     let backTooltip = N.get('.back__tooltip')
     backTooltip.style.color = c
+
+
+    let page = N.get('.current__page'),
+      pageSpan = N.getAll('span span', page)
+    let pageBuffer = N.get('.buffer__page')
+    pageBuffer.innerHTML = collectionsService.getInfo().index
+    pageBuffer.style.color = collectionsService.getInfo().c
+
+    let pageBufferSpans = N.getAll('span span', pageBuffer)
+    let totalPage = N.get('.total__page'),
+      totalPageSpan = N.getAll('span span', totalPage),
+      totalPageBuffer = N.get('.total__page__buffer'),
+      totalPageBufferSpans = N.getAll('span span', totalPageBuffer),
+      total__page__wrapper = N.get('.total__page__wrapper')
+    total__page__wrapper.style.color = c
+    totalPageBuffer.style.color = c
 
     this.tl = new N.TL
     this.tl.from({
@@ -86,34 +67,45 @@ export default class collectionsAnime {
 
     this.tl.from({
       d: 450,
-      el: [...navTitleFlavourSpans, ...navTitleNameSpans],
+      el: [...navTitleFlavourSpans, ...navTitleNameSpans, ...pageSpan, ...totalPageSpan],
       p: {
-        x: [0, -100]
+        x: [0, -101]
+      },
+      cb: _ => {
+        N.O(pageBuffer, 1)
+        N.O(totalPageBuffer, 1)
       },
       e: 'o5'
     })
 
     this.tl.from({
       d: 450,
-      el: [...navTitleFlavourBufferSpans, ...navTitleNameBufferSpans
+      el: [...navTitleFlavourBufferSpans, ...navTitleNameBufferSpans, ...pageBufferSpans, ...totalPageBufferSpans
       ],
       p: {
-        x: [-100, 0],
+        x: [-101, 0],
       },
       cb: () => {
-        this.calculNextState(navf, navn, navfB, navnB)
+        this.calculNextState(navf, navn, navfB, navnB, page, pageBuffer, totalPage, totalPageBuffer)
       },
       e: 'o5',
-      delay: 200
+      delay: 450
     })
 
+    N.PE.none(this.button)
     this.canvasAnimation()
 
   }
 
-  calculNextState(navf, navn, navfB, navnB) {
+  calculNextState(navf, navn, navfB, navnB, p, bp, total__page, total__page__buffer) {
+    total__page.innerHTML = total__page__buffer.innerHTML
+    total__page.style.color = collectionsService.getInfo().c
+    N.O(total__page__buffer, 0)
 
+    p.innerHTML = bp.innerHTML
+    p.style.color = collectionsService.getInfo().c
 
+    N.O(bp, 0)
     N.get('main').style.backgroundColor = collectionsService.getInfo().bg
     navf.innerHTML = navfB.innerHTML
     navn.innerHTML = navnB.innerHTML

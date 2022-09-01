@@ -1,6 +1,5 @@
 import { Transform, Plane, Program, Mesh, Texture } from 'ogl'
-import { collectionsService } from '../../animation/collectionsAnimation'
-import { N } from '../../utils/namhai'
+import { collectionsService } from '../../animation/collectionsAnimationService'
 import fragment from './fragment.glsl?raw'
 import vertex from './vertex.glsl?raw'
 

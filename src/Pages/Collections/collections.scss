@@ -59,7 +59,7 @@ $background-color: #171717;
     margin-right: 1rem;
 
     span span {
-      transform: translateX(-100%);
+      transform: translateX(-101%);
     }
   }
   ressort-button.r_br{
@@ -138,4 +138,43 @@ $background-color: #171717;
     object-fit: cover;
   }
 
+}
+
+.nav__page__wrapper {
+  position: absolute;
+  left: 0;
+  display: flex;
+  font-size: 3rem;
+  .total__page, .buffer__page, .current__page, .total__page__buffer {
+    display: flex;
+    align-items: center;
+  }
+  .buffer__page, .total__page__buffer {
+    position: absolute;
+    span span{
+      transform: translateX(100%);
+    }
+  }
+  .current__page__wrapper {
+    display: flex;
+    width: 3.5rem;
+  }
+
+  .total__page, .total__page__buffer {
+    right: 0;
+  }
+  .total__page__wrapper {
+    display: flex;
+    align-items: center;
+    transition: color 1s;
+    &::before {
+      content: '';
+      width: 2rem;
+      height: 2px;
+      background-color: currentColor;
+      transition: background-color 1s;
+      margin: 0 2rem;
+      margin-bottom: -1px;
+    }
+  }
 }

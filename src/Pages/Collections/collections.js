@@ -4,7 +4,7 @@ import ressortButton from "../../components/ressortButton/ressortButton";
 import { stringLetterToDoubleSpan } from "../../utils/utilsText";
 import collectionsTemplate from './collections.html?raw'
 import { N } from "../../utils/namhai";
-import { collectionsService } from "../../animation/collectionsAnimation";
+import { collectionsService } from "../../animation/collectionsAnimationService";
 
 export default class Collections extends Page {
   constructor() {
@@ -23,7 +23,6 @@ export default class Collections extends Page {
     super.render(node)
 
 
-    // stringLetterToDoubleSpan(bcT, 'tooltip__span')
 
   }
   renderComponents(node) {
@@ -36,11 +35,9 @@ export default class Collections extends Page {
     })
     let navn = N.get('.nav__title__name', node)
     navn.innerHTML = info.name
-    stringLetterToDoubleSpan(navn, 'tooltip__span')
 
     let navf = N.get('.nav__title__flavour', node)
     navf.innerHTML = info.flavour
-    stringLetterToDoubleSpan(navf, 'tooltip__span')
 
     navf.style.color = info.c
     navn.style.color = info.c
@@ -53,19 +50,30 @@ export default class Collections extends Page {
       })
     }
 
-    let bT = N.get('.back__tooltip')
-    stringLetterToDoubleSpan(bT, 'tooltip__span')
 
+    let bP = N.get('.total__page__wrapper')
+    bP.innerHTML = ''
+    let totalPage = N.Cr('div'),
+      bufferTotalPage = N.Cr('div')
+    totalPage.classList.add('total__page')
+    bufferTotalPage.classList.add('total__page__buffer')
 
-    const tT = N.get('.total-page'),
-      btT = N.get('.buffer__total-page'),
-      cT = N.get('.current-page'),
-      bcT = N.get('.buffer__current-page'),
-      cInfoL = collectionsService.collectionsInfo.length
-    tT.innerHTML = cInfoL > 9 ? cInfoL : '0' + cInfoL
-    stringLetterToDoubleSpan(tT, 'tooltip__span')
-    stringLetterToDoubleSpan(btT, 'tooltip__span')
-    stringLetterToDoubleSpan(cT, 'tooltip__span')
+    const l = collectionsService.collectionsInfo.length
+    totalPage.innerHTML = l > 9 ? l : '0' + l
+    stringLetterToDoubleSpan(totalPage, 'tooltip__span')
+    bufferTotalPage.innerHTML = totalPage.innerHTML
+
+    bP.appendChild(totalPage)
+    bP.appendChild(bufferTotalPage)
+
+    bP.style.color = info.c
+    let current__page = N.get('.current__page')
+    current__page.style.color = info.c
+    current__page.innerHTML = collectionsService.getInfo().index
+    for (const q of N.getAll('span span', current__page)) {
+      N.T(q, 0, 0)
+    }
+
 
     node.style.backgroundColor = info.bg
   }
