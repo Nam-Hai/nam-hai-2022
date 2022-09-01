@@ -10,7 +10,7 @@ export default class collectionsPrevious extends collectionsAnime {
   }
 
   canvasAnimation() {
-    const d = 600, delay = 1000, e = 'io5', zF = -0.5
+    const d = 400, delay = 1000, e = 'io5', zF = -0.5
     const force = .9
     this.canvas = canvas
     Object.entries(this.canvas.collections.mediasBuffer).forEach(([index, mB]) => {

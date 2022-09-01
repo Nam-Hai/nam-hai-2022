@@ -11,8 +11,8 @@ export default class collectionsNext extends collectionsAnime {
   }
 
   canvasAnimation() {
-    const d = 600, delay = 1000, e = 'io5', zF = -0.5
-    const force = -1.0
+    const d = 400, delay = 1000, e = 'io5', zF = -0.5
+    const force = -.7
     this.canvas = canvas
     Object.entries(this.canvas.collections.mediasBuffer).forEach(([index, mB]) => {
       collectionsService.getBufferImg(mB, index)
