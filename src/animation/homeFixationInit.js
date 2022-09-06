@@ -12,7 +12,8 @@ export default class homeFixationInit {
         this.tl.from({
           d: 800,
           p: {
-            x: [0, -(8 + 7 * 21) + 42 * index + 2 * (index - 1), 'px']
+            // x: [0, -(8 + 7 * 21) + 42 * index + 2 * (index - 1), 'px']
+            x: [0, -(8 + 7 * 48) + 96 * index + 2 * (index - 1), 'px']
           },
           cb: _ => fixationInit = true,
           el: fixation,
@@ -22,7 +23,7 @@ export default class homeFixationInit {
       })
     } else {
       Object.entries(fixations).forEach(([index, fixation]) => {
-        N.T(fixation, -(8 + 7 * 21) + 42 * index + 2 * (index - 1), 0, 'px')
+        N.T(fixation, -(8 + 7 * 48) + 96 * index + 2 * (index - 1), 0, 'px')
       })
     }
   }

@@ -8,12 +8,13 @@ export default class collectionsAnime {
     this.button = N.get('.nR button')
     this.canvas = canvas
 
-    const c = collectionsService.getInfo().c
+    this.info = collectionsService.getInfo()
+
 
 
 
     let bB = N.get('.buffer__background')
-    bB.style.backgroundColor = collectionsService.getInfo().bg
+    bB.style.backgroundColor = this.info.bg
     this.titleWrapperBuffer = N.get('.buffer__title')
 
     let navf = N.get('.true__title .nav__title__flavour')
@@ -23,10 +24,11 @@ export default class collectionsAnime {
 
     let navnB = N.get('.buffer__title .nav__title__name')
     let navfB = N.get('.buffer__title .nav__title__flavour')
-    navnB.innerHTML = collectionsService.getInfo().name
-    navfB.innerHTML = collectionsService.getInfo().flavour
-    navnB.style.color = collectionsService.getInfo().c
-    navfB.style.color = collectionsService.getInfo().c
+    navnB.innerHTML = this.info.name
+    navfB.innerHTML = this.info.flavour
+
+    navnB.style.color = this.info.c
+    navfB.style.color = this.info.c
 
     // stringLetterToDoubleSpan(navfB, 'tooltip__span')
     // stringLetterToDoubleSpan(navnB, 'tooltip__span')
@@ -34,14 +36,14 @@ export default class collectionsAnime {
     let navTitleNameBufferSpans = N.getAll('span span', navnB)
 
     let backTooltip = N.get('.back__tooltip')
-    backTooltip.style.color = c
+    backTooltip.style.color = this.info.c
 
 
     let page = N.get('.current__page'),
       pageSpan = N.getAll('span span', page)
     let pageBuffer = N.get('.buffer__page')
-    pageBuffer.innerHTML = collectionsService.getInfo().index
-    pageBuffer.style.color = collectionsService.getInfo().c
+    pageBuffer.innerHTML = this.info.index
+    pageBuffer.style.color = this.info.c
 
     let pageBufferSpans = N.getAll('span span', pageBuffer)
     let totalPage = N.get('.total__page'),
@@ -49,8 +51,8 @@ export default class collectionsAnime {
       totalPageBuffer = N.get('.total__page__buffer'),
       totalPageBufferSpans = N.getAll('span span', totalPageBuffer),
       total__page__wrapper = N.get('.total__page__wrapper')
-    total__page__wrapper.style.color = c
-    totalPageBuffer.style.color = c
+    total__page__wrapper.style.color = this.info.c
+    totalPageBuffer.style.color = this.info.c
 
     this.tl = new N.TL
     this.tl.from({
@@ -99,32 +101,36 @@ export default class collectionsAnime {
 
   calculNextState(navf, navn, navfB, navnB, p, bp, total__page, total__page__buffer) {
     total__page.innerHTML = total__page__buffer.innerHTML
-    total__page.style.color = collectionsService.getInfo().c
+    total__page.style.color = this.info.c
     N.O(total__page__buffer, 0)
 
     p.innerHTML = bp.innerHTML
-    p.style.color = collectionsService.getInfo().c
+    p.style.color = this.info.c
 
     N.O(bp, 0)
-    N.get('main').style.backgroundColor = collectionsService.getInfo().bg
+    // N.get('main').style.backgroundColor = this.info.bg
+    const wrapper = N.get('.collections__wrapper')
+    wrapper.style.color = this.info.c
+    wrapper.style.backgroundColor = this.info.bg
+
     navf.innerHTML = navfB.innerHTML
     navn.innerHTML = navnB.innerHTML
 
-    navf.style.color = collectionsService.getInfo().c
-    navn.style.color = collectionsService.getInfo().c
+    navf.style.color = this.info.c
+    navn.style.color = this.info.c
     N.O(this.titleWrapperBuffer, 0)
   }
 
   play() {
     const fixations = N.getAll('.fixation')
     fixations.forEach(f => {
-      f.style.backgroundColor = collectionsService.getInfo().c
+      f.style.backgroundColor = this.info.c
     })
 
     const ressorts = N.getAll('ressort-button')
     ressorts.forEach(r => {
-      r.style.color = collectionsService.getInfo().c
-      N.get('button', r).style.backgroundColor = collectionsService.getInfo().c
+      r.style.color = this.info.c
+      N.get('button', r).style.backgroundColor = this.info.c
     })
     N.O(this.titleWrapperBuffer, 1)
     this.tl.play()

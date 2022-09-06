@@ -4,15 +4,15 @@ $text-color: #E5DFDF;
 $background-color: #171717;
 [data-template=collections] {
   // background-color: $background-color ;
-  color: $text-color;
+  // color: $text-color;
 
   ressort-button {
     z-index: 5;
-    color: transparent;
+    // color: transparent;
     transition: color 1s;
     > button {
       transition: background-color 1s;
-      background-color: transparent;
+      // background-color: transparent;
     }
   }
 
@@ -22,7 +22,7 @@ $background-color: #171717;
     bottom: calc(35px + 30rem);
     .fixation {
       transition: background-color 1s;
-      background-color: transparent;
+      // background-color: transparent;
     }
   }
 

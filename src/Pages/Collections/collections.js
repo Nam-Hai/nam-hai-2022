@@ -22,34 +22,21 @@ export default class Collections extends Page {
   render(node) {
     super.render(node)
 
-
-
   }
   renderComponents(node) {
     super.renderComponents(node)
     const info = collectionsService.getInfo()
 
-    const fixations = N.getAll('.fixation', node)
-    fixations.forEach(f => {
-      f.style.backgroundColor = info.c
-    })
+    const wrapper = N.get('.collections__wrapper', node)
+    wrapper.style.color = info.c
+    wrapper.style.backgroundColor = info.bg
+
+
     let navn = N.get('.nav__title__name', node)
     navn.innerHTML = info.name
 
     let navf = N.get('.nav__title__flavour', node)
     navf.innerHTML = info.flavour
-
-    navf.style.color = info.c
-    navn.style.color = info.c
-    let r = N.getAll('ressort-button', node)
-    if (r) {
-      r.forEach(r => {
-        r.style.color = info.c
-        let b = N.get('button', r)
-        if (b) b.style.backgroundColor = info.c
-      })
-    }
-
 
     let bP = N.get('.total__page__wrapper')
     bP.innerHTML = ''
@@ -68,16 +55,12 @@ export default class Collections extends Page {
 
     bP.style.color = info.c
     let current__page = N.get('.current__page')
-    current__page.style.color = info.c
-    current__page.innerHTML = collectionsService.getInfo().index
+    current__page.innerHTML = info.index
     for (const q of N.getAll('span span', current__page)) {
       N.T(q, 0, 0)
     }
 
-    let back = N.get('.back__tooltip')
-    back.style.color = info.c
-
-    node.style.backgroundColor = info.bg
+    // node.style.backgroundColor = info.bg
   }
   onMouseMove(e) {
     this.components['ressort-button'].forEach(c => {

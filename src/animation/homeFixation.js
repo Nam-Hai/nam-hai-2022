@@ -1,7 +1,7 @@
 import { N } from "../utils/namhai";
 
 const indexToDelay = [0, 1, 2, 3, 3, 2, 1, 0]
-let fixationState = false
+let fixationState = true
 export default class homeFixation {
   constructor(b) {
     this.tl = new N.TL
@@ -21,7 +21,7 @@ export default class homeFixation {
           x: [fixationState == b ? initX : b ? initX : endX, b ? endX : initX, 'px']
         },
         el: fixation,
-        e: 'io5',
+        e: 'o5',
       })
     })
     fixationState = b

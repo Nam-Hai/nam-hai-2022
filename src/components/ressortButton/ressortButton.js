@@ -6,11 +6,13 @@ import preloaderComplete from "../../animation/preloaderComplete";
 import homeTextTransform from "../../animation/homeTextTransform";
 import collectionsNext from "../../animation/collectionsNext";
 import collectionsNav from "../../animation/collectionsNav";
-import homeNav1 from "../../animation/homeNav1";
 import collectionsPrevious from "../../animation/collectionsPrevious";
 import homeTooltipContact from "../../animation/homeTooltipContact";
 import homeTooltipCollections from "../../animation/homeTooltipCollections";
 import collectionsTooltipBack from "../../animation/collectionsTooltipBack";
+import homeToCollections from "../../animation/homeToCollections";
+import homeToContact from "../../animation/homeToContact";
+import homeFixation from "../../animation/homeFixation";
 
 const k = 0.05
 const c = 0.2
@@ -21,13 +23,14 @@ const rForce = 1.5
 const animeCompletionMap = new Map([
   ['preloaderComplete', preloaderComplete],
   ['homeTextTransform', homeTextTransform],
-  ['homeNav1', homeNav1],
+  ['homeToCollections', homeToCollections],
   ['collectionsNext', collectionsNext],
   ['collectionsNav', collectionsNav]
 ])
 
 const animeCompletionMap2 = new Map([
   ['collectionsPrevious', collectionsPrevious],
+  ['homeToContact', homeToContact]
 ])
 
 const animeOnMarkerMap = new Map([
@@ -73,12 +76,13 @@ export default class ressortButton extends Component {
       acc: 0
     }
 
-    N.BM(this, ['update', 'onMouseDown', 'onMouseMove', 'onMouseUp', 'turnMarker'])
+    N.BM(this, ['update', 'onMouseDown', 'onMouseMove', 'onMouseUp', 'turnMarker', 'onMouseEnter', 'onMouseLeave'])
     this.raf = new N.RafR(this.update)
 
     this.timeline = new N.TL
     this.timeline2 = new N.TL
     this.timeline3 = new N.TL
+    this.tlFixation = new N.TL
 
     this.crossTemplate = N.get('.cross__wrapper', this.element)
 
@@ -95,6 +99,7 @@ export default class ressortButton extends Component {
       let link = n === 1 ? this.link : this.link2
       if (this.link) {
         w.setAttribute('href', link)
+        w.classList.add('link__spa')
       }
     }
     w.innerHTML = this.crossTemplate.innerHTML
@@ -116,6 +121,19 @@ export default class ressortButton extends Component {
 
   addEventListener() {
     this.button.addEventListener('mousedown', this.onMouseDown)
+    this.button.addEventListener('mouseenter', this.onMouseEnter)
+    this.button.addEventListener('mouseleave', this.onMouseLeave)
+  }
+  onMouseEnter() {
+    this.tlFixation.pause()
+    this.tlFixation = (new homeFixation()).tl
+    this.tlFixation.play()
+  }
+  onMouseLeave() {
+    if (this.clicked) return
+    this.tlFixation.pause()
+    this.tlFixation = (new homeFixation(true)).tl
+    this.tlFixation.play()
   }
 
   onMouseDown(e) {
@@ -154,6 +172,7 @@ export default class ressortButton extends Component {
     this.clicked = false
     this.raf.run()
 
+    this.onMouseLeave()
     if (this.markerOn) {
       this.isToggled = true
       if (this.link) {
