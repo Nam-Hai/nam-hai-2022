@@ -18,10 +18,6 @@ export default class TransitionCollectionsHome {
       update: t => {
         N.T(m, 0, -t.progE * 100)
         N.T(mB, 0, -t.progE * 100)
-        // collectionsMedias.forEach(m => {
-        //   m.mesh.position.y = (-boundsY.y + canvas.sizePixel.height / 2) * canvas.size.height / canvas.sizePixel.height - m.bounds.height / 2
-        //   m.mesh.position.y += canvas.size.height * t.progE
-        // });
         canvas.collections.group.position.y = canvas.size.height * t.progE
         canvas.home.mesh.position.y = canvas.size.height * (-1 + t.progE)
       },
