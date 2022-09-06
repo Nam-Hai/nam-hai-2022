@@ -1,15 +1,17 @@
 import Preloader from '../Pages/preloader/preloader';
-// import homeTemplate from '../views/home.html?raw'
 import Home from '../Pages/Home/home';
 import Collections from '../Pages/Collections/collections';
 import TransitionHomeCollections from '../animation/TransitionHomeCollections';
 import TransitionPreloaderHome from '../animation/TransitionPreloaderHome';
 import TransitionCollectionsHome from '../animation/TransitionCollectionsHome';
+import Contact from '../Pages/Contact/contact';
+import TransitionHomeContact from '../animation/TransitionHomeContact';
 
 const transitionMap = new Map([
   ['home => collections', TransitionHomeCollections],
   ['collections => home', TransitionCollectionsHome],
-  ['preloader => home', TransitionPreloaderHome]
+  ['preloader => home', TransitionPreloaderHome],
+  ['home => contact', TransitionHomeContact]
 ])
 
 export default class Router {
@@ -17,7 +19,8 @@ export default class Router {
   constructor() {
     this.pageManager = {
       'home': Home,
-      'collections': Collections
+      'collections': Collections,
+      'contact': Contact
     }
 
   }

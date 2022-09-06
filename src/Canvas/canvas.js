@@ -1,6 +1,7 @@
 import { Renderer, Camera, Transform } from 'ogl'
 import { N } from '../utils/namhai';
 import CollectionsCanvas from './collections/CollectionsCanvas';
+import ContactCanvas from './Contact/ContactCanvas';
 import HomeCanvas from './Home/HomeCanvas';
 import PreloaderCanvas from './preloader/PreloaderCanvas';
 
@@ -9,7 +10,8 @@ class Canvas {
     this.mapRouteObject = {
       home: this.createHome,
       preloader: this.createPreloader,
-      collections: this.createCollections
+      collections: this.createCollections,
+      contact: this.createContact
     };
 
     this.sizePixel = {
@@ -70,6 +72,15 @@ class Canvas {
       canvasSizePixel: this.sizePixel
     })
     console.log('createCollections ', this.collections);
+  }
+
+  createContact() {
+    this.contact = new ContactCanvas({
+      gl: this.gl,
+      scene: this.scene,
+      canvasSize: this.size,
+      canvasSizePixel: this.sizePixel
+    })
   }
 
   onChange(route) {
