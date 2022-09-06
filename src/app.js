@@ -17,7 +17,7 @@ class App {
   }
 
   initPage() {
-    const url = 'collections'
+    const url = 'home'
     window.history.pushState('', 'Nam Hai portfolio', url)
     this.page = this.createPage(url)
 
@@ -55,7 +55,7 @@ class App {
   }
 
   addLinkLinstener(context) {
-    let links = N.getAll('a', context)
+    let links = N.getAll('.link__spa', context)
     if (!links) return
     if (!(links instanceof window.NodeList)) links = [links]
     for (const link of links) {
