@@ -74,6 +74,8 @@ export default class Collections extends Page {
       N.T(q, 0, 0)
     }
 
+    let back = N.get('.back__tooltip')
+    back.style.color = info.c
 
     node.style.backgroundColor = info.bg
   }
