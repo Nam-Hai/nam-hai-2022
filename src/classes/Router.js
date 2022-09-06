@@ -6,12 +6,14 @@ import TransitionPreloaderHome from '../animation/TransitionPreloaderHome';
 import TransitionCollectionsHome from '../animation/TransitionCollectionsHome';
 import Contact from '../Pages/Contact/contact';
 import TransitionHomeContact from '../animation/TransitionHomeContact';
+import TransitionContactHome from '../animation/TransitionContactHome';
 
 const transitionMap = new Map([
   ['home => collections', TransitionHomeCollections],
   ['collections => home', TransitionCollectionsHome],
   ['preloader => home', TransitionPreloaderHome],
-  ['home => contact', TransitionHomeContact]
+  ['home => contact', TransitionHomeContact],
+  ['contact => home', TransitionContactHome]
 ])
 
 export default class Router {
