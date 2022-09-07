@@ -16,6 +16,13 @@ export default class {
     this.createMesh()
     this.getBounds()
     this.group.setParent(this.scene)
+
+    N.BM(this, ['update'])
+
+    this.time = 0
+
+    this.raf = new N.RafR(this.update)
+    this.raf.run()
   }
 
   createTexture() {
@@ -28,6 +35,14 @@ export default class {
       this.texture.image = this.image
     }
 
+    this.textureBuffer = new Texture(this.gl)
+
+    this.imageBuffer = new window.Image()
+    this.imageBuffer.crossOrigin = 'anonymous'
+    this.imageBuffer.src = 'contact/contact_2.png'
+    this.imageBuffer.onload = _ => {
+      this.textureBuffer.image = this.imageBuffer
+    }
   }
 
   createMesh() {
@@ -39,6 +54,18 @@ export default class {
         tMap: {
           value: this.texture
         },
+        tMapBuffer: {
+          value: this.textureBuffer
+        },
+        ratio: {
+          value: 1
+        },
+        u_time: {
+          value: 0
+        },
+        u_maxDim: {
+          value: 1
+        }
       }
     })
 
@@ -60,6 +87,9 @@ export default class {
       width: this.heroBoundsPixel.width * this.canvasSize.width / this.canvasSizePixel.width,
       height: this.heroBoundsPixel.height * this.canvasSize.height / this.canvasSizePixel.height
     }
+
+    this.program.uniforms.ratio.value = this.heroBounds.height / this.heroBounds.width
+    this.program.uniforms.u_maxDim.value = this.heroBounds.height;
     this.setScalePos()
   }
 
@@ -72,6 +102,12 @@ export default class {
     this.mesh.position.y = 0
   }
 
+  update() {
+    this.time += 0.01
+    if (this.time > 1) this.time = 1
+    this.program.uniforms.u_time.value = this.time
+  }
+
   destroy() {
     this.group.removeChild(this.mesh)
     this.mesh = null;
@@ -80,20 +116,21 @@ export default class {
 
   async hide() {
     // this.program.uniforms.o.value = 1
-    await new Promise(res => {
-      let motion = new N.M({
-        d: 300,
-        e: 'o6',
-        update: t => {
-        },
-        cb: () => {
-          this.destroy()
-          // this.program.uniforms.o.value = 0
-          res()
-        },
-      })
-      motion.play()
-    })
+    // await new Promise(res => {
+    //   let motion = new N.M({
+    //     d: 300,
+    //     e: 'o6',
+    //     update: t => {
+    //     },
+    //     cb: () => {
+    //       this.destroy()
+    //       // this.program.uniforms.o.value = 0
+    //       res()
+    //     },
+    //   })
+    //   motion.play()
+    // })
+    this.destroy()
   }
 
 }
