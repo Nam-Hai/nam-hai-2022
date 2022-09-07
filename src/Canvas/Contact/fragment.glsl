@@ -4,6 +4,7 @@ uniform sampler2D tMap;
 uniform sampler2D tMapBuffer;
 uniform float ratio;
 uniform float u_time;
+uniform float u_force;
 uniform float u_maxDim;
 
 varying vec2 vUv;
@@ -106,12 +107,12 @@ float circle(in vec2 _st, in float _radius, in float blurriness){
 }
 
 void main() {
-  float c = circle(vec2(vUv.x - 0.5,(vUv.y - .5)*ratio),u_time* u_maxDim ,0.1) * 1.;
+  float c = circle(vec2(vUv.x - 0.5,(vUv.y - .5)*ratio),u_time* u_maxDim ,0.9) * 2.5;
 
-  float n  = (snoise(vec3(vUv.x, vUv.y, 1.)* 4.) +0.)* .5 ;
+  float n  = (snoise(vec3(vUv.x, vUv.y, (u_time + u_force) * 0.1)* 4.) +0.)* 1. ;
   // float n  = (snoise(vec3(vUv.x, vUv.y, 1.)* 4.) )* 2. ;
-  float mask = smoothstep(0.45, 0.5,  dot(c, n) * (1.- u_time) + c* u_time);
-  // float mask = smoothstep(0.99, 1.,  mix(n,c, u_time));
+  float mask = smoothstep(0.45, 0.5,  dot(c, n) * (1.- (3.* u_time + u_force) * 0.25) + c* (3.*u_time + u_force)*0.25);
+  // float mask = smoothstep(0.45, .5,  dot(c, n));
   // float mask = c;
 
 

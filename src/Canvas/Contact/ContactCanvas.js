@@ -20,6 +20,7 @@ export default class {
     N.BM(this, ['update'])
 
     this.time = 0
+    this.force = 0
 
     this.raf = new N.RafR(this.update)
     this.raf.run()
@@ -63,6 +64,9 @@ export default class {
         u_time: {
           value: 0
         },
+        u_force: {
+          value: 0
+        },
         u_maxDim: {
           value: 1
         }
@@ -103,9 +107,15 @@ export default class {
   }
 
   update() {
+
     this.time += 0.01
-    if (this.time > 1) this.time = 1
+    if (this.time > 1) {
+      this.time = 1
+      this.force += 0.01
+      if (this.force > 1) this.force = 1
+    }
     this.program.uniforms.u_time.value = this.time
+    this.program.uniforms.u_force.value = this.force
   }
 
   destroy() {
