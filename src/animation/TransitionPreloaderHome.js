@@ -21,7 +21,8 @@ export default class TransitionPreloaderHome {
         mesh.scale.y = N.Lerp(initY, targetY, t.progE)
 
         canvas.preloader.program.uniforms.radius.value = Math.max(canvas.preloader.buttonBounds.width, canvas.preloader.buttonBounds.height) * 4
-        canvas.preloader.program.uniforms.force.value = N.Lerp(-2.5, 0, N.Ease.o5(t.prog))
+        canvas.preloader.program.uniforms.force.value = N.Lerp(-3.5, 0, N.Ease.o3(t.prog))
+        // canvas.preloader.program.uniforms.force.value = -2.5
       },
       cb: _ => {
         canvas.preloader.program.uniforms.o.value = 0

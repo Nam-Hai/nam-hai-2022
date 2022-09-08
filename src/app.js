@@ -10,10 +10,10 @@ class App {
     this.main = N.get('main')
     this.router = new Router()
 
-    // this.createPreloader()
+    this.createPreloader()
     // this.onChange({ url: 'home' })
 
-    this.initPage()
+    // this.initPage()
   }
 
   initPage() {
