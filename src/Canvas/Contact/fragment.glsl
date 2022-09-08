@@ -6,7 +6,7 @@ uniform float ratio;
 uniform float u_time;
 uniform float u_force;
 uniform float u_maxDim;
-
+uniform bool u_init;
 varying vec2 vUv;
 
 vec3 mod289(vec3 x) {
@@ -107,17 +107,22 @@ float circle(in vec2 _st, in float _radius, in float blurriness){
 }
 
 void main() {
+  // float c = circle(vec2(vUv.x - 0.5,(vUv.y - .5)*ratio),u_time* u_maxDim ,0.9) * 2.5;
   float c = circle(vec2(vUv.x - 0.5,(vUv.y - .5)*ratio),u_time* u_maxDim ,0.9) * 2.5;
 
-  float n  = (snoise(vec3(vUv.x, vUv.y, (u_time + u_force) * 0.1)* 4.) +0.)* 1. ;
+  float n  = (snoise(vec3(vUv.x, vUv.y, u_time* .25)* 3.) + mix(0.1, 2.0, u_force))* 1. ;
   // float n  = (snoise(vec3(vUv.x, vUv.y, 1.)* 4.) )* 2. ;
-  float mask = smoothstep(0.45, 0.5,  dot(c, n) * (1.- (3.* u_time + u_force) * 0.25) + c* (3.*u_time + u_force)*0.25);
-  // float mask = smoothstep(0.45, .5,  dot(c, n));
+  // float mask = smoothstep(0.49, 0.5,  dot(c, n) * (1.- (3.* u_time + u_force) * 0.25) + c* (3.*u_time + u_force)*0.25);
+  float mask = smoothstep(0.49, .5,  c * n);
   // float mask = c;
 
 
-  vec4 texture = texture2D(tMap,vUv);
+  vec4 texture =texture2D(tMap,vUv);
   vec4 textureBuffer = texture2D(tMapBuffer, vUv);
 
-  gl_FragColor = mix(texture, textureBuffer,mask);
+  if(u_init == false)
+    gl_FragColor =  mix(vec4(.0,.0,.0,.0), texture, mask);
+  else
+    gl_FragColor = mix(texture, textureBuffer,mask);
+
 }

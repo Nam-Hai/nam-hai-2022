@@ -17,13 +17,61 @@ export default class {
     this.getBounds()
     this.group.setParent(this.scene)
 
-    N.BM(this, ['update'])
+    let motionInit = new N.TL()
+    this.nextTL = new N.TL()
 
-    this.time = 0
-    this.force = 0
+    motionInit.from({
+      d: 2000,
+      update: t => {
+        this.program.uniforms.u_time.value = t.progE
+      },
+      cb: _ => {
+        this.program.uniforms.u_init.value = true;
+        this.program.uniforms.u_time.value = 0;
+        this.program.uniforms.u_force.value = 0;
+      }
+    })
+    motionInit.from({
+      d: 1000,
+      delay: 1000,
+      ease: 'linear',
+      update: t => {
+        this.program.uniforms.u_force.value = t.progE
+      }
+    })
+    motionInit.play()
+    N.BM(this, ['update'])
 
     this.raf = new N.RafR(this.update)
     this.raf.run()
+  }
+
+  contactPelrinAnimation() {
+    this.nextTL.pause()
+    this.program.uniforms.u_time.value = 0;
+    this.program.uniforms.u_force.value = 0;
+    this.nextTL = new N.TL
+    this.nextTL.from({
+      d: 2000,
+      update: t => {
+        this.program.uniforms.u_time.value = t.progE
+      },
+      cb: _ => {
+        this.program.uniforms.u_time.value = 0;
+        this.program.uniforms.u_force.value = 0;
+        this.texture = this.textureBuffer
+        this.program.uniforms.tMap.value = this.texture;
+      }
+    })
+    this.nextTL.from({
+      d: 1000,
+      delay: 1000,
+      ease: 'linear',
+      update: t => {
+        this.program.uniforms.u_force.value = t.progE
+      }
+    })
+    this.nextTL.play()
   }
 
   createTexture() {
@@ -69,6 +117,9 @@ export default class {
         },
         u_maxDim: {
           value: 1
+        },
+        u_init: {
+          value: false
         }
       }
     })
@@ -108,14 +159,6 @@ export default class {
 
   update() {
 
-    this.time += 0.01
-    if (this.time > 1) {
-      this.time = 1
-      this.force += 0.01
-      if (this.force > 1) this.force = 1
-    }
-    this.program.uniforms.u_time.value = this.time
-    this.program.uniforms.u_force.value = this.force
   }
 
   destroy() {
