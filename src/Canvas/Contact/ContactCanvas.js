@@ -58,19 +58,19 @@ export default class {
       this.program.uniforms.u_force.value = 0;
       this.nextTL = new N.TL
       this.nextTL.from({
-        d: 900,
-        e: 'o3',
+        d: 700,
+        e: 'i1',
         update: (t) => {
           this.program.uniforms.u_ftime.value = t.progE
         }
       })
       this.nextTL.from({
-        d: 400,
-        e: 'i4',
+        d: 500,
+        e: 'i6',
         update: (t) => {
           this.program.uniforms.u_ftime.value = 1 - t.progE
         },
-        delay: 900
+        delay: 700
       })
 
       this.nextTL.from({
@@ -158,8 +158,8 @@ export default class {
     })
 
     this.geometry = new Plane(this.gl, {
-      heightSegments: 40,
-      widthSegments: 40
+      heightSegments: 80,
+      widthSegments: 80
     })
 
     this.mesh = new Mesh(this.gl, {
