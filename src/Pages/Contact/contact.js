@@ -18,8 +18,14 @@ export default class Contact extends Page {
       name: 'contact'
     })
 
-    N.BM(this, ['addEventListener'])
+    N.BM(this, ['addClickEvent'])
     this.tl = new N.TL
+    this.iRaf = new N.RafR(_ => {
+      if (canvas.contact && !canvas.contact.init) return
+      this.addClickEvent()
+      this.iRaf.stop()
+      this.iRaf = null
+    })
   }
 
   render(node) {
@@ -29,16 +35,17 @@ export default class Contact extends Page {
   renderComponents(node) {
     super.renderComponents(node)
 
+    this.imageWrapper = N.get('.contact__container img', node)
     this.linksWrapper = N.get('.contact__links', node)
-    // this.addEventListener()
+    this.addEventListener()
 
-    let delay = new N.Delay(this.addEventListener, 2000).run()
+
+    this.iRaf.run()
   }
 
-  addEventListener() {
+  addClickEvent() {
     this.clickBool = false
 
-    this.imageWrapper = N.get('.contact__container img', this.nodeParent)
     this.imageWrapper.addEventListener('click', async _ => {
       if (this.clickBool) return
       this.clickBool = true
@@ -47,6 +54,8 @@ export default class Contact extends Page {
       this.imageWrapper.classList.remove('d-cursor')
       this.clickBool = false
     })
+  }
+  addEventListener() {
 
     Object.values([this.linksWrapper, this.imageWrapper]).forEach(a => {
 
@@ -71,5 +80,9 @@ export default class Contact extends Page {
     this.components['ressort-button'].forEach(c => {
       c.onMouseUp(e)
     })
+  }
+
+  hide() {
+    if (this.iRaf) this.iRaf.stop()
   }
 }

@@ -7,6 +7,7 @@ import TransitionCollectionsHome from '../animation/TransitionCollectionsHome';
 import Contact from '../Pages/Contact/contact';
 import TransitionHomeContact from '../animation/TransitionHomeContact';
 import TransitionContactHome from '../animation/TransitionContactHome';
+import { N } from '../utils/namhai';
 
 const transitionMap = new Map([
   ['home => collections', TransitionHomeCollections],
@@ -44,10 +45,12 @@ export default class Router {
     const key = this.path + ' => ' + url
     let t = transitionMap.get(key)
     if (t) {
+      N.PE.none(document.body)
       await new Promise(s => {
         t = new t({ cb: s, canvas, oldRoute: this.path, route: url })
         t.play()
       })
+      N.PE.all(document.body)
     } else {
       canvas.hide(this.path)
       canvas.onChange(url)

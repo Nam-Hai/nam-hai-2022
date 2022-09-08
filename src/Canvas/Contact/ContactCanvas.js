@@ -19,29 +19,8 @@ export default class {
 
     let motionInit = new N.TL()
     this.nextTL = new N.TL()
+    this.init = false
 
-    // motionInit.from({
-    //   d: 1000,
-    //   ease: 'o6',
-    //   update: (t) => {
-    //     this.program.uniforms.u_ftime.value = t.progE
-    //   }
-    // })
-    motionInit.from({
-      d: 900,
-      e: 'o3',
-      update: (t) => {
-        this.program.uniforms.u_ftime.value = t.progE
-      }
-    })
-    motionInit.from({
-      d: 400,
-      e: 'i5',
-      update: (t) => {
-        this.program.uniforms.u_ftime.value = 1 - t.progE
-      },
-      delay: 900
-    })
     motionInit.from({
       d: 2000,
       update: t => {
@@ -52,6 +31,7 @@ export default class {
         this.program.uniforms.u_time.value = 0;
         this.program.uniforms.u_force.value = 0;
         this.program.uniforms.u_ftime.value = 0;
+        this.init = true
       }
     })
     motionInit.from({
@@ -86,7 +66,7 @@ export default class {
       })
       this.nextTL.from({
         d: 400,
-        e: 'i5',
+        e: 'i4',
         update: (t) => {
           this.program.uniforms.u_ftime.value = 1 - t.progE
         },
@@ -215,6 +195,7 @@ export default class {
   }
 
   destroy() {
+    this.raf.stop()
     this.group.removeChild(this.mesh)
     this.mesh = null;
     this.scene.removeChild(this.group)

@@ -13,7 +13,7 @@ varying vec2 vUv;
 void main() {
   vUv = uv;
 
-  float newZ = -(cos(position.x *  PI) / 2.0+ cos(position.y  * PI)/ 2.0)*u_ftime;
+  float newZ = -(cos(position.x *  PI) / 2.0+ cos(position.y  * PI)/ 2.0)*u_ftime * 3.;
   gl_Position = projectionMatrix * modelViewMatrix * vec4(position.x, position.y, newZ, 1.0);
 }
 
