@@ -59,7 +59,7 @@ export default class {
       this.nextTL = new N.TL
       this.nextTL.from({
         d: 700,
-        e: 'i1',
+        e: 'o2',
         update: (t) => {
           this.program.uniforms.u_ftime.value = t.progE
         }
