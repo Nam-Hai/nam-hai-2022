@@ -7,6 +7,7 @@ uniform float u_time;
 uniform float u_force;
 uniform float u_maxDim;
 uniform bool u_init;
+uniform float u_rand;
 varying vec2 vUv;
 
 vec3 mod289(vec3 x) {
@@ -110,7 +111,7 @@ void main() {
   // float c = circle(vec2(vUv.x - 0.5,(vUv.y - .5)*ratio),u_time* u_maxDim ,0.9) * 2.5;
   float c = circle(vec2(vUv.x - 0.5,(vUv.y - .5)*ratio),u_time* u_maxDim ,0.9) * 2.5;
 
-  float n  = (snoise(vec3(vUv.x, vUv.y, u_time* .25)* 3.) + mix(0.1, 2.0, u_force))* 1. ;
+  float n  = (snoise(vec3(vUv.x, vUv.y, u_rand + u_time* .25)* 3.) + mix(0.1, 2.0, u_force))* 1. ;
   // float n  = (snoise(vec3(vUv.x, vUv.y, 1.)* 4.) )* 2. ;
   // float mask = smoothstep(0.49, 0.5,  dot(c, n) * (1.- (3.* u_time + u_force) * 0.25) + c* (3.*u_time + u_force)*0.25);
   float mask = smoothstep(0.49, .5,  c * n);

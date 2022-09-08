@@ -46,6 +46,11 @@
   height: 465px;
   width: 939px;
   display: block;
+  cursor: pointer;
+
+  &.d-cursor {
+    cursor: default;
+  }
 }
 
 .contact__links {

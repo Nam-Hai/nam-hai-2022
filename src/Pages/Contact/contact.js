@@ -32,23 +32,34 @@ export default class Contact extends Page {
     this.linksWrapper = N.get('.contact__links', node)
     // this.addEventListener()
 
-    let delay = new N.Delay(this.addEventListener, 0).run()
+    let delay = new N.Delay(this.addEventListener, 2000).run()
   }
 
   addEventListener() {
-    console.log('contact canvas', N.get('.contact__container img', this.nodeParent));
-    // N.get('.contact__container img').addEventListener('click', canvas.contact.contactPelrinAnimation)
+    this.clickBool = false
 
-
-    this.linksWrapper.addEventListener('mouseenter', _ => {
-      this.tl.pause()
-      this.tl = (new homeFixation()).tl
-      this.tl.play()
+    this.imageWrapper = N.get('.contact__container img', this.nodeParent)
+    this.imageWrapper.addEventListener('click', async _ => {
+      if (this.clickBool) return
+      this.clickBool = true
+      this.imageWrapper.classList.add('d-cursor')
+      await canvas.contact.contactPelrinAnimation()
+      this.imageWrapper.classList.remove('d-cursor')
+      this.clickBool = false
     })
-    this.linksWrapper.addEventListener('mouseleave', _ => {
-      this.tl.pause()
-      this.tl = (new homeFixation(true)).tl
-      this.tl.play()
+
+    Object.values([this.linksWrapper, this.imageWrapper]).forEach(a => {
+
+      a.addEventListener('mouseenter', _ => {
+        this.tl.pause()
+        this.tl = (new homeFixation()).tl
+        this.tl.play()
+      })
+      a.addEventListener('mouseleave', _ => {
+        this.tl.pause()
+        this.tl = (new homeFixation(true)).tl
+        this.tl.play()
+      })
     })
   }
   onMouseMove(e) {
