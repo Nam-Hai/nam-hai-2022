@@ -20,6 +20,28 @@ export default class {
     let motionInit = new N.TL()
     this.nextTL = new N.TL()
 
+    // motionInit.from({
+    //   d: 1000,
+    //   ease: 'o6',
+    //   update: (t) => {
+    //     this.program.uniforms.u_ftime.value = t.progE
+    //   }
+    // })
+    motionInit.from({
+      d: 900,
+      e: 'o3',
+      update: (t) => {
+        this.program.uniforms.u_ftime.value = t.progE
+      }
+    })
+    motionInit.from({
+      d: 400,
+      e: 'i5',
+      update: (t) => {
+        this.program.uniforms.u_ftime.value = 1 - t.progE
+      },
+      delay: 900
+    })
     motionInit.from({
       d: 2000,
       update: t => {
@@ -29,6 +51,7 @@ export default class {
         this.program.uniforms.u_init.value = true;
         this.program.uniforms.u_time.value = 0;
         this.program.uniforms.u_force.value = 0;
+        this.program.uniforms.u_ftime.value = 0;
       }
     })
     motionInit.from({
@@ -55,8 +78,23 @@ export default class {
       this.program.uniforms.u_force.value = 0;
       this.nextTL = new N.TL
       this.nextTL.from({
+        d: 900,
+        e: 'o3',
+        update: (t) => {
+          this.program.uniforms.u_ftime.value = t.progE
+        }
+      })
+      this.nextTL.from({
+        d: 400,
+        e: 'i5',
+        update: (t) => {
+          this.program.uniforms.u_ftime.value = 1 - t.progE
+        },
+        delay: 900
+      })
+
+      this.nextTL.from({
         d: 2000,
-        ease: 'o5',
         update: t => {
           this.program.uniforms.u_rand.value = r
           this.program.uniforms.u_time.value = t.progE
@@ -74,7 +112,7 @@ export default class {
       this.nextTL.from({
         d: 1000,
         delay: 1000,
-        ease: 'linear',
+        e: 'linear',
         update: t => {
           this.program.uniforms.u_force.value = t.progE
         }
@@ -121,6 +159,9 @@ export default class {
         u_time: {
           value: 0
         },
+        u_ftime: {
+          value: 0
+        },
         u_force: {
           value: 0
         },
@@ -137,8 +178,8 @@ export default class {
     })
 
     this.geometry = new Plane(this.gl, {
-      heightSegments: 1,
-      widthSegments: 1
+      heightSegments: 40,
+      widthSegments: 40
     })
 
     this.mesh = new Mesh(this.gl, {
