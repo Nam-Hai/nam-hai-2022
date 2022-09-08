@@ -24,4 +24,7 @@ export default class gridFixation extends Component {
     initAnimation.play()
     // }
   }
+  onMouseUp(e) {
+    e.preventDefault()
+  }
 }

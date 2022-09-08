@@ -68,6 +68,7 @@ export default class ressortButton extends Component {
     this.markerRot = 0
 
     this.clicked = false
+    this.mouseEnter = false
     this.currentOffsetClick = 0
 
     this.coor = {
@@ -125,12 +126,14 @@ export default class ressortButton extends Component {
     this.button.addEventListener('mouseleave', this.onMouseLeave)
   }
   onMouseEnter() {
+    this.mouseEnter = true
     this.tlFixation.pause()
     this.tlFixation = (new homeFixation()).tl
     this.tlFixation.play()
   }
   onMouseLeave() {
-    if (this.clicked) return
+    if (this.clicked || !this.mouseEnter) return
+    this.mouseEnter = false
     this.tlFixation.pause()
     this.tlFixation = (new homeFixation(true)).tl
     this.tlFixation.play()
@@ -170,9 +173,9 @@ export default class ressortButton extends Component {
 
   onMouseUp(e) {
     this.clicked = false
+    this.onMouseLeave()
     this.raf.run()
 
-    this.onMouseLeave()
     if (this.markerOn) {
       this.isToggled = true
       if (this.link) {
