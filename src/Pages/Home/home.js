@@ -1,3 +1,4 @@
+import homeTextTransform from "../../animation/homeTextTransform";
 import Page from "../../classes/Page";
 import gridFixation from "../../components/gridFixation/gridFixation";
 import ressortButton from "../../components/ressortButton/ressortButton";
@@ -15,6 +16,8 @@ export default class Home extends Page {
       content: homeTemplate,
       name: 'home'
     })
+
+    N.BM(this, ['addEventListener'])
   }
   onMouseMove(e) {
     this.components['ressort-button'].forEach(c => {
@@ -40,12 +43,32 @@ export default class Home extends Page {
       Object.entries(title).forEach(([index, letter]) => {
         N.T(letter, 1.195 * (title.length - index), 0, 'rem')
       })
-
     }
 
     let htI = N.get('.htI', node)
     stringLetterToDoubleSpan(htI, 'tooltip__span')
     let htC = N.get('.htC', node)
     stringLetterToDoubleSpan(htC, 'tooltip__span')
+
+    this.hero = N.get('.hero img')
+    this.addEventListener()
+
+  }
+
+  addEventListener() {
+    this.clickBool = false
+    this.hero.addEventListener('click', async _ => {
+      if (this.clickBool) return
+      this.clickBool = true
+      this.hero.classList.add('d-cursor')
+      await new Promise(s => {
+
+        const cA = new homeTextTransform(s)
+        cA.play()
+      })
+
+      this.hero.classList.remove('d-cursor')
+      this.clickBool = false
+    })
   }
 }

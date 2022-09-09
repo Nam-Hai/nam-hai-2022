@@ -7,7 +7,7 @@ const duration = 800
 const line1ToIndex = [-3, -2, 4, 5, 6, 9, 13, 14]
 let currentState = 0
 export default class homeTextTransform {
-  constructor() {
+  constructor(cb) {
     const stateToAnimiation = [this.firstAnimation.bind(this), this.secondAnimation.bind(this), this.thirdAnimation.bind(this)]
     this.tl = new N.TL
 
@@ -15,6 +15,7 @@ export default class homeTextTransform {
 
     stateToAnimiation[currentState]()
 
+    this.cb = cb
 
     currentState++
   }
@@ -38,6 +39,7 @@ export default class homeTextTransform {
           el: letter,
           delay: delay(index),
           e: ease,
+          cb: _ => this.cb()
         })
       })
     }
@@ -62,6 +64,7 @@ export default class homeTextTransform {
             el: letter,
             delay: delay(index),
             e: ease,
+            cb: _ => this.cb()
           })
         } else {
           const initX = -2.405 * (letters.length - index),
@@ -75,6 +78,7 @@ export default class homeTextTransform {
             el: letter,
             delay: delay(index),
             e: ease,
+            cb: _ => this.cb()
           })
         }
 
@@ -99,6 +103,7 @@ export default class homeTextTransform {
             el: letter,
             delay: delay(index),
             e: ease,
+            cb: _ => this.cb()
           })
         } else {
           const initX = -1.035 * (letters.length - index) + 18;
@@ -111,6 +116,7 @@ export default class homeTextTransform {
             el: letter,
             delay: delay(index),
             e: ease,
+            cb: _ => this.cb()
           })
         }
 
