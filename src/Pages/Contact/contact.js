@@ -31,6 +31,7 @@ export default class Contact extends Page {
 
   render(node) {
     super.render(node)
+
   }
 
   renderComponents(node) {
@@ -38,6 +39,10 @@ export default class Contact extends Page {
 
     this.imageWrapper = N.get('.contact__container img', node)
     this.linksWrapper = N.get('.contact__links', node)
+    this.bgBuffer = N.get('.contact__bg__buffer', node)
+    this.wrapper = N.get('.contact__wrapper', node)
+    console.log(this.bgBuffer, this.wrapper);
+
     this.addEventListener()
 
 
@@ -51,9 +56,11 @@ export default class Contact extends Page {
       if (this.clickBool) return
       this.clickBool = true
       this.imageWrapper.classList.add('d-cursor')
+      await new Promise(s => {
 
-      const cA = new ContactAnimation
-      cA.play()
+        const cA = new ContactAnimation(s, this.wrapper, this.bgBuffer)
+        cA.play()
+      })
       // await canvas.contact.contactPelrinAnimation()
       this.imageWrapper.classList.remove('d-cursor')
       this.clickBool = false
