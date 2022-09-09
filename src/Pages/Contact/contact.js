@@ -1,3 +1,4 @@
+import ContactAnimation from "../../animation/contactAnimation";
 import homeFixation from "../../animation/homeFixation";
 import { canvas } from "../../Canvas/canvas";
 import Page from "../../classes/Page";
@@ -50,7 +51,10 @@ export default class Contact extends Page {
       if (this.clickBool) return
       this.clickBool = true
       this.imageWrapper.classList.add('d-cursor')
-      await canvas.contact.contactPelrinAnimation()
+
+      const cA = new ContactAnimation
+      cA.play()
+      // await canvas.contact.contactPelrinAnimation()
       this.imageWrapper.classList.remove('d-cursor')
       this.clickBool = false
     })

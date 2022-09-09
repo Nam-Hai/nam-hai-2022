@@ -1,7 +1,5 @@
 [data-template=contact] {
   // color: #d35941;
-  color: #DF7863;
-  background: #BD513A;
 
   grid-fixation {
     z-index: 1;
@@ -15,12 +13,23 @@
 
   .back__button__wrapper {
     // color: white;
-    color: #DF7863;
+    // color: #DF7863;
   }
 }
 .contact__wrapper {
+  color: #DF7863;
+  background: #BD513A;
   height: 100%;
   width: 100%;
+}
+
+.contact__bg__buffer {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background-color: #2B2454;
+  color: #372F67;
+  opacity: 0;
 }
 
 .contact__container {
@@ -59,6 +68,7 @@
   position: absolute;
   font-size: 36px;
   text-transform: uppercase;
+  z-index: 1;
   // color: white;
   font-weight: 400;
   top: 2rem;
