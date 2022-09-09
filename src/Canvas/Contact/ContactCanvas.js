@@ -49,58 +49,6 @@ export default class {
     this.raf.run()
   }
 
-  async contactPelrinAnimation() {
-    console.log('yoo');
-    const r = N.Rand.range(0, 20, 0.01)
-    await new Promise(s => {
-      this.nextTL.pause()
-      this.program.uniforms.u_time.value = 0;
-      this.program.uniforms.u_force.value = 0;
-      this.nextTL = new N.TL
-      this.nextTL.from({
-        d: 700,
-        e: 'o2',
-        update: (t) => {
-          this.program.uniforms.u_ftime.value = t.progE
-        }
-      })
-      this.nextTL.from({
-        d: 500,
-        e: 'i6',
-        update: (t) => {
-          this.program.uniforms.u_ftime.value = 1 - t.progE
-        },
-        delay: 700
-      })
-
-      this.nextTL.from({
-        d: 2000,
-        update: t => {
-          this.program.uniforms.u_rand.value = r
-          this.program.uniforms.u_time.value = t.progE
-        },
-        cb: _ => {
-          this.program.uniforms.u_time.value = 0;
-          this.program.uniforms.u_force.value = 0;
-          // this.texture = this.textureBuffer
-          [this.texture, this.textureBuffer] = [this.textureBuffer, this.texture]
-          this.program.uniforms.tMap.value = this.texture;
-          this.program.uniforms.tMapBuffer.value = this.textureBuffer;
-          s()
-        }
-      })
-      this.nextTL.from({
-        d: 1000,
-        delay: 1000,
-        e: 'linear',
-        update: t => {
-          this.program.uniforms.u_force.value = t.progE
-        }
-      })
-      this.nextTL.play()
-    })
-  }
-
   createTexture() {
     this.texture = new Texture(this.gl)
 
