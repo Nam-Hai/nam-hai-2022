@@ -17,7 +17,7 @@ class App {
   }
 
   initPage() {
-    const url = 'contact'
+    const url = 'home'
     window.history.pushState('', 'Nam Hai portfolio', url)
     this.page = this.createPage(url)
 
