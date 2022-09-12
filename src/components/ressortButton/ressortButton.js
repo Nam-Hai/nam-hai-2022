@@ -83,7 +83,6 @@ export default class ressortButton extends Component {
     this.timeline = new N.TL
     this.timeline2 = new N.TL
     this.timeline3 = new N.TL
-    this.tlFixation = new N.TL
 
     this.crossTemplate = N.get('.cross__wrapper', this.element)
 
@@ -127,16 +126,14 @@ export default class ressortButton extends Component {
   }
   onMouseEnter() {
     this.mouseEnter = true
-    this.tlFixation.pause()
-    this.tlFixation = (new homeFixation()).tl
-    this.tlFixation.play()
+    // this.tlFixation.pause()
+    new homeFixation().play()
+    // this.tlFixation.play()
   }
   onMouseLeave() {
     if (this.clicked || !this.mouseEnter) return
     this.mouseEnter = false
-    this.tlFixation.pause()
-    this.tlFixation = (new homeFixation(true)).tl
-    this.tlFixation.play()
+    new homeFixation(true).play()
   }
 
   onMouseDown(e) {

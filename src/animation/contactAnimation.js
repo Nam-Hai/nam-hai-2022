@@ -4,7 +4,7 @@ import { N } from "../utils/namhai";
 let bol = true;
 export default class ContactAnimation {
   constructor(cb, wrapper, bgBuffer, contactTitle, contactTitleSpans, linkSpans, linkWrapper, backButton, gridFixation) {
-    const nextColor = bol ? '#372F67' : '#C65E48'
+    const nextColor = bol ? '#372F67' : '#DF7863'
 
     const r = N.Rand.range(0, 20, 0.01)
     // const contactTitle = N.get('.contact__title'),

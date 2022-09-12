@@ -1,3 +1,4 @@
+import homeFixation from "../../animation/homeFixation";
 import homeTextTransform from "../../animation/homeTextTransform";
 import Page from "../../classes/Page";
 import gridFixation from "../../components/gridFixation/gridFixation";
@@ -16,6 +17,7 @@ export default class Home extends Page {
       content: homeTemplate,
       name: 'home'
     })
+    this.currentState = 0
 
     N.BM(this, ['addEventListener'])
   }
@@ -50,7 +52,12 @@ export default class Home extends Page {
     let htC = N.get('.htC', node)
     stringLetterToDoubleSpan(htC, 'tooltip__span')
 
-    this.hero = N.get('.hero img')
+  }
+  renderComponents(node) {
+    console.log('renderComponent Home');
+    super.renderComponents(node)
+    this.hero = N.get('.hero img', node)
+    console.log('yooo', this.hero);
     this.addEventListener()
 
   }
@@ -63,12 +70,23 @@ export default class Home extends Page {
       this.hero.classList.add('d-cursor')
       await new Promise(s => {
 
-        const cA = new homeTextTransform(s)
+        if (this.currentState == 3) this.currentState = 0
+        const cA = new homeTextTransform(s, this.currentState)
         cA.play()
+        this.currentState++
       })
 
       this.hero.classList.remove('d-cursor')
       this.clickBool = false
+    })
+
+
+    console.log('addEvent Home');
+    this.hero.addEventListener('mouseenter', _ => {
+      new homeFixation().play()
+    })
+    this.hero.addEventListener('mouseleave', _ => {
+      new homeFixation(true).play()
     })
   }
 }

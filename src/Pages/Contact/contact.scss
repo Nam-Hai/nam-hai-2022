@@ -8,8 +8,8 @@
     transition: color 400ms;
     transition-timing-function: cubic-bezier(1, 0.01, 1, 1);
     .fixation {
-      // transition: background-color 450ms;
-      // transition-timing-function: cubic-bezier(1, 0.01, 1, 1);
+      transition: background-color 450ms;
+      transition-timing-function: cubic-bezier(1, 0.01, 1, 1);
       // background-color: transparent;
     }
   }
@@ -51,6 +51,7 @@
   font-weight: 400;
   font-size: 128px;
   text-transform: uppercase;
+
   >span {
     padding-right: 0.68em;
   }
@@ -80,4 +81,23 @@
   top: 2rem;
   right: 3rem;
   text-align: end;
+  width: 13rem;
+
+  a svg {
+    height: 36px;
+    // justify-self:flex-start;
+    position: absolute;
+    left: 0;
+    opacity: 0;
+    // margin-right:  2rem;
+    transform: translateX(2rem);
+
+    transition: opacity 300ms, transform 300ms;
+  }
+
+  a:hover svg {
+    opacity: 1;
+    transform: translateX(0rem);
+
+  }
 }

@@ -5,19 +5,16 @@ const delay = t => t * 25
 const ease = 'o6'
 const duration = 800
 const line1ToIndex = [-3, -2, 4, 5, 6, 9, 13, 14]
-let currentState = 0
 export default class homeTextTransform {
-  constructor(cb) {
+  constructor(cb, currentState) {
     const stateToAnimiation = [this.firstAnimation.bind(this), this.secondAnimation.bind(this), this.thirdAnimation.bind(this)]
     this.tl = new N.TL
 
-    if (currentState == 3) currentState = 0
 
     stateToAnimiation[currentState]()
 
     this.cb = cb
 
-    currentState++
   }
 
   firstAnimation() {

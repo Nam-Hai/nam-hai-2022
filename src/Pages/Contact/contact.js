@@ -76,14 +76,10 @@ export default class Contact extends Page {
     Object.values([this.linksWrapper, this.imageWrapper]).forEach(a => {
 
       a.addEventListener('mouseenter', _ => {
-        this.tl.pause()
-        this.tl = (new homeFixation()).tl
-        this.tl.play()
+        new homeFixation().play()
       })
       a.addEventListener('mouseleave', _ => {
-        this.tl.pause()
-        this.tl = (new homeFixation(true)).tl
-        this.tl.play()
+        new homeFixation(true).play()
       })
     })
   }
