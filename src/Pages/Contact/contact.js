@@ -41,7 +41,12 @@ export default class Contact extends Page {
     this.linksWrapper = N.get('.contact__links', node)
     this.bgBuffer = N.get('.contact__bg__buffer', node)
     this.wrapper = N.get('.contact__wrapper', node)
-    console.log(this.bgBuffer, this.wrapper);
+    this.contactTitle = N.get('.contact__title')
+    this.contactTitleSpans = N.getAll('span span', this.contactTitle);
+    this.linkSpans = N.getAll('span span', this.linksWrapper)
+
+    this.backButton = N.get('.back__button__wrapper')
+    this.fixation = N.get('grid-fixation')
 
     this.addEventListener()
 
@@ -58,7 +63,7 @@ export default class Contact extends Page {
       this.imageWrapper.classList.add('d-cursor')
       await new Promise(s => {
 
-        const cA = new ContactAnimation(s, this.wrapper, this.bgBuffer)
+        const cA = new ContactAnimation(s, this.wrapper, this.bgBuffer, this.contactTitle, this.contactTitleSpans, this.linkSpans, this.linksWrapper, this.backButton, this.fixation)
         cA.play()
       })
       // await canvas.contact.contactPelrinAnimation()

@@ -3,8 +3,12 @@ import { N } from "../utils/namhai";
 
 let bol = true;
 export default class ContactAnimation {
-  constructor(cb, wrapper, bgBuffer) {
+  constructor(cb, wrapper, bgBuffer, contactTitle, contactTitleSpans, linkSpans, linkWrapper, backButton, gridFixation) {
+    const nextColor = bol ? '#372F67' : '#C65E48'
+
     const r = N.Rand.range(0, 20, 0.01)
+    // const contactTitle = N.get('.contact__title'),
+    // contactTitleSpans = N.getAll('span span', contactTitle);
     canvas.contact.program.uniforms.u_rand.value = r
     // this.tl.pause()
     canvas.contact.program.uniforms.u_time.value = 0;
@@ -25,6 +29,41 @@ export default class ContactAnimation {
       },
       delay: 700
     })
+    this.tl.from({
+      el: [...contactTitleSpans, ...linkSpans],
+      p: {
+        x: [0, -101]
+      },
+      d: 450,
+      e: 'o5',
+      // delay: 300,
+      cb: _ => {
+        linkWrapper.style.color = nextColor
+        contactTitle.style.color = nextColor
+
+
+      }
+    })
+    this.tl.from({
+      el: [...contactTitleSpans, ...linkSpans],
+      p: {
+        x: [-101, 0]
+      },
+      d: 450,
+      e: 'o5',
+      delay: 1050
+    })
+
+    this.tl.from({
+      d: 1,
+      update: _ => { },
+      delay: 700,
+      cb: _ => {
+        backButton.style.color = nextColor
+        gridFixation.style.color = nextColor
+      }
+    })
+
     this.tl.from({
       el: bgBuffer,
       d: 400,

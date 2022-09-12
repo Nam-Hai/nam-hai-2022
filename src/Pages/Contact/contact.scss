@@ -6,15 +6,17 @@
     top: unset;
     bottom: calc(35px + 30rem);
     transition: color 400ms;
+    transition-timing-function: cubic-bezier(1, 0.01, 1, 1);
     .fixation {
-      transition: background-color 1s;
+      // transition: background-color 450ms;
+      // transition-timing-function: cubic-bezier(1, 0.01, 1, 1);
       // background-color: transparent;
     }
   }
 
   .back__button__wrapper {
-    // color: white;
-    // color: #DF7863;
+    transition: color 400ms;
+    transition-timing-function: cubic-bezier(1, 0.01, 1, 1);
   }
 }
 .contact__wrapper {
@@ -45,10 +47,13 @@
   position: absolute;
   top: -65px;
   left: -13rem;
+  width: 80rem;
   font-weight: 400;
   font-size: 128px;
   text-transform: uppercase;
-  letter-spacing: 0.68em;
+  >span {
+    padding-right: 0.68em;
+  }
 }
 
 .contact__container img{
