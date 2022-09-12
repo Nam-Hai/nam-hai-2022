@@ -1,6 +1,7 @@
 import { canvas } from "../Canvas/canvas";
 import { N } from "../utils/namhai";
 
+let bol = true;
 export default class ContactAnimation {
   constructor(cb, wrapper, bgBuffer) {
     const r = N.Rand.range(0, 20, 0.01)
@@ -17,7 +18,7 @@ export default class ContactAnimation {
       }
     })
     this.tl.from({
-      d: 500,
+      d: 400,
       e: 'i6',
       update: (t) => {
         canvas.contact.program.uniforms.u_ftime.value = 1 - t.progE
@@ -26,9 +27,22 @@ export default class ContactAnimation {
     })
     this.tl.from({
       el: bgBuffer,
-      d: 1000,
+      d: 400,
       p: {
         o: [0, 1]
+      },
+      e: 'i6',
+      delay: 700,
+      cb: _ => {
+        if (bol) {
+          wrapper.style.backgroundColor = '#2B2454'
+          bgBuffer.style.backgroundColor = '#BD513A'
+        } else {
+          wrapper.style.backgroundColor = '#BD513A'
+          bgBuffer.style.backgroundColor = '#2B2454'
+        }
+        bol = !bol
+        N.O(bgBuffer, 0)
       }
     })
 

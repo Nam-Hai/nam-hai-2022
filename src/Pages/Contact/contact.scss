@@ -5,6 +5,7 @@
     z-index: 1;
     top: unset;
     bottom: calc(35px + 30rem);
+    transition: color 400ms;
     .fixation {
       transition: background-color 1s;
       // background-color: transparent;
