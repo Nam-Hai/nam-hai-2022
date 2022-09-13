@@ -31,7 +31,9 @@ export default class {
   createTexture() {
     this.texture = new Texture(this.gl)
 
-    collectionsService.getBufferImg(this, this.index)
+    if (this.index) {
+      collectionsService.getBufferImg(this, this.index)
+    }
   }
 
   createProgram() {
