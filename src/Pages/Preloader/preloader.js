@@ -10,5 +10,9 @@ export default class Preloader extends Page {
     })
   }
 
+  render(node) {
+    super.render(node)
+    this.content.remove()
+  }
 
 }

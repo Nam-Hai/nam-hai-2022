@@ -20,14 +20,7 @@ export default class Demo extends Page {
   }
 
   render(node) {
-
     super.render(node)
-
-    this.content.remove()
-
-    // let succes = N.get('.ressort__demo__success')
-
-    // stringLetterToDoubleSpan(succes, 'tooltip__span')
   }
 
   onMouseMove(e) {
