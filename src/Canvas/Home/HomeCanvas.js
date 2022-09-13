@@ -32,6 +32,7 @@ export default class {
 
   createMesh() {
     this.createTexture()
+    console.log('yoooo');
     this.program = new Program(this.gl, {
       fragment,
       vertex,

@@ -2,7 +2,8 @@ import { N } from "../utils/namhai";
 
 export default class TransitionPreloaderHome {
   constructor({ r, cb, canvas, oldRoute, route }) {
-    const mB = N.get('.buffer-main')
+    const mB = N.get('.buffer-main'),
+      m = N.get('main')
 
     mB.classList.add('buffer-main__cover')
     N.O(mB, 0)
@@ -33,21 +34,23 @@ export default class TransitionPreloaderHome {
         canvas.onChange(route)
 
         // canvas.preloader.program.uniforms.o.value = 0
-        // cb()
+        cb()
       }
     })
 
     this.tl.from({
-      el: mB,
+      // el: mB,
       d: 500,
-      p: {
-        o: [0, 1]
-      },
+      // p: {
+      //   o: [0, 1]
+      // },
       delay: 1000,
+      update: t => {
+        canvas.preloader.program.uniforms.o.value = 1 - t.progE
+      },
       cb: _ => {
         canvas.hide(oldRoute)
-        canvas.preloader.program.uniforms.o.value = 0
-        cb()
+        // cb()
       }
     })
   }
