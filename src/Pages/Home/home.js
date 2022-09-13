@@ -35,7 +35,6 @@ export default class Home extends Page {
   render(node) {
     super.render(node)
 
-    console.log('node', node);
     let titles = N.getAll('.background__title div', node)
     stringLetterToSpan(titles[0])
     stringLetterToSpan(titles[1])
@@ -54,10 +53,8 @@ export default class Home extends Page {
 
   }
   renderComponents(node) {
-    console.log('renderComponent Home');
     super.renderComponents(node)
     this.hero = N.get('.hero img', node)
-    console.log('yooo', this.hero);
     this.addEventListener()
 
   }

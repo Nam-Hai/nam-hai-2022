@@ -9,7 +9,9 @@ uniform mat4 projectionMatrix;
 
 uniform float force;
 uniform float radius;
+uniform vec2 s;
 
+attribute vec2 uv;
 varying vec2 vUv;
 
 // uniform vec2 d;
@@ -21,4 +23,5 @@ void main() {
 
   float z = (force - io2(d/radius) * force) * step(d, radius);
   gl_Position =  projectionMatrix * modelViewMatrix * vec4(position.x, position.y, z, 1.0);
+  vUv = (uv - .5)/s+ .5;
 }

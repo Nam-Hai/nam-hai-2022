@@ -1,5 +1,5 @@
 import { N } from "../../utils/namhai"
-import { Transform, Plane, Program, Mesh } from 'ogl'
+import { Transform, Plane, Program, Mesh, Texture } from 'ogl'
 import fragment from './fragment.glsl?raw'
 import vertex from './vertex.glsl?raw'
 
@@ -21,13 +21,31 @@ export default class {
   }
 
 
+  createTexture() {
+    this.texture = new Texture(this.gl)
+
+    this.image = new window.Image();
+    this.image.crossOrigin = 'anonymous'
+    this.image.src = 'homeBuffer.png'
+    this.image.onload = () => {
+      this.texture.image = this.image
+    }
+
+  }
 
   createMesh() {
+    this.createTexture()
     this.program = new Program(this.gl, {
       fragment,
       vertex,
       uniforms: {
+        tMap: {
+          value: this.texture,
+        },
         o: {
+          value: 0
+        },
+        fade: {
           value: 0
         },
         force: {
@@ -35,6 +53,9 @@ export default class {
         },
         radius: {
           value: 2
+        },
+        s: {
+          value: [1, 1]
         }
       }
     })
@@ -63,7 +84,8 @@ export default class {
   }
 
   setScalePos() {
-    if (!this.mesh) return
+
+    this.program.uniforms.s.value = [1.93814 * this.canvasSize.height / this.canvasSize.width, 1]
     this.mesh.scale.x = this.buttonBounds.width
     this.mesh.scale.y = this.buttonBounds.height
     this.mesh.position.x = 0

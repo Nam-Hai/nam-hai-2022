@@ -10,14 +10,14 @@ class App {
     this.main = N.get('main')
     this.router = new Router()
 
-    // this.createPreloader()
+    this.createPreloader()
     // this.onChange({ url: 'home' })
 
-    this.initPage()
+    // this.initPage()
   }
 
   initPage() {
-    const url = 'contact'
+    const url = 'home'
     window.history.pushState('', 'Nam Hai portfolio', url)
     this.page = this.createPage(url)
 

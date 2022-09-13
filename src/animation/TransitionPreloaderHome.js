@@ -2,6 +2,10 @@ import { N } from "../utils/namhai";
 
 export default class TransitionPreloaderHome {
   constructor({ r, cb, canvas, oldRoute, route }) {
+    const mB = N.get('.buffer-main')
+
+    mB.classList.add('buffer-main__cover')
+    N.O(mB, 0)
 
     this.tl = new N.TL
     this.r = r
@@ -17,6 +21,7 @@ export default class TransitionPreloaderHome {
       d: 1000,
       e: 'o6',
       update: t => {
+        canvas.preloader.program.uniforms.fade.value = t.progE
         mesh.scale.x = N.Lerp(initX, targetX, t.progE)
         mesh.scale.y = N.Lerp(initY, targetY, t.progE)
 
@@ -25,9 +30,23 @@ export default class TransitionPreloaderHome {
         // canvas.preloader.program.uniforms.force.value = -2.5
       },
       cb: _ => {
-        canvas.preloader.program.uniforms.o.value = 0
-        canvas.hide(oldRoute)
         canvas.onChange(route)
+
+        // canvas.preloader.program.uniforms.o.value = 0
+        // cb()
+      }
+    })
+
+    this.tl.from({
+      el: mB,
+      d: 500,
+      p: {
+        o: [0, 1]
+      },
+      delay: 1000,
+      cb: _ => {
+        canvas.hide(oldRoute)
+        canvas.preloader.program.uniforms.o.value = 0
         cb()
       }
     })
