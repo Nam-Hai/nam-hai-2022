@@ -2,7 +2,7 @@ import './styles/index.scss'
 import Router from './classes/Router'
 import { N } from './utils/namhai'
 import ressortButton from './components/ressortButton/ressortButton'
-import Preloader from './Pages/preloader/preloader'
+import Demo from './Pages/demo/demo'
 import { canvas } from './Canvas/canvas'
 
 class App {
@@ -10,14 +10,14 @@ class App {
     this.main = N.get('main')
     this.router = new Router()
 
-    this.createPreloader()
+    // this.createPreloader()
     // this.onChange({ url: 'home' })
 
-    // this.initPage()
+    this.initPage()
   }
 
   initPage() {
-    const url = 'contact'
+    const url = 'demo'
     window.history.pushState('', 'Nam Hai portfolio', url)
     this.page = this.createPage(url)
 

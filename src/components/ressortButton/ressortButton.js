@@ -1,8 +1,8 @@
 import Component from "../../classes/Component";
 import { N } from "../../utils/namhai";
 import content from './ressortButton.html?raw'
-import PreloaderTooltipAnimation from "../../animation/preloaderTooltipAnimation";
-import preloaderComplete from "../../animation/preloaderComplete";
+import demoTooltipAnimation from "../../animation/demoTooltipAnimation";
+import demoComplete from "../../animation/demoComplete";
 import homeTextTransform from "../../animation/homeTextTransform";
 import collectionsNext from "../../animation/collectionsNext";
 import collectionsNav from "../../animation/collectionsNav";
@@ -21,7 +21,7 @@ const l0 = 0;
 const rForce = 1.5
 
 const animeCompletionMap = new Map([
-  ['preloaderComplete', preloaderComplete],
+  ['demoComplete', demoComplete],
   ['homeTextTransform', homeTextTransform],
   ['homeToCollections', homeToCollections],
   ['collectionsNext', collectionsNext],
@@ -34,7 +34,7 @@ const animeCompletionMap2 = new Map([
 ])
 
 const animeOnMarkerMap = new Map([
-  ['preloaderTooltip', PreloaderTooltipAnimation],
+  ['demoTooltip', demoTooltipAnimation],
   ['homeTooltipCollections', homeTooltipCollections],
   ['collectionsTooltipBack', collectionsTooltipBack]
 ])

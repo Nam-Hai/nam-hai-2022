@@ -1,10 +1,9 @@
 import Page from "../../classes/Page"
 import ressortButton from "../../components/ressortButton/ressortButton"
-import preloaderTemplate from "./preloader.html?raw"
+import preloaderTemplate from "./demo.html?raw"
 import { N } from "../../utils/namhai";
-import { stringLetterToDoubleSpan } from '../../utils/utilsText'
 
-export default class Preloader extends Page {
+export default class Demo extends Page {
   constructor() {
 
     super({

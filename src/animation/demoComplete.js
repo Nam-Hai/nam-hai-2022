@@ -1,6 +1,6 @@
 import { N } from "../utils/namhai";
 
-export default class preloaderComplete {
+export default class DemoComplete {
   constructor() {
     let link = N.get('a[href="home"]', this.element)
     if (N.Ga(link, 'href')) {

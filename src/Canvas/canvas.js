@@ -3,13 +3,13 @@ import { N } from '../utils/namhai';
 import CollectionsCanvas from './collections/CollectionsCanvas';
 import ContactCanvas from './Contact/ContactCanvas';
 import HomeCanvas from './Home/HomeCanvas';
-import PreloaderCanvas from './preloader/PreloaderCanvas';
+import DemoCanvas from './demo/demoCanvas';
 
 class Canvas {
   constructor() {
     this.mapRouteObject = {
       home: this.createHome,
-      preloader: this.createPreloader,
+      demo: this.createDemo,
       collections: this.createCollections,
       contact: this.createContact
     };
@@ -45,6 +45,15 @@ class Canvas {
 
   getCurrent() {
     return this[this.route]
+  }
+
+  createDemo() {
+    this.demo = new DemoCanvas({
+      gl: this.gl,
+      scene: this.scene,
+      canvasSize: this.size,
+      canvasSizePixel: this.sizePixel
+    })
   }
 
   createPreloader() {

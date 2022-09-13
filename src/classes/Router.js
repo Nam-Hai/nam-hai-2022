@@ -1,18 +1,19 @@
-import Preloader from '../Pages/preloader/preloader';
+import Preloader from '../Pages/demo/demo';
 import Home from '../Pages/Home/home';
 import Collections from '../Pages/Collections/collections';
 import TransitionHomeCollections from '../animation/TransitionHomeCollections';
-import TransitionPreloaderHome from '../animation/TransitionPreloaderHome';
+import TransitionDemoHome from '../animation/TransitionDemoHome';
 import TransitionCollectionsHome from '../animation/TransitionCollectionsHome';
 import Contact from '../Pages/Contact/contact';
 import TransitionHomeContact from '../animation/TransitionHomeContact';
 import TransitionContactHome from '../animation/TransitionContactHome';
 import { N } from '../utils/namhai';
+import Demo from '../Pages/demo/demo';
 
 const transitionMap = new Map([
   ['home => collections', TransitionHomeCollections],
   ['collections => home', TransitionCollectionsHome],
-  ['preloader => home', TransitionPreloaderHome],
+  ['demo => home', TransitionDemoHome],
   ['home => contact', TransitionHomeContact],
   ['contact => home', TransitionContactHome]
 ])
@@ -23,7 +24,8 @@ export default class Router {
     this.pageManager = {
       'home': Home,
       'collections': Collections,
-      'contact': Contact
+      'contact': Contact,
+      'demo': Demo
     }
 
   }
