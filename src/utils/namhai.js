@@ -759,7 +759,7 @@ N.Ga = (c, r) => c.getAttribute(r)
 N.PD = t => {
   t.cancelable && t.preventDefault()
 }
-N.ZL = t => 9 < t ? t : "0" + t
+N.ZL = t => 9 < t ? '' + t : "0" + t
 
 export { normalizeWheel };
 export { N, Raf }

@@ -51,6 +51,7 @@ export default class {
     this.index++
     const count = this.index / ASSETS.length,
       t = N.ZL(N.Round(count * 100, 0))
+    console.log(count, t, t[0], t[1]);
     this.counter[0].innerText = t[0]
     this.counter[1].innerText = t[1]
     this.bar.style.transform = `scaleX(${count * 100}%)`
