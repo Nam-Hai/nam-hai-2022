@@ -2,6 +2,7 @@ import { N } from "../../utils/namhai"
 import { Transform, Plane, Program, Mesh, Texture } from 'ogl'
 import fragment from './fragment.glsl?raw'
 import vertex from './vertex.glsl?raw'
+import { TEXTURE } from "../preloader/PreloaderCanvas"
 
 export default class {
   constructor({ gl, scene, canvasSize, canvasSizePixel }) {
@@ -51,22 +52,11 @@ export default class {
 
   createTexture() {
     this.texture = new Texture(this.gl)
-
-    this.image = new window.Image();
-    this.image.crossOrigin = 'anonymous'
-    this.image.src = this.hero.getAttribute('data-src')
-    this.image.onload = () => {
-      this.texture.image = this.image
-    }
+    const src = this.hero.getAttribute('data-src')
+    this.texture = TEXTURE.get(src)
 
     this.textureBuffer = new Texture(this.gl)
-
-    this.imageBuffer = new window.Image()
-    this.imageBuffer.crossOrigin = 'anonymous'
-    this.imageBuffer.src = 'contact/contact_2.png'
-    this.imageBuffer.onload = _ => {
-      this.textureBuffer.image = this.imageBuffer
-    }
+    this.textureBuffer = TEXTURE.get('contact/contact_2.png')
   }
 
   createMesh() {
