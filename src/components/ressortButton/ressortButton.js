@@ -3,7 +3,6 @@ import { N } from "../../utils/namhai";
 import content from './ressortButton.html?raw'
 import demoTooltipAnimation from "../../animation/demoTooltipAnimation";
 import demoComplete from "../../animation/demoComplete";
-import homeTextTransform from "../../animation/homeTextTransform";
 import collectionsNext from "../../animation/collectionsNext";
 import collectionsNav from "../../animation/collectionsNav";
 import collectionsPrevious from "../../animation/collectionsPrevious";
@@ -22,7 +21,6 @@ const rForce = 1.5
 
 const animeCompletionMap = new Map([
   ['demoComplete', demoComplete],
-  ['homeTextTransform', homeTextTransform],
   ['homeToCollections', homeToCollections],
   ['collectionsNext', collectionsNext],
   ['collectionsNav', collectionsNav]

@@ -1,5 +1,4 @@
 import homeFixation from "../../animation/homeFixation";
-import homeTextTransform from "../../animation/homeTextTransform";
 import Page from "../../classes/Page";
 import gridFixation from "../../components/gridFixation/gridFixation";
 import ressortButton from "../../components/ressortButton/ressortButton";
@@ -35,16 +34,7 @@ export default class Home extends Page {
   render(node) {
     super.render(node)
 
-    let titles = N.getAll('.background__title div', node)
-    stringLetterToSpan(titles[0])
-    stringLetterToSpan(titles[1])
-    this.titleSpaned = [N.getAll('span', titles[0]), N.getAll('span', titles[1])]
 
-    for (const title of this.titleSpaned) {
-      Object.entries(title).forEach(([index, letter]) => {
-        N.T(letter, 1.195 * (title.length - index), 0, 'rem')
-      })
-    }
 
     let htI = N.get('.htI', node)
     stringLetterToDoubleSpan(htI, 'tooltip__span')
@@ -60,24 +50,6 @@ export default class Home extends Page {
   }
 
   addEventListener() {
-    this.clickBool = false
-    this.hero.addEventListener('click', async _ => {
-      if (this.clickBool) return
-      this.clickBool = true
-      this.hero.classList.add('d-cursor')
-      await new Promise(s => {
-
-        if (this.currentState == 3) this.currentState = 0
-        const cA = new homeTextTransform(s, this.currentState)
-        cA.play()
-        this.currentState++
-      })
-
-      this.hero.classList.remove('d-cursor')
-      this.clickBool = false
-    })
-
-
     console.log('addEvent Home');
     this.hero.addEventListener('mouseenter', _ => {
       new homeFixation().play()

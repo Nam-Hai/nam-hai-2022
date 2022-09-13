@@ -74,6 +74,11 @@ canvas {
   height: 100%;
   width: 100%;
 }
+.buffer-main__cover{
+  top: 0;
+  left: 0;
+  z-index: 2;
+}
 .buffer-main__UP{
   bottom: 100%;
   left: 0;
