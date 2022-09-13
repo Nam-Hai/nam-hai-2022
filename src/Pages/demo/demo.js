@@ -1,6 +1,6 @@
 import Page from "../../classes/Page"
 import ressortButton from "../../components/ressortButton/ressortButton"
-import preloaderTemplate from "./demo.html?raw"
+import demoTemplate from "./demo.html?raw"
 import { N } from "../../utils/namhai";
 
 export default class Demo extends Page {
@@ -10,8 +10,8 @@ export default class Demo extends Page {
       components: {
         'ressort-button': ressortButton
       },
-      content: preloaderTemplate,
-      name: 'preloader'
+      content: demoTemplate,
+      name: 'demo'
     })
 
     // this.components['ressort-button'].forEach(element => {

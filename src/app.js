@@ -1,19 +1,18 @@
 import './styles/index.scss'
 import Router from './classes/Router'
 import { N } from './utils/namhai'
-import ressortButton from './components/ressortButton/ressortButton'
-import Demo from './Pages/demo/demo'
 import { canvas } from './Canvas/canvas'
+import Preloader from './Pages/preloader/preloader'
 
 class App {
   constructor() {
     this.main = N.get('main')
     this.router = new Router()
 
-    // this.createPreloader()
+    this.createPreloader()
     // this.onChange({ url: 'home' })
 
-    this.initPage()
+    // this.initPage()
   }
 
   initPage() {
