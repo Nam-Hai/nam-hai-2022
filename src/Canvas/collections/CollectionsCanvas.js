@@ -12,6 +12,7 @@ export default class {
     this.group = new Transform()
 
     this.collectionsImg = N.getAll('.display__container img')
+    console.log(this.collectionsImg);
 
     this.geometry = new Plane(this.gl, {
       heightSegments: 20,
@@ -23,6 +24,7 @@ export default class {
     })
 
     this.mediasBuffer = Object.entries(this.collectionsImg).map(([index, el]) => {
+      console.log('yooo index;', index);
       return new Media({ el, gl, scene: this.group, canvasSize, canvasSizePixel, geometry: this.geometry })
     })
 

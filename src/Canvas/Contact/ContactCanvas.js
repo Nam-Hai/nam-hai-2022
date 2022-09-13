@@ -53,10 +53,10 @@ export default class {
   createTexture() {
     this.texture = new Texture(this.gl)
     const src = this.hero.getAttribute('data-src')
-    this.texture = TEXTURE.get(src)
+    this.texture.image = TEXTURE.get(src).image
 
     this.textureBuffer = new Texture(this.gl)
-    this.textureBuffer = TEXTURE.get('contact/contact_2.png')
+    this.textureBuffer.image = TEXTURE.get('contact/contact_2.png').image
   }
 
   createMesh() {

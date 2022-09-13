@@ -23,14 +23,12 @@ export default class {
     this.getBounds()
     this.mesh.setParent(scene)
 
-
   }
 
 
 
   createTexture() {
     this.texture = new Texture(this.gl)
-
     if (this.index) {
       collectionsService.getBufferImg(this, this.index)
     }

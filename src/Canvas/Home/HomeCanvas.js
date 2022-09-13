@@ -20,9 +20,9 @@ export default class {
   }
 
   createTexture() {
+    this.texture = new Texture(this.gl)
     const src = this.hero.getAttribute('data-src')
-    this.texture = TEXTURE.get(src)
-    console.error(TEXTURE, TEXTURE.get(src), src);
+    this.texture.image = TEXTURE.get(src).image
   }
 
   createMesh() {

@@ -43,8 +43,7 @@ class CollectionsService {
 
   getBufferImg(media, i) {
     const src = this.collectionsInfo[this.currentPage][`image${+i + 1}`]
-    media.texture = TEXTURE.get(src)
-    console.log('TEXTURE,get(src)', +i, this.currentPage, src, TEXTURE.get(src));
+    media.texture.image = TEXTURE.get(src).image
   }
 
   getInfo() {

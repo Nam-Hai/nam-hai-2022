@@ -17,6 +17,7 @@ export default class collectionsNext extends collectionsAnime {
     Object.entries(this.canvas.collections.mediasBuffer).forEach(([index, mB]) => {
       collectionsService.getBufferImg(mB, index)
     })
+
     let mediasBuffer = this.canvas.collections.mediasBuffer
     const mB = mediasBuffer[1], mB2 = mediasBuffer[0]
     let medias = this.canvas.collections.medias
