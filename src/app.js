@@ -3,6 +3,7 @@ import Router from './classes/Router'
 import { N } from './utils/namhai'
 import { canvas } from './Canvas/canvas'
 import Preloader from './Pages/preloader/preloader'
+import { TEXTURE } from './Canvas/preloader/PreloaderCanvas'
 
 class App {
   constructor() {
@@ -31,7 +32,7 @@ class App {
     this.canvas.show()
   }
 
-  createPreloader() {
+  async createPreloader() {
     this.router.resetPath()
     this.preloader = new Preloader()
     this.page = this.preloader
@@ -41,6 +42,10 @@ class App {
     this.addEventListener()
     this.createCanvas()
     this.canvas.show()
+    await new Promise(s => {
+      this.canvas.preloader.loadTexture(s)
+    })
+    this.onChange({ url: 'demo' })
   }
 
   createCanvas() {

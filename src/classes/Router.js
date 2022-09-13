@@ -1,4 +1,4 @@
-import Preloader from '../Pages/Demo/demo';
+import Preloader from '../Pages/Preloader/preloader';
 import Home from '../Pages/Home/home';
 import Collections from '../Pages/Collections/collections';
 import TransitionHomeCollections from '../animation/TransitionHomeCollections';
@@ -25,7 +25,8 @@ export default class Router {
       'home': Home,
       'collections': Collections,
       'contact': Contact,
-      'demo': Demo
+      'demo': Demo,
+      'preloader': Preloader
     }
 
   }

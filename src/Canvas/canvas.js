@@ -4,6 +4,7 @@ import CollectionsCanvas from './collections/CollectionsCanvas';
 import ContactCanvas from './Contact/ContactCanvas';
 import HomeCanvas from './Home/HomeCanvas';
 import DemoCanvas from './demo/demoCanvas';
+import PreloaderCanvas from './preloader/PreloaderCanvas';
 
 class Canvas {
   constructor() {
@@ -11,7 +12,8 @@ class Canvas {
       home: this.createHome,
       demo: this.createDemo,
       collections: this.createCollections,
-      contact: this.createContact
+      contact: this.createContact,
+      preloader: this.createPreloader
     };
 
     this.sizePixel = {

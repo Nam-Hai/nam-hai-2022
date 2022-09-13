@@ -2,6 +2,15 @@
   background-color: black;
   color: white;
 }
+
+.preloader__bar {
+  height: 0.5rem;
+  background-color: white;
+  width: 100%;
+  transform: scaleX(0%);
+  transition: transform 200ms;
+  transform-origin: 0%;
+}
 .preloader__counter {
   font-size: 56rem;
 }

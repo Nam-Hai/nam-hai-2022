@@ -5,6 +5,7 @@ export default class TransitionDemoHome {
 
     this.tl = new N.TL
     this.r = r
+    console.log({ oldRoute, route });
 
     const mesh = canvas.demo.mesh,
       initX = mesh.scale.x,
@@ -26,6 +27,7 @@ export default class TransitionDemoHome {
       },
       cb: _ => {
         canvas.onChange(route)
+
         cb()
       }
     })
