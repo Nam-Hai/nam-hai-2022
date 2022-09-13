@@ -1,3 +1,5 @@
+import { TEXTURE } from "../Canvas/preloader/PreloaderCanvas"
+
 class CollectionsService {
   constructor() {
     this.currentPage = 0
@@ -40,10 +42,9 @@ class CollectionsService {
   }
 
   getBufferImg(media, i) {
-    let image = new window.Image()
-    image.crossOrigin = 'anonymous'
-    image.src = this.collectionsInfo[this.currentPage][`image${+i + 1}`]
-    image.onload = () => media.texture.image = image
+    const src = this.collectionsInfo[this.currentPage][`image${+i + 1}`]
+    media.texture = TEXTURE.get(src)
+    console.log('TEXTURE,get(src)', +i, this.currentPage, src, TEXTURE.get(src));
   }
 
   getInfo() {
