@@ -10,10 +10,10 @@ class App {
     this.main = N.get('main')
     this.router = new Router()
 
-    // this.createPreloader()
+    this.createPreloader()
     // this.onChange({ url: 'home' })
 
-    this.initPage()
+    // this.initPage()
   }
 
   initPage() {
@@ -94,7 +94,6 @@ class App {
 
   async onChange({ url, button, push = true }) {
 
-    console.log('url', url);
     this.pageBuffer = this.createPage(url)
     this.pageBuffer.render(N.get('.buffer-main'))
     this.pageBuffer.renderComponents(N.get('.buffer-main'))

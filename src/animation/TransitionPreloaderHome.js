@@ -25,11 +25,20 @@ export default class TransitionPreloaderHome {
         // canvas.preloader.program.uniforms.force.value = -2.5
       },
       cb: _ => {
-        canvas.preloader.program.uniforms.o.value = 0
-        canvas.hide(oldRoute)
         canvas.onChange(route)
         cb()
       }
+    })
+    this.tl.from({
+      d: 500,
+      delay: 1000,
+      update: t => {
+        canvas.preloader.program.uniforms.o.value = 1 - t.progE
+      },
+      cb: _ => {
+        canvas.hide(oldRoute)
+      }
+
     })
   }
 
