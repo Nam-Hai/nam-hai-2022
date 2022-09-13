@@ -14,13 +14,23 @@ export default class Demo extends Page {
       name: 'demo'
     })
 
-    // this.components['ressort-button'].forEach(element => {
-    //   element.addCallback()
-    // });
   }
 
   render(node) {
     super.render(node)
+
+  }
+
+  renderComponents(node) {
+    super.renderComponents(node)
+
+    new N.M({
+      el: node,
+      d: 600,
+      p: {
+        o: [0, 1]
+      }
+    }).play()
   }
 
   onMouseMove(e) {

@@ -22,7 +22,7 @@ export default class {
   constructor({ gl, scene, canvasSize, canvasSizePixel }) {
     this.gl = gl
 
-    this.counter = N.getAll('main .preloader__counter span')
+    this.counter = N.getAll('main .preloader__counter span span')
     console.log(this.counter);
     console.log(this.counter[0]);
     this.bar = N.get('.preloader__bar')
@@ -50,7 +50,8 @@ export default class {
     TEXTURE.set(src, texture)
     this.index++
     const count = this.index / ASSETS.length,
-      t = N.ZL(N.Round(count * 100, 0))
+      r = N.Round(count * 100, 0),
+      t = N.ZL(r === 100 ? 0 : r)
     this.counter[0].innerText = t[0]
     this.counter[1].innerText = t[1]
     this.bar.style.transform = `scaleX(${count * 100}%)`
@@ -60,6 +61,17 @@ export default class {
   }
 
   onComplete(cb) {
-    cb()
+    new N.M({
+      el: [...this.counter],
+      p: {
+        x: [0, 101]
+      },
+      d: 600,
+      e: 'o5',
+      delay: 300,
+      cb: _ => {
+        cb()
+      }
+    }).play()
   }
 }
