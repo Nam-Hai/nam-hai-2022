@@ -78,6 +78,9 @@ class App {
   }
 
   onResize(e) {
+    if (window.innerWidth < 950) {
+
+    }
     canvas.onResize(this.router.path)
   }
 
