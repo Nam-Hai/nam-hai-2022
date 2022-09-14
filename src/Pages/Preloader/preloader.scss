@@ -4,16 +4,19 @@
 }
 
 .preloader__bar {
+  position: relative;
   height: 0.5rem;
   background-color: white;
   width: 100%;
+  left: -200%;
   transform: scaleX(0%);
   transition: transform 200ms;
   transform-origin: 0%;
 }
 .preloader__counter {
   font-size: 1100px;
-  // display: flex;
+  display: flex;
+  position: absolute;
   // > span {
   //   display: block;
   //   width: 531px;
