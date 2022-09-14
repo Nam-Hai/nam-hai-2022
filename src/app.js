@@ -113,6 +113,7 @@ class App {
     this.page = this.pageBuffer
     this.main.setAttribute('style', '')
     this.main.setAttribute('data-template', url)
+    this.main.innerHTML = this.page.nodeParent.innerHTML
 
     this.page.content.classList = 'main'
     this.page.content.style = ''
