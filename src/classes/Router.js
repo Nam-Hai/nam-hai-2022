@@ -9,13 +9,15 @@ import TransitionHomeContact from '../animation/TransitionHomeContact';
 import TransitionContactHome from '../animation/TransitionContactHome';
 import { N } from '../utils/namhai';
 import Demo from '../Pages/Demo/demo';
+import TransitionPreloaderDemo from '../animation/TransitionPreloaderDemo';
 
 const transitionMap = new Map([
   ['home => collections', TransitionHomeCollections],
   ['collections => home', TransitionCollectionsHome],
   ['demo => home', TransitionDemoHome],
   ['home => contact', TransitionHomeContact],
-  ['contact => home', TransitionContactHome]
+  ['contact => home', TransitionContactHome],
+  ['preloader => demo', TransitionPreloaderDemo]
 ])
 
 export default class Router {
