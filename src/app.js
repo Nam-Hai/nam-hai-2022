@@ -2,7 +2,7 @@ import './styles/index.scss'
 import Router from './classes/Router'
 import { N } from './utils/namhai'
 import { canvas } from './Canvas/canvas'
-import Preloader from './Pages/preloader/preloader'
+import Preloader from './Pages/preloader/preloader.js'
 
 class App {
   constructor() {
