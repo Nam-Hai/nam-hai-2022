@@ -111,13 +111,13 @@ class App {
     this.main.setAttribute('data-template', url)
     this.main.innerHTML = this.page.nodeParent.innerHTML
 
-    this.page.content.remove()
-
-
-    // console.log('page component;', this.page.components);
 
     this.page.renderComponents(this.main)
     this.addLinkLinstener(this.main)
+
+    setTimeout(() => {
+      this.page.content.remove()
+    }, 100)
 
     // this.canvas.onChange(url)
 

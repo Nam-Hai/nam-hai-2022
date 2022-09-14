@@ -14,9 +14,9 @@ export default class {
     this.group = new Transform()
     this.hero = N.get('.hero img')
 
-    this.createMesh()
-    this.getBounds()
-    this.group.setParent(this.scene)
+    // this.createMesh()
+    // this.getBounds()
+    // this.group.setParent(this.scene)
   }
 
   createTexture() {

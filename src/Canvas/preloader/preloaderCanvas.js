@@ -14,7 +14,11 @@ const ASSETS = [
   'collections/wrath1.png',
   'collections/wrath2.png',
   'contact/contact_1.png',
-  'contact/contact_2.png'
+  'contact/contact_2.png',
+  'home/home1.jpg',
+  'home/home2.jpg',
+  'home/home3.jpg',
+  'home/home4.jpg',
 ]
 
 export const TEXTURE = new Map()
@@ -61,6 +65,7 @@ export default class {
   }
 
   onComplete(cb) {
+    console.log(TEXTURE);
     new N.M({
       el: [...this.counter],
       p: {

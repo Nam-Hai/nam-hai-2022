@@ -1,4 +1,5 @@
 import homeFixation from "../../animation/homeFixation";
+import { TEXTURE } from "../../Canvas/preloader/PreloaderCanvas";
 import Page from "../../classes/Page";
 import gridFixation from "../../components/gridFixation/gridFixation";
 import ressortButton from "../../components/ressortButton/ressortButton";
@@ -34,19 +35,16 @@ export default class Home extends Page {
   render(node) {
     super.render(node)
 
-
-
     let htI = N.get('.htI', node)
     stringLetterToDoubleSpan(htI, 'tooltip__span')
     let htC = N.get('.htC', node)
     stringLetterToDoubleSpan(htC, 'tooltip__span')
 
   }
+
   renderComponents(node) {
     super.renderComponents(node)
     this.hero = N.get('.hero img', node)
-    this.addEventListener()
-
   }
 
   addEventListener() {
