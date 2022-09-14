@@ -23,14 +23,6 @@ export default class Demo extends Page {
 
   renderComponents(node) {
     super.renderComponents(node)
-
-    new N.M({
-      el: node,
-      d: 600,
-      p: {
-        o: [0, 1]
-      }
-    }).play()
   }
 
   onMouseMove(e) {
