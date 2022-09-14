@@ -3,7 +3,6 @@ import Router from './classes/Router'
 import { N } from './utils/namhai'
 import { canvas } from './Canvas/canvas'
 import Preloader from './Pages/preloader/preloader'
-import { TEXTURE } from './Canvas/preloader/PreloaderCanvas'
 
 class App {
   constructor() {
@@ -130,15 +129,28 @@ class App {
     this.main.setAttribute('data-init', 'false')
 
     this.router.path = url
+
     if (push) window.history.pushState('', 'Nam Hai portfolio', url)
+
   }
+
+
 
   onPopState() {
+
     this.onChange({
+
       url: window.location.pathname,
+
       push: false
+
     })
+
   }
+
 }
 
+
+
 new App()
+
