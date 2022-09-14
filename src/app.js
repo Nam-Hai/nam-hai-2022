@@ -64,7 +64,6 @@ class App {
     if (!(links instanceof window.NodeList)) links = [links]
     for (const link of links) {
       link.addEventListener('click', (e) => {
-        console.log(link, 'clicked link');
         const href = N.Ga(link, 'href')
         // const href = link.href
         N.PD(e)

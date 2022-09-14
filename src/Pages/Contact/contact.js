@@ -45,8 +45,8 @@ export default class Contact extends Page {
     this.contactTitleSpans = N.getAll('span span', this.contactTitle);
     this.linkSpans = N.getAll('span span', this.linksWrapper)
 
-    this.backButton = N.get('.back__button__wrapper')
-    this.fixation = N.get('grid-fixation')
+    this.backButton = N.get('.back__button__wrapper', node)
+    this.fixation = N.get('grid-fixation', node)
 
     this.addEventListener()
 
@@ -71,7 +71,6 @@ export default class Contact extends Page {
   }
   addEventListener() {
 
-    console.log('addEvemt Lisntet', this.linksWrapper, this.imageWrapper);
     Object.values([this.linksWrapper, this.imageWrapper]).forEach(a => {
 
       a.addEventListener('mouseenter', _ => {

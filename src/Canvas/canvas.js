@@ -73,7 +73,6 @@ class Canvas {
       canvasSize: this.size,
       canvasSizePixel: this.sizePixel
     })
-    console.log('createHome', this.home);
   }
   createCollections() {
     this.collections = new CollectionsCanvas({
@@ -82,7 +81,6 @@ class Canvas {
       canvasSize: this.size,
       canvasSizePixel: this.sizePixel
     })
-    console.log('createCollections ', this.collections);
   }
 
   createContact() {

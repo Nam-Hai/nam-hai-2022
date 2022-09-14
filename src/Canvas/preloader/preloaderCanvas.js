@@ -27,8 +27,6 @@ export default class {
     this.gl = gl
 
     this.counter = N.getAll('.main .preloader__counter span span')
-    console.log(this.counter);
-    console.log(this.counter[0]);
     this.bar = N.get('.preloader__bar')
   }
 
@@ -65,7 +63,6 @@ export default class {
   }
 
   onComplete(cb) {
-    console.log(TEXTURE);
     new N.M({
       el: [...this.counter],
       p: {
