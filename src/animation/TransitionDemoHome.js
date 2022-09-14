@@ -7,6 +7,7 @@ export default class TransitionDemoHome {
       homeWB = N.get('.home__wrapper', mB)
     mB.classList.add('buffer-main__cover')
     N.O(mB, 0)
+    N.O(homeWB, 0)
     this.tl = new N.TL
     this.r = r
 
@@ -37,7 +38,7 @@ export default class TransitionDemoHome {
       }
     })
     this.tl.from({
-      delay: 1000,
+      delay: 500,
       d: 1000,
       el: homeWB,
       p: {
