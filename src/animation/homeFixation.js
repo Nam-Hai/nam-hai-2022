@@ -10,7 +10,7 @@ export default class homeFixation {
     if (b === undefined) {
       b = false
     }
-    let fixations = N.getAll('grid-fixation div')
+    let fixations = N.getAll('.main grid-fixation div')
 
     Object.entries(fixations).forEach(([index, fixation]) => {
       const initX = -(8 + 7 * 21) + 42 * index + 2 * (index - 1),

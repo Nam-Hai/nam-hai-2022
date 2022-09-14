@@ -68,13 +68,12 @@ export default class {
   }
 
   destroy() {
-    this.group.removeChild(this.mesh)
-    this.mesh = null;
-    this.scene.removeChild(this.group)
+    // this.group.removeChild(this.mesh)
+    // this.mesh = null;
+    // this.scene.removeChild(this.group)
   }
 
   async hide() {
-    // this.program.uniforms.o.value = 1
     await new Promise(res => {
       let motion = new N.M({
         d: 300,
@@ -83,7 +82,6 @@ export default class {
         },
         cb: () => {
           this.destroy()
-          // this.program.uniforms.o.value = 0
           res()
         },
       })

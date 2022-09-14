@@ -50,7 +50,6 @@ export default class Contact extends Page {
 
     this.addEventListener()
 
-
     this.iRaf.run()
   }
 
@@ -66,13 +65,13 @@ export default class Contact extends Page {
         const cA = new ContactAnimation(s, this.wrapper, this.bgBuffer, this.contactTitle, this.contactTitleSpans, this.linkSpans, this.linksWrapper, this.backButton, this.fixation)
         cA.play()
       })
-      // await canvas.contact.contactPelrinAnimation()
       this.imageWrapper.classList.remove('d-cursor')
       this.clickBool = false
     })
   }
   addEventListener() {
 
+    console.log('addEvemt Lisntet', this.linksWrapper, this.imageWrapper);
     Object.values([this.linksWrapper, this.imageWrapper]).forEach(a => {
 
       a.addEventListener('mouseenter', _ => {

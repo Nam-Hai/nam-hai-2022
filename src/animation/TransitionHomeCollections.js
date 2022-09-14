@@ -3,7 +3,7 @@ import { N } from "../utils/namhai";
 export default class TransitionHomeCollections {
   constructor({ cb, canvas, oldRoute, route }) {
     this.tl = new N.TL
-    const m = N.get('main')
+    const m = N.get('.main')
     const mB = N.get('.buffer-main')
 
     mB.classList.add('buffer-main__UP')
@@ -23,7 +23,6 @@ export default class TransitionHomeCollections {
           m.mesh.position.y = (-boundsY.y + canvas.sizePixel.height / 2) * canvas.size.height / canvas.sizePixel.height - m.bounds.height / 2
           m.mesh.position.y -= canvas.size.height * t.progE
         });
-        canvas.home.mesh.position.y = -canvas.size.height * t.progE
       },
       cb: _ => {
         canvas.hide(oldRoute)

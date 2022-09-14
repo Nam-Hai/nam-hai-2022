@@ -26,7 +26,7 @@ export default class {
   constructor({ gl, scene, canvasSize, canvasSizePixel }) {
     this.gl = gl
 
-    this.counter = N.getAll('main .preloader__counter span span')
+    this.counter = N.getAll('.main .preloader__counter span span')
     console.log(this.counter);
     console.log(this.counter[0]);
     this.bar = N.get('.preloader__bar')

@@ -48,7 +48,6 @@ export default class Home extends Page {
   }
 
   addEventListener() {
-    console.log('addEvent Home');
     this.hero.addEventListener('mouseenter', _ => {
       new homeFixation().play()
     })

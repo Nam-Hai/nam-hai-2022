@@ -7,7 +7,7 @@ import { TEXTURE } from './Canvas/preloader/PreloaderCanvas'
 
 class App {
   constructor() {
-    this.main = N.get('main')
+    this.main = N.get('.main')
     this.router = new Router()
 
     this.createPreloader()
@@ -17,7 +17,7 @@ class App {
   }
 
   initPage() {
-    const url = 'demo'
+    const url = 'contact'
     window.history.pushState('', 'Nam Hai portfolio', url)
     this.page = this.createPage(url)
 
@@ -109,15 +109,16 @@ class App {
     this.page = this.pageBuffer
     this.main.setAttribute('style', '')
     this.main.setAttribute('data-template', url)
-    this.main.innerHTML = this.page.nodeParent.innerHTML
 
+    this.page.content.classList = 'main'
+    this.page.content.style = ''
+    this.main.remove()
 
-    this.page.renderComponents(this.main)
+    this.main = this.page.content
+
+    // this.page.renderComponents(this.main)
     this.addLinkLinstener(this.main)
 
-    setTimeout(() => {
-      this.page.content.remove()
-    }, 100)
 
     // this.canvas.onChange(url)
 
