@@ -11,9 +11,6 @@ class App {
     this.router = new Router()
 
     this.createPreloader()
-    // this.onChange({ url: 'home' })
-
-    // this.initPage()
   }
 
   initPage() {
@@ -77,6 +74,11 @@ class App {
     window.addEventListener('mousemove', this.onMouseMove.bind(this))
     window.addEventListener('mouseup', this.onMouseUp.bind(this))
     window.addEventListener('popstate', this.onPopState.bind(this))
+    window.addEventListener('resize', this.onResize.bind(this))
+  }
+
+  onResize(e) {
+    canvas.onResize(this.router.path)
   }
 
   onMouseDown(e) {

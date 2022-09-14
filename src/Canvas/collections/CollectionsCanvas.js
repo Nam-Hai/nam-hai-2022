@@ -29,6 +29,11 @@ export default class {
     this.group.setParent(this.scene)
   }
 
+  onResize(canvasSizePixel, canvasSize) {
+    this.canvasSizePixel = canvasSizePixel
+    this.canvasSize = canvasSize
+
+  }
   getBounds() {
     [...this.medias, ...this.mediasBuffer].forEach(m => {
       m.getBounds()

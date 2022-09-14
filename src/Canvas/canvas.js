@@ -101,7 +101,7 @@ class Canvas {
     }
   }
 
-  onResize() {
+  onResize(route) {
     this.renderer.setSize(window.innerWidth, window.innerHeight)
     this.sizePixel = {
       width: window.innerWidth,
@@ -117,6 +117,10 @@ class Canvas {
     this.size = {
       height: height,
       width: height * this.camera.aspect
+    }
+
+    if (route && this[route] && this[route].onResize) {
+      this[route].onResize(this.sizePixel, this.size)
     }
   }
 

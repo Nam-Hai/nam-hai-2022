@@ -107,6 +107,11 @@ export default class {
     this.mesh.setParent(this.group)
   }
 
+  onResize(canvasSizePixel, canvasSize) {
+    this.canvasSize = canvasSize
+    this.canvasSizePixel = canvasSizePixel
+    this.getBounds()
+  }
   getBounds() {
     this.heroBoundsPixel = this.hero.getBoundingClientRect()
     this.heroBounds = {
