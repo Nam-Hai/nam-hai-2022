@@ -8,7 +8,7 @@ import Contact from '../Pages/Contact/contact';
 import TransitionHomeContact from '../animation/TransitionHomeContact';
 import TransitionContactHome from '../animation/TransitionContactHome';
 import { N } from '../utils/namhai';
-import Demo from '../Pages/Demo/demo';
+import Demo from '../Pages/Demo/demo.js';
 import TransitionPreloaderDemo from '../animation/TransitionPreloaderDemo';
 
 const transitionMap = new Map([
