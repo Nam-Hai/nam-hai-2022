@@ -393,7 +393,6 @@ N.M = class {
     i.elL = i.el.length, N.Has(r, "update") ? i.up = t => {
       r.update(i)
     } : N.Has(r, "svg") ? i.up = this.uSvg : N.Has(r, "line") ? i.up = this.uLine : i.up = this.uProp;
-    // p for PROPERTY
     var s = r.p || !1,
       t = r.svg || !1,
       a = r.line || !1;
@@ -420,7 +419,6 @@ N.M = class {
           d = "r" === o && e ? "r2" : o;
         e = "r" === o, i.propI[d] = t
       }
-      // SVG PATH POLYLINE LINE MORPHINQUE STUFF
     } else if (t) i.svg = {
       type: t.type,
       attr: "polygon" === t.type ? "points" : "d",
@@ -519,22 +517,10 @@ N.M = class {
     }
   }
   uProp() {
-    // r: {
-    //      name:string
-    //      origin: {
-    //          start: number, end: number
-    //            }
-    //      curr: number
-    //      start: number
-    //      end: number
-    //      unit: string = '%'
-    //      }
     const r = this.v.prop;
     var t = this.v.propI;
 
-    // Lerp chaque property
     for (let t = 0; t < this.v.propL; t++) r[t].curr = this.lerp(r[t].start, r[t].end);
-    // gestion de transform s'il y a translate + rotate + ...
     var s = N.Has(t, "x") ? r[t.x].curr + r[t.x].unit : 0,
       e = N.Has(t, "y") ? r[t.y].curr + r[t.y].unit : 0;
     const i = s + e === 0 ? 0 : "translate3d(" + s + "," + e + ",0)",
@@ -548,8 +534,6 @@ N.M = class {
     let z = this.v.elL;
 
     for (; z-- && !N.Is.und(this.v.el[z]);) {
-      // 0 !== h && (this.v.el[t].style.transform = h), 0 <= l && (this.v.el[t].style.opacity = l)
-
       if (!!h) {
         this.v.el[z].style.transform = h
       }
