@@ -54,7 +54,7 @@ export default class {
       t = N.ZL(r === 100 ? 0 : r)
     this.counter[0].innerText = t[0]
     this.counter[1].innerText = t[1]
-    this.bar.style.transform = `scaleX(${count * 100}%)`
+    this.bar.style.transform = `scaleX(${(2 + count) * 100}%)`
     if (this.index / ASSETS.length == 1) {
       this.onComplete(cb)
     }
