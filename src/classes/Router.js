@@ -1,6 +1,7 @@
 import Preloader from '../Pages/Preloader/preloader';
 import Home from '../Pages/Home/home';
 import Collections from '../Pages/Collections/collections';
+import Demo from '../Pages/Demo/demo';
 import TransitionHomeCollections from '../animation/TransitionHomeCollections';
 import TransitionDemoHome from '../animation/TransitionDemoHome';
 import TransitionCollectionsHome from '../animation/TransitionCollectionsHome';
@@ -8,7 +9,6 @@ import Contact from '../Pages/Contact/contact';
 import TransitionHomeContact from '../animation/TransitionHomeContact';
 import TransitionContactHome from '../animation/TransitionContactHome';
 import { N } from '../utils/namhai';
-import Demo from '../Pages/Demo/demo.js';
 import TransitionPreloaderDemo from '../animation/TransitionPreloaderDemo';
 
 const transitionMap = new Map([
