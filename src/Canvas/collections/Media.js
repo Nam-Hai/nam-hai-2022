@@ -63,6 +63,10 @@ export default class {
       }
     })
   }
+  onResize(canvasSize, canvasSizePixel) {
+    this.canvasSize = canvasSize
+    this.canvasSizePixel = canvasSizePixel
+  }
 
   getBounds() {
     this.boundsPixel = this.el.getBoundingClientRect()

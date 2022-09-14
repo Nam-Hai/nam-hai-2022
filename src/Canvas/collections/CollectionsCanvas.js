@@ -30,13 +30,17 @@ export default class {
   }
 
   onResize(canvasSizePixel, canvasSize) {
-    this.canvasSizePixel = canvasSizePixel
-    this.canvasSize = canvasSize
-
+    this.canvasSizePixel = canvasSizePixel;
+    this.canvasSize = canvasSize;
+    [...this.medias, ...this.mediasBuffer].forEach(m => {
+      m.onResize(this.canvasSize, this.canvasSizePixel)
+    })
+    this.getBounds()
   }
+
   getBounds() {
     [...this.medias, ...this.mediasBuffer].forEach(m => {
-      m.getBounds()
+      m.getBounds(this.canvasSize, this.canvasSizePixel)
     })
   }
 

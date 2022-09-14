@@ -104,16 +104,14 @@
 
 .background__title {
   position: absolute;
-  width: 1544px;
+  width: max-content;
   height: 270px;
   top: 296px;
   left: 50%;
   transform: translateX(-50%);
-  font-weight: 800;
   font-size: 370px;
   line-height: 73%;
   letter-spacing: -0.005em;
-  text-transform: uppercase;
 }
 
 .home__text__wrapper {
