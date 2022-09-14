@@ -3,8 +3,10 @@ import { N } from "../utils/namhai";
 export default class TransitionDemoHome {
   constructor({ r, cb, canvas, oldRoute, route }) {
 
-    const mB = N.get('.buffer-main')
+    const mB = N.get('.buffer-main'),
+      homeWB = N.get('.home__wrapper', mB)
     mB.classList.add('buffer-main__cover')
+    N.O(mB, 0)
     this.tl = new N.TL
     this.r = r
 
@@ -30,30 +32,19 @@ export default class TransitionDemoHome {
         canvas.onChange(route)
         canvas.demo.program.uniforms.o.value = 0
         canvas.hide(oldRoute)
+        N.O(mB, 1)
         // cb()
       }
     })
     this.tl.from({
       delay: 1000,
-      d: 5000,
-      el: N.get('.home__wrapper', mB),
+      d: 1000,
+      el: homeWB,
       p: {
         o: [0, 1]
       },
-
       cb: _ => cb()
     })
-    // this.tl.from({
-    //   d: 500,
-    //   delay: 1000,
-    //   update: t => {
-    //     canvas.demo.program.uniforms.o.value = 1 - t.progE
-    //   },
-    //   cb: _ => {
-    //     canvas.hide(oldRoute)
-    //   }
-
-    // })
   }
 
   play() {
