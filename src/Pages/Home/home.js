@@ -1,5 +1,5 @@
 import homeFixation from "../../animation/homeFixation";
-import { TEXTURE } from "../../Canvas/Preloader/PreloaderCanvas";
+import { TEXTURE } from "../../Canvas/Preloadersgdgsd/PreloaderCanvas";
 import Page from "../../classes/Page";
 import gridFixation from "../../components/gridFixation/gridFixation";
 import ressortButton from "../../components/ressortButton/ressortButton";
