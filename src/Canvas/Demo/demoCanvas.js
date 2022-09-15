@@ -20,28 +20,11 @@ export default class {
     this.group.setParent(scene)
   }
 
-
-  createTexture() {
-    this.texture = new Texture(this.gl)
-
-    this.image = new window.Image();
-    this.image.crossOrigin = 'anonymous'
-    this.image.src = 'homeBuffer.png'
-    this.image.onload = () => {
-      this.texture.image = this.image
-    }
-
-  }
-
   createMesh() {
-    this.createTexture()
     this.program = new Program(this.gl, {
       fragment,
       vertex,
       uniforms: {
-        tMap: {
-          value: this.texture,
-        },
         o: {
           value: 0
         },
