@@ -1,4 +1,4 @@
-import { TEXTURE } from "../Canvas/preloader/PreloaderCanvas"
+import { TEXTURE } from "../Canvas/Preloader/PreloaderCanvas"
 
 class CollectionsService {
   constructor() {
