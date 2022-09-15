@@ -6,6 +6,7 @@ import Preloader from './Pages/Preloader/preloader'
 
 class App {
   constructor() {
+    console.log('prod');
     this.main = N.get('.main')
     this.router = new Router()
 
