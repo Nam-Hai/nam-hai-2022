@@ -2,7 +2,7 @@ import { N } from "../../utils/namhai"
 import { Transform, Plane, Program, Mesh, Texture } from 'ogl'
 import fragment from './fragment.glsl?raw'
 import vertex from './vertex.glsl?raw'
-import { TEXTURE } from "../Preloader/PreloaderCanvas"
+import { TEXTURE } from "../Preloader/preloaderCanvas"
 
 export default class {
   constructor({ gl, scene, canvasSize, canvasSizePixel }) {
