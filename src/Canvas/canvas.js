@@ -2,7 +2,7 @@ import { Renderer, Camera, Transform } from 'ogl'
 import { N } from '../utils/namhai';
 import CollectionsCanvas from './Collections/collectionsCanvas';
 import ContactCanvas from './Contact/contactCanvas';
-import HomeCanvas from './Home/homeCanvas';
+import HomeCanvas from './Home/homeCanvasGASG';
 import DemoCanvas from './Demo/demoCanvas';
 import PreloaderCanvas from './Preloader/PreloaderCanvas';
 
