@@ -1,10 +1,9 @@
 import homeFixation from "../../animation/homeFixation";
-import { TEXTURE } from "../../Canvas/Preloader/PreloaderCanvas";
 import Page from "../../classes/Page";
 import gridFixation from "../../components/gridFixation/gridFixation";
 import ressortButton from "../../components/ressortButton/ressortButton";
 import { N } from "../../utils/namhai";
-import { stringLetterToDoubleSpan, stringLetterToSpan } from "../../utils/utilsText";
+import { stringLetterToDoubleSpan } from "../../utils/utilsText";
 import homeTemplate from "./home.html?raw"
 
 export default class Home extends Page {
