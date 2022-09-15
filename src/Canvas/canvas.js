@@ -4,7 +4,7 @@ import CollectionsCanvas from './Collections/collectionsCanvas';
 import ContactCanvas from './Contact/contactCanvas';
 import HomeCanvas from './Home/homeCanvas';
 import DemoCanvas from './Demo/demoCanvas';
-import PreloaderCanvas from './Preloader/PreloaderCanvas';
+import PreloaderCanvas from './Preloader/preloaderCanvas';
 
 class Canvas {
   constructor() {
