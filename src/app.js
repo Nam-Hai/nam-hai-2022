@@ -62,7 +62,6 @@ class App {
     for (const link of links) {
       link.addEventListener('click', (e) => {
         const href = N.Ga(link, 'href')
-        // const href = link.href
         N.PD(e)
         this.onChange({ url: href, button: link })
       })
@@ -138,20 +137,11 @@ class App {
 
 
   onPopState() {
-
     this.onChange({
-
-      url: window.location.pathname,
-
+      url: window.location.pathname.slice(1),
       push: false
-
     })
-
   }
-
 }
 
-
-
 new App()
-
