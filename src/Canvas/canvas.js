@@ -1,10 +1,10 @@
 import { Renderer, Camera, Transform } from 'ogl'
 import { N } from '../utils/namhai';
-import CollectionsCanvas from './collections/collectionsCanvas';
-import ContactCanvas from './contact/contactCanvas';
-import HomeCanvas from './home/homeCanvas';
-import DemoCanvas from './demo/demoCanvas';
-import PreloaderCanvas from './preloader/PreloaderCanvas';
+import CollectionsCanvas from './Collections/collectionsCanvas';
+import ContactCanvas from './Contact/contactCanvas';
+import HomeCanvas from './Home/homeCanvas';
+import DemoCanvas from './Demo/demoCanvas';
+import PreloaderCanvas from './Preloader/PreloaderCanvas';
 
 class Canvas {
   constructor() {
