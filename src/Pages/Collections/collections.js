@@ -59,9 +59,15 @@ export default class Collections extends Page {
     for (const q of N.getAll('span span', current__page)) {
       N.T(q, 0, 0)
     }
-
-    // node.style.backgroundColor = info.bg
   }
+  addEventListener() {
+    let display = N.get('.display__container')
+    display.addEventListener('click', _ => {
+
+    })
+
+  }
+
   onMouseMove(e) {
     this.components['ressort-button'].forEach(c => {
       c.onMouseMove(e)
