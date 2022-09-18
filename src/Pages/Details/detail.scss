@@ -76,8 +76,14 @@
     transition: opacity 300ms;
   }
 
+  .cI {
+    grid-column: 1/4;
+  }
   .gI {
     grid-column: 1/5;
+  }
+  .ggI {
+    grid-column: 1/6;
   }
 }
 

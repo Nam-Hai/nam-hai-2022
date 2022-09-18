@@ -14,23 +14,11 @@
     height: 2.5rem;
     // border-radius: 5px;
   }
-  ressort-button.c_s {
-    left: 89px;
-    top: 678px;
-    color: #FF4A0B;
-  > button {
-    background-color: #FF4A0B;
-  }
-
-  }
   ressort-button.c_w {
     position: relative;
-    color: $primary-blue;
-    & > button {
-      background-color: $primary-blue;
-    }
   }
 }
+
 .home__wrapper {
   position: absolute;
   height: 100%;
@@ -47,7 +35,6 @@
   align-items: center;
 }
 .home__action__tooltip{
-  font-family: 'League Spartan';
   font-style: normal;
   font-weight: 700;
   font-size: 40px;
@@ -55,7 +42,6 @@
   text-transform: uppercase;
 
   color: black;
-  // color: #0D3A95;
 }
 
 .hero {
@@ -141,8 +127,6 @@
       width: 0;
       object-fit: cover;
       border-radius: 34px;
-      // background-color: grey
-
     }
   }
 }

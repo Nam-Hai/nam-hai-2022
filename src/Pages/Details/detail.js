@@ -1,4 +1,5 @@
 import { collectionsService } from "../../animation/collectionsAnimationService";
+import { fixationState } from "../../animation/homeFixation";
 import Page from "../../classes/Page";
 import { N } from "../../utils/namhai";
 import detailTemplate from './detail.html?raw'
@@ -14,12 +15,18 @@ export default class Detail extends Page {
 
   renderComponents(node) {
     super.renderComponents(node)
+    fixationState[0] = true
     const cInfo = collectionsService.getInfo()
     this.d = N.get('.detail__wrapper')
     const p = N.get('.p__container', node)
     p.innerHTML = cInfo.detailHTML
     this.d.style.setProperty('--bg-color', cInfo.bg)
     this.d.style.setProperty('--main-color', cInfo.c)
+
+    const titleFlavour = N.get('.nav__title__flavour', node)
+    const titleName = N.get('.nav__title__name', node)
+    titleFlavour.innerText = cInfo.dF
+    titleName.innerText = cInfo.dN
 
     const images = N.getAll('img', p)
     Object.values(images).forEach(img => {

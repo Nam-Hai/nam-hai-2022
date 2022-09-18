@@ -2,33 +2,50 @@ import { TEXTURE } from "../Canvas/Preloader/preloaderCanvas"
 
 class CollectionsService {
   constructor() {
-    this.currentPage = 3
+    this.currentPage = 1
 
     this.collectionsInfo = [
       {
         bg: '#171717', c: '#E5DFDF', image1: 'collections/noise1.png', image2: 'collections/noise2.png',
         flavour: '<span class="doublespan__container"><span class="tooltip__span">I</span></span><span class="doublespan__container"><span class="tooltip__span">A</span></span>',
         name: '<span class="doublespan__container"><span class="tooltip__span">M</span></span><span class="doublespan__container"><span class="tooltip__span">i</span></span><span class="doublespan__container"><span class="tooltip__span">d</span></span><span class="doublespan__container"><span class="tooltip__span">j</span></span><span class="doublespan__container"><span class="tooltip__span">o</span></span><span class="doublespan__container"><span class="tooltip__span">u</span></span><span class="doublespan__container"><span class="tooltip__span">r</span></span><span class="doublespan__container"><span class="tooltip__span">n</span></span><span class="doublespan__container"><span class="tooltip__span">e</span></span><span class="doublespan__container"><span class="tooltip__span">y</span></span>',
-        index: '<span class="doublespan__container"><span class="tooltip__span" style="transform: translate3d(-101%,0,0)">0</span></span><span class="doublespan__container"><span class="tooltip__span" style="transform: translate3d(-101%,0,0)">1</span></span>'
+        index: '<span class="doublespan__container"><span class="tooltip__span" style="transform: translate3d(-101%,0,0)">0</span></span><span class="doublespan__container"><span class="tooltip__span" style="transform: translate3d(-101%,0,0)">1</span></span>',
+        detailHTML: '<div class="detail__img__container"><img src="detail/d1_1.png" alt="midjourney-1"></div><div class="detail__img__container"><img src="detail/d1_2.png" alt="midjourney-2"></div><div class="detail__img__container gI"><img src="detail/d1_3.png" alt="midjourney-3"></div><div class="detail__img__container"><img src="detail/d1_4.png" alt="midjourney-4"></div>',
+        'dF': 'IA',
+        'dN': 'Midjourney'
       },
       {
         bg: '#F0BDBD', c: '#FF4A0B', image1: 'collections/travis1.png', image2: 'collections/travis2.png',
         flavour: '<span class="doublespan__container"><span class="tooltip__span" >T</span></span><span class="doublespan__container"><span class="tooltip__span" >y</span></span><span class="doublespan__container"><span class="tooltip__span" >p</span></span><span class="doublespan__container"><span class="tooltip__span" >o</span></span><span class="doublespan__container"><span class="tooltip__span" >g</span></span><span class="doublespan__container"><span class="tooltip__span" >r</span></span><span class="doublespan__container"><span class="tooltip__span" >a</span></span><span class="doublespan__container"><span class="tooltip__span" >p</span></span><span class="doublespan__container"><span class="tooltip__span" >h</span></span><span class="doublespan__container"><span class="tooltip__span" >y</span></span></div>',
         name: '<div class="nav__title__name" ><span class="doublespan__container"><span class="tooltip__span" >T</span></span><span class="doublespan__container"><span class="tooltip__span" >r</span></span><span class="doublespan__container"><span class="tooltip__span" >a</span></span><span class="doublespan__container"><span class="tooltip__span" >v</span></span><span class="doublespan__container"><span class="tooltip__span" >i</span></span><span class="doublespan__container"><span class="tooltip__span" >s</span></span>',
-        index: '<span class="doublespan__container"><span class="tooltip__span" style="transform: translate3d(-101%,0,0)">0</span></span><span class="doublespan__container"><span class="tooltip__span" style="transform: translate3d(-101%,0,0)">2</span></span>'
+        index: '<span class="doublespan__container"><span class="tooltip__span" style="transform: translate3d(-101%,0,0)">0</span></span><span class="doublespan__container"><span class="tooltip__span" style="transform: translate3d(-101%,0,0)">2</span></span>',
+        detailHTML: `
+          <div class="detail__img__container"><img src="detail/d2_1.png" alt="travis-1"></div>
+          <div class="detail__img__container ggI"><img src="detail/d2_2.png" alt="travis-2"></div>
+          <div class="detail__img__container"><img src="detail/d2_3.png" alt="travis-3"></div>
+          <div class="detail__img__container gI"><img src="detail/d2_4.png" alt="travis-4"></div>
+          <div class="detail__img__container"><img src="detail/d2_5.png" alt="travis-5"></div>
+        `,
+        'dF': 'Typography',
+        'dN': 'Travis'
       },
       {
         bg: '#131721', c: '#DA2607', image1: 'collections/wrath1.png', image2: 'collections/wrath2.png',
         flavour: '<span class="doublespan__container"><span class="tooltip__span">I</span></span><span class="doublespan__container"><span class="tooltip__span">A</span></span>',
         name: '<span class="doublespan__container"><span class="tooltip__span">M</span></span><span class="doublespan__container"><span class="tooltip__span">i</span></span><span class="doublespan__container"><span class="tooltip__span">d</span></span><span class="doublespan__container"><span class="tooltip__span">j</span></span><span class="doublespan__container"><span class="tooltip__span">o</span></span><span class="doublespan__container"><span class="tooltip__span">u</span></span><span class="doublespan__container"><span class="tooltip__span">r</span></span><span class="doublespan__container"><span class="tooltip__span">n</span></span><span class="doublespan__container"><span class="tooltip__span">e</span></span><span class="doublespan__container"><span class="tooltip__span">y</span></span>',
-        index: '<span class="doublespan__container"><span class="tooltip__span" style="transform: translate3d(-101%,0,0)">0</span></span><span class="doublespan__container"><span class="tooltip__span" style="transform: translate3d(-101%,0,0)">3</span></span>'
+        index: '<span class="doublespan__container"><span class="tooltip__span" style="transform: translate3d(-101%,0,0)">0</span></span><span class="doublespan__container"><span class="tooltip__span" style="transform: translate3d(-101%,0,0)">3</span></span>',
+        detailHTML: '<div class="detail__img__container"><img src="detail/d3_1.png" alt="midjourney-1"></div><div class="detail__img__container"><img src="detail/d3_2.png" alt="midjourney-2"></div><div class="detail__img__container ggI"><img src="detail/d3_3.png" alt="midjourney-3"></div><div class="detail__img__container"><img src="detail/d3_4.png" alt="midjourney-4"></div><div class="detail__img__container cI"><img src="detail/d3_5.png" alt="midjourney-5"></div><div class="detail__img__container"><img src="detail/d3_6.png" alt="midjourney-6" ></div>',
+        'dF': 'IA',
+        'dN': 'Midjourney'
       },
       {
         bg: '#B2E8D7', c: '#1B795F', image1: 'collections/cherifkid1.jpg', image2: 'collections/cherifkid2.png',
         flavour: '<span class="doublespan__container"><span class="tooltip__span" >D</span></span><span class="doublespan__container"><span class="tooltip__span" >I</span></span><span class="doublespan__container"><span class="tooltip__span" >G</span></span><span class="doublespan__container"><span class="tooltip__span" >I</span></span><span class="doublespan__container"><span class="tooltip__span" >T</span></span><span class="doublespan__container"><span class="tooltip__span" >A</span></span><span class="doublespan__container"><span class="tooltip__span" >L</span></span><span class="doublespan__container"><span class="tooltip__span" >&nbsp;</span></span><span class="doublespan__container"><span class="tooltip__span" >P</span></span><span class="doublespan__container"><span class="tooltip__span" >A</span></span><span class="doublespan__container"><span class="tooltip__span" >I</span></span><span class="doublespan__container"><span class="tooltip__span" >N</span></span><span class="doublespan__container"><span class="tooltip__span" >T</span></span><span class="doublespan__container"><span class="tooltip__span" >I</span></span><span class="doublespan__container"><span class="tooltip__span" >N</span></span><span class="doublespan__container"><span class="tooltip__span" >G</span></span>',
         name: '<span class="doublespan__container"><span class="tooltip__span" >C</span></span><span class="doublespan__container"><span class="tooltip__span" >H</span></span><span class="doublespan__container"><span class="tooltip__span" >E</span></span><span class="doublespan__container"><span class="tooltip__span" >R</span></span><span class="doublespan__container"><span class="tooltip__span" >I</span></span><span class="doublespan__container"><span class="tooltip__span" >F</span></span><span class="doublespan__container"><span class="tooltip__span" >K</span></span><span class="doublespan__container"><span class="tooltip__span" >I</span></span><span class="doublespan__container"><span class="tooltip__span" >D</span></span>',
         index: '<span class="doublespan__container"><span class="tooltip__span" style="transform: translate3d(-101%,0,0)">0</span></span><span class="doublespan__container"><span class="tooltip__span" style="transform: translate3d(-101%,0,0)">4</span></span>',
-        detailHTML: '<div class="detail__img__container"><img src="detail/d4_1.png" alt="cherifkid_image-1"></div><div class="detail__img__container"><img src="detail/d4_2.png" alt="cherifkid_image-2"></div><div class="detail__img__container"><img src="detail/d4_3.png" alt="cherifkid_image-3"></div><div class="detail__img__container gI"><img src="detail/d4_4.png" alt="cherifkid_image-4"></div><div class="detail__img__container"><img src="detail/d4_5.png" alt="cherifkid_image-5" ></div>'
+        detailHTML: '<div class="detail__img__container"><img src="detail/d4_1.png" alt="cherifkid_image-1"></div><div class="detail__img__container"><img src="detail/d4_7.jpg" alt="cherifkid_image-7"></div><div class="detail__img__container"><img src="detail/d4_2.png" alt="cherifkid_image-2"></div><div class="detail__img__container"><img src="detail/d4_3.png" alt="cherifkid_image-3"></div><div class="detail__img__container gI"><img src="detail/d4_4.png" alt="cherifkid_image-4"></div><div class="detail__img__container"><img src="detail/d4_5.png" alt="cherifkid_image-5" ></div>',
+        'dF': 'Digital Painting',
+        'dN': 'CherifKid'
       },
 
     ]
