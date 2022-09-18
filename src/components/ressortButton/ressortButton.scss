@@ -13,7 +13,13 @@ ressort-button {
     height: 100%;
     border-radius: 5px;
     background-color: currentColor;
-
+  -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Old versions of Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome, Edge, Opera and Firefox */
     // box-shadow: 0  0 100px 0 rgb(255 255 255 / 33%);
     // opacity: 0.2;
   }
