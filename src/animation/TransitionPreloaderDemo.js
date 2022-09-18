@@ -9,7 +9,7 @@ export default class TransitionPreloaderDemo {
       tooltipSpans = N.getAll('.ressort__demo__tooltip__wrapper span span'),
       preloaderBar = N.get('.preloader__bar');
     preloaderBar.style.transition = 'unset'
-    Object.values(tooltipSpans).map(s => N.T(s, 101, 0))
+    Object.values(tooltipSpans).map(s => N.T(s, 105, 0))
     mB.classList.add('buffer-main__cover')
     N.O(bFixation, 0)
     this.tl = new N.TL
@@ -36,7 +36,7 @@ export default class TransitionPreloaderDemo {
       d: 450,
       e: 'o5',
       p: {
-        x: [101, 0]
+        x: [105, 0]
       },
       delay: 800,
     })

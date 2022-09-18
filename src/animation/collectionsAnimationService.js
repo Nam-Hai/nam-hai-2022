@@ -11,10 +11,10 @@ class CollectionsService {
         name: '<span class="doublespan__container"><span class="tooltip__span">M</span></span><span class="doublespan__container"><span class="tooltip__span">i</span></span><span class="doublespan__container"><span class="tooltip__span">d</span></span><span class="doublespan__container"><span class="tooltip__span">j</span></span><span class="doublespan__container"><span class="tooltip__span">o</span></span><span class="doublespan__container"><span class="tooltip__span">u</span></span><span class="doublespan__container"><span class="tooltip__span">r</span></span><span class="doublespan__container"><span class="tooltip__span">n</span></span><span class="doublespan__container"><span class="tooltip__span">e</span></span><span class="doublespan__container"><span class="tooltip__span">y</span></span>',
         index: '<span class="doublespan__container"><span class="tooltip__span" style="transform: translate3d(-101%,0,0)">0</span></span><span class="doublespan__container"><span class="tooltip__span" style="transform: translate3d(-101%,0,0)">1</span></span>',
         detailHTML: `
-        <div class="detail__img__container"><img src="detail/d1_1.png" alt="midjourney-1"></div>
-        <div class="detail__img__container"><img src="detail/d1_2.png" alt="midjourney-2"></div>
-        <div class="detail__img__container"><img src="detail/d1_3.png" alt="midjourney-3"></div>
-        <div class="detail__img__container"><img src="detail/d1_4.png" alt="midjourney-4"></div>`,
+        <div class="detail__img__container" style="aspect-ratio: 1/1"><img src="detail/d1_1.png" alt="midjourney-1"></div>
+        <div class="detail__img__container" style="aspect-ratio: 1/1"><img src="detail/d1_2.png" alt="midjourney-2"></div>
+        <div class="detail__img__container" style="aspect-ratio: 1/1"><img src="detail/d1_3.png" alt="midjourney-3"></div>
+        <div class="detail__img__container" style="aspect-ratio: 1/1"><img src="detail/d1_4.png" alt="midjourney-4"></div>`,
         'dF': 'IA',
         'dN': 'Midjourney'
       },
@@ -58,7 +58,7 @@ class CollectionsService {
         <div class="detail__img__container" style="aspect-ratio: 1/1"><img src="detail/d4_7.jpg" alt="cherifkid_image-7"></div>
         <div class="detail__img__container" style="aspect-ratio: 1/1"><img src="detail/d4_2.png" alt="cherifkid_image-2"></div>
         <div class="detail__img__container" style="aspect-ratio: 1/1"><img src="detail/d4_3.png" alt="cherifkid_image-3"></div>
-        <div class="detail__img__container gI" style="aspect-ratio: 111/97"><img src="detail/d4_4.png" alt="cherifkid_image-4"></div>
+        <div class="detail__img__container gI" style="aspect-ratio: 2000/1555"><img src="detail/d4_4.png" alt="cherifkid_image-4"></div>
         <div class="detail__img__container" style="aspect-ratio: 1/1"><img src="detail/d4_5.png" alt="cherifkid_image-5" ></div>`,
         'dF': 'Digital Painting',
         'dN': 'CherifKid'

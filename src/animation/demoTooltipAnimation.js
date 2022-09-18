@@ -9,12 +9,12 @@ export default class PreloaderTooltipAnimation {
     this.tl = new N.TL
 
     let tooltipO = {
-      x: b ? [0, 102] : [101, 0],
+      x: b ? [0, 105] : [105, 0],
       delay: b ? 0 : 200
     }
 
     let successO = {
-      o: b ? [100, 0] : [0, 100],
+      o: b ? [105, 0] : [0, 105],
       delay: b ? 200 : 0
     }
     this.tl.from({

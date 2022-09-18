@@ -50,12 +50,12 @@
   > div {
     transform: translateY(-50%);
     position: absolute;
-    &:nth-child(2) {
+    // &:nth-child(2) {
       // opacity: 0;
       span span {
-        transform: translateX(-101%);
+        transform: translateX(105%);
       }
-    }
+    // }
   }
 }
 

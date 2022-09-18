@@ -29,7 +29,7 @@ export default class ContactAnimation {
     this.tl.from({
       el: [...contactTitleSpans, ...linkSpans],
       p: {
-        x: [0, -101]
+        x: [0, -105]
       },
       d: 450,
       e: 'o5',
@@ -44,7 +44,7 @@ export default class ContactAnimation {
     this.tl.from({
       el: [...contactTitleSpans, ...linkSpans],
       p: {
-        x: [-101, 0]
+        x: [-105, 0]
       },
       d: 450,
       e: 'o5',

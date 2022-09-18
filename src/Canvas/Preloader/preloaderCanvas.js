@@ -68,7 +68,7 @@ export default class {
     new N.M({
       el: [...this.counter],
       p: {
-        x: [0, 101]
+        x: [0, 103]
       },
       d: 600,
       e: 'o5',
