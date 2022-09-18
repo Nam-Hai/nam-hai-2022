@@ -78,8 +78,17 @@ class App {
   }
 
   onResize(e) {
-    if (window.innerWidth < 950) {
-
+    if (window.innerWidth < 800) {
+      if (!this.mobileState) {
+        this.mobile = N.Cr('div')
+        this.mobile.classList.add('mobile')
+        this.mobile.innerHTML = 'this portfolio is meant for desktop experience<img src="hero.jpg" alt="hero">'
+        document.body.appendChild(this.mobile)
+      }
+      this.mobileState = true
+    } else if (this.mobileState) {
+      this.mobile.remove()
+      this.mobileState = false
     }
     canvas.onResize(this.router.path)
   }
