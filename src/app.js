@@ -9,8 +9,8 @@ class App {
     this.main = N.get('.main')
     this.router = new Router()
 
-    this.createPreloader()
-    // this.initPage()
+    // this.createPreloader()
+    this.initPage()
   }
 
   initPage() {
