@@ -104,13 +104,13 @@ $background-color: #171717;
   }
 
 
-  .nav__title__flavour {
-    font-size: 2rem;
-    font-weight: 200;
-  }
-  .nav__title__name {
-    font-size: 3rem;
-  }
+}
+.nav__title__flavour {
+  font-size: 2rem;
+  font-weight: 200;
+}
+.nav__title__name {
+  font-size: 3rem;
 }
 
 .buffer__title {
@@ -129,6 +129,12 @@ $background-color: #171717;
   width: 75rem;
   display: flex;
   flex-wrap: nowrap;
+
+  a {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+  }
   img {
     height: 100%;
     width: 50%;

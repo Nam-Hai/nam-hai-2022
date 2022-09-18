@@ -61,10 +61,10 @@ export default class Collections extends Page {
     }
   }
   addEventListener() {
-    let display = N.get('.display__container')
-    display.addEventListener('click', _ => {
+    // let display = N.get('.display__container')
+    // display.addEventListener('click', _ => {
 
-    })
+    // })
 
   }
 

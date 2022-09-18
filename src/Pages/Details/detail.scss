@@ -1,0 +1,65 @@
+.detail__wrapper {
+  text-transform: uppercase;
+  height: 100%;
+  width: 100%;
+  background-color: #B2E8D7;
+  color: #1B795F;
+  // position: fixed;
+  overflow-y: scroll;
+  scrollbar-color: currentColor;
+  scrollbar-width: thin;
+  & {
+    scrollbar-width: thin;
+    scrollbar-color: currentColor #B2E8D7;
+  }
+
+  /* Works on Chrome, Edge, and Safari */
+  &::-webkit-scrollbar {
+    width: 12px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: #B2E8D7;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: currentColor;
+    border-radius: 20px;
+    border: 3px solid #B2E8D7;
+  }
+
+  .nav__title__flavour {
+    font-size: 3rem;
+  }
+  .nav__title__name {
+    font-size: 4rem;
+  }
+}
+
+.back__wrapper {
+  position: absolute;
+  bottom: 3rem;
+  right: 6.5rem;
+}
+
+.title__wrapper {
+  position: relative;
+  height: calc(100vh - 6rem);
+}
+
+.detail__container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 3rem 6.5rem;
+}
+
+.p__container {
+  display: flex;
+  flex-direction: column;
+  row-gap: 1.5rem;
+
+  img {
+    width: 32rem;
+  }
+}

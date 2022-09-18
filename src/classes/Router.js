@@ -10,6 +10,7 @@ import TransitionHomeContact from '../animation/TransitionHomeContact';
 import TransitionContactHome from '../animation/TransitionContactHome';
 import { N } from '../utils/namhai';
 import TransitionPreloaderDemo from '../animation/TransitionPreloaderDemo';
+import Detail from '../Pages/Details/detail';
 
 const transitionMap = new Map([
   ['home => collections', TransitionHomeCollections],
@@ -28,7 +29,8 @@ export default class Router {
       'collections': Collections,
       'contact': Contact,
       'demo': Demo,
-      'preloader': Preloader
+      'preloader': Preloader,
+      'detail': Detail
     }
 
   }
