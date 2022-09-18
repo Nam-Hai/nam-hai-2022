@@ -11,10 +11,11 @@ class App {
     this.router = new Router()
 
     this.createPreloader()
+    // this.initPage()
   }
 
   initPage() {
-    const url = 'contact'
+    const url = 'detail'
     window.history.pushState('', 'Nam Hai portfolio', url)
     this.page = this.createPage(url)
 
@@ -105,7 +106,7 @@ class App {
     this.pageBuffer.render(N.get('.buffer-main'))
     this.pageBuffer.renderComponents(N.get('.buffer-main'))
     await this.page.hide()
-    await this.router.transitionOnChange(url, this.canvas)
+    await this.router.transitionOnChange(url, this.canvas, this.pageBuffer.content)
     this.page = null
 
     // this.pageBuffer.content.remove()

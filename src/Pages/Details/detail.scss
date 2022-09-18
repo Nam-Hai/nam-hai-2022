@@ -40,11 +40,13 @@
   position: absolute;
   bottom: 3rem;
   right: 6.5rem;
+  font-size: 3rem;
 }
 
 .title__wrapper {
-  position: relative;
-  height: calc(100vh - 6rem);
+  position: absolute;
+  top: 3rem;
+  right: 6.5rem;
 }
 
 .detail__container {
@@ -55,11 +57,19 @@
 }
 
 .p__container {
-  display: flex;
-  flex-direction: column;
-  row-gap: 1.5rem;
+  display: grid;
+  width: 100%;
+  grid-template-columns: repeat(6, 1fr);
+  // flex-direction: column;
+  row-gap: 1rem;
 
   img {
-    width: 32rem;
+    grid-column: 1/3;
+    width: 100%;
+  }
+
+  .gI {
+    grid-column: 1/5;
+    // width: 48rem;
   }
 }

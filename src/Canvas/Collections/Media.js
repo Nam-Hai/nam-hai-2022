@@ -21,6 +21,7 @@ export default class {
     })
 
     this.getBounds()
+    console.log(this.bounds, this.boundsPixel, this.el);
     this.mesh.setParent(scene)
 
   }
@@ -84,8 +85,11 @@ export default class {
     this.mesh.scale.x = this.bounds.width
     this.mesh.scale.y = this.bounds.height
 
+
     this.mesh.position.x = (this.boundsPixel.x - this.canvasSizePixel.width / 2) * this.canvasSize.width / this.canvasSizePixel.width + this.bounds.width / 2
     this.mesh.position.y = (-this.boundsPixel.y + this.canvasSizePixel.height / 2) * this.canvasSize.height / this.canvasSizePixel.height - this.bounds.height / 2
+    // this.mesh.position.x = 0
+    // this.mesh.position.y = 0
   }
 
 

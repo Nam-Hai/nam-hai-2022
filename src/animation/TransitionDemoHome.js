@@ -4,7 +4,8 @@ export default class TransitionDemoHome {
   constructor({ r, cb, canvas, oldRoute, route }) {
 
     const mB = N.get('.buffer-main'),
-      homeWB = N.get('.home__wrapper', mB)
+      homeWB = N.get('.home__wrapper', mB),
+      lineTextHome = N.getAll('.home__text', homeWB)
     mB.classList.add('buffer-main__cover')
     N.O(mB, 0)
     N.O(homeWB, 0)
@@ -45,6 +46,17 @@ export default class TransitionDemoHome {
         o: [0, 1]
       },
       cb: _ => cb()
+    })
+    Object.entries(lineTextHome).forEach(([i, el]) => {
+      this.tl.from({
+        delay: 700,
+        d: 1000,
+        el: el,
+        p: {
+          x: [-100 * ((i % 2) * 2 - 1), 0]
+        },
+        e: 'io5'
+      })
     })
   }
 

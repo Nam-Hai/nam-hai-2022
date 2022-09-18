@@ -48,9 +48,11 @@ export default class Router {
     this.path = 'preloader'
   }
 
-  async transitionOnChange(url, canvas) {
+  async transitionOnChange(url, canvas, pageBufferContent) {
+    console.log('UREL', url);
     const key = this.path + ' => ' + url
     let t = transitionMap.get(key)
+    console.log('T transition', t, this.path, url);
     if (t) {
       N.PE.none(document.body)
       await new Promise(s => {
@@ -59,6 +61,7 @@ export default class Router {
       })
       N.PE.all(document.body)
     } else {
+      pageBufferContent.classList.add('buffer-main__cover')
       canvas.hide(this.path)
       canvas.onChange(url)
     }

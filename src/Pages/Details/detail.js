@@ -1,3 +1,4 @@
+import { collectionsService } from "../../animation/collectionsAnimationService";
 import Page from "../../classes/Page";
 import { N } from "../../utils/namhai";
 import detailTemplate from './detail.html?raw'
@@ -14,6 +15,9 @@ export default class Detail extends Page {
   renderComponents(node) {
     super.renderComponents(node)
 
+    const p = N.get('.p__container', node)
+    p.innerHTML = collectionsService.getInfo().detailHTML
+
     this.addEventListener()
   }
   addEventListener() {
@@ -22,9 +26,6 @@ export default class Detail extends Page {
   }
 
   onScroll(e) {
-    // N.PD(e)
     console.log(e);
-
-    // this.d.scrollTo(0, 0)
   }
 }
