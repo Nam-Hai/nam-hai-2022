@@ -14,18 +14,25 @@ export default class Detail extends Page {
 
   renderComponents(node) {
     super.renderComponents(node)
-
+    const cInfo = collectionsService.getInfo()
+    this.d = N.get('.detail__wrapper')
     const p = N.get('.p__container', node)
-    p.innerHTML = collectionsService.getInfo().detailHTML
+    p.innerHTML = cInfo.detailHTML
+    this.d.style.setProperty('--bg-color', cInfo.bg)
+    this.d.style.setProperty('--main-color', cInfo.c)
 
+    const images = N.getAll('img', p)
+    Object.values(images).forEach(img => {
+      img.onload = _ => {
+        N.O(img, 1)
+      }
+    })
     this.addEventListener()
   }
   addEventListener() {
-    this.d = N.get('.detail__wrapper')
     this.d.addEventListener('scroll', this.onScroll.bind(this))
   }
 
   onScroll(e) {
-    console.log(e);
   }
 }

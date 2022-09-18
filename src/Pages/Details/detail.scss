@@ -1,16 +1,18 @@
 .detail__wrapper {
+  --bg-color: blue;
+  --main-color: red;
   text-transform: uppercase;
   height: 100%;
   width: 100%;
-  background-color: #B2E8D7;
-  color: #1B795F;
+  background-color: var(--bg-color);
+  color: var(--main-color);
   // position: fixed;
   overflow-y: scroll;
   scrollbar-color: currentColor;
   scrollbar-width: thin;
   & {
     scrollbar-width: thin;
-    scrollbar-color: currentColor #B2E8D7;
+    scrollbar-color: currentColor var(--bg-color);
   }
 
   /* Works on Chrome, Edge, and Safari */
@@ -19,13 +21,13 @@
   }
 
   &::-webkit-scrollbar-track {
-    background: #B2E8D7;
+    background: var(--bg-color);
   }
 
   &::-webkit-scrollbar-thumb {
     background-color: currentColor;
     border-radius: 20px;
-    border: 3px solid #B2E8D7;
+    border: 3px solid var(--bg-color);
   }
 
   .nav__title__flavour {
@@ -39,14 +41,14 @@
 .back__wrapper {
   position: absolute;
   bottom: 3rem;
-  right: 6.5rem;
+  right: calc(6.5rem + 12px);
   font-size: 3rem;
 }
 
 .title__wrapper {
   position: absolute;
   top: 3rem;
-  right: 6.5rem;
+  right: calc(6.5rem + 12px);
 }
 
 .detail__container {
@@ -60,16 +62,51 @@
   display: grid;
   width: 100%;
   grid-template-columns: repeat(6, 1fr);
-  // flex-direction: column;
   row-gap: 1rem;
-
-  img {
+  .detail__img__container {
     grid-column: 1/3;
     width: 100%;
+    background-color: var(--main-color);
+
+    display: flex;
+  }
+  img {
+    width: 100%;
+    opacity: 0;
+    transition: opacity 300ms;
   }
 
   .gI {
     grid-column: 1/5;
-    // width: 48rem;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .p__container {
+    img {
+      grid-column: 1/4;
+      width: 100%;
+    }
+    .gI {
+      grid-column: 1/6;
+      // width: 48rem;
+    }
+  }
+}
+@media screen and (max-width: 900px) {
+  .p__container {
+    img {
+      grid-column: 1/7;
+      width: 100%;
+    }
+    .gI {
+      grid-column: 1/7;
+      // width: 48rem;
+    }
+  }
+
+  .back__wrapper {
+    transform-origin: right;
+    transform: rotate(90deg) translate(26px, -25px);
   }
 }

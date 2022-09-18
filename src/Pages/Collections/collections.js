@@ -5,6 +5,7 @@ import { stringLetterToDoubleSpan } from "../../utils/utilsText";
 import collectionsTemplate from './collections.html?raw'
 import { N } from "../../utils/namhai";
 import { collectionsService } from "../../animation/collectionsAnimationService";
+import homeFixation from "../../animation/homeFixation";
 
 export default class Collections extends Page {
   constructor() {
@@ -59,13 +60,18 @@ export default class Collections extends Page {
     for (const q of N.getAll('span span', current__page)) {
       N.T(q, 0, 0)
     }
+
+    this.addEventListener()
   }
   addEventListener() {
-    // let display = N.get('.display__container')
-    // display.addEventListener('click', _ => {
+    let display = N.get('.display__container')
 
-    // })
-
+    display.addEventListener('mouseenter', _ => {
+      new homeFixation().play()
+    })
+    display.addEventListener('mouseleave', _ => {
+      new homeFixation(true).play()
+    })
   }
 
   onMouseMove(e) {

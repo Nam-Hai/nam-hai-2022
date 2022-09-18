@@ -181,3 +181,10 @@ $background-color: #171717;
     }
   }
 }
+
+@media screen and (max-width: 1100px){
+  .total__page__wrapper {
+    opacity: 0;
+  }
+
+}
