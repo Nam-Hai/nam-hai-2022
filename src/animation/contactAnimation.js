@@ -7,10 +7,7 @@ export default class ContactAnimation {
     const nextColor = bol ? '#372F67' : '#DF7863'
 
     const r = N.Rand.range(0, 20, 0.01)
-    // const contactTitle = N.get('.contact__title'),
-    // contactTitleSpans = N.getAll('span span', contactTitle);
     canvas.contact.program.uniforms.u_rand.value = r
-    // this.tl.pause()
     canvas.contact.program.uniforms.u_time.value = 0;
     canvas.contact.program.uniforms.u_force.value = 0;
     this.tl = new N.TL
