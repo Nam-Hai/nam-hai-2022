@@ -2,7 +2,7 @@ import { TEXTURE } from "../Canvas/Preloader/preloaderCanvas"
 
 class CollectionsService {
   constructor() {
-    this.currentPage = 1
+    this.currentPage = 2
 
     this.collectionsInfo = [
       {

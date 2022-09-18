@@ -12,6 +12,8 @@ export default class collectionsAnime {
 
 
 
+    this.wrapper = N.get('.collections__wrapper')
+    N.PE.none(this.wrapper)
 
     let bB = N.get('.buffer__background')
     bB.style.backgroundColor = this.info.bg
@@ -61,9 +63,6 @@ export default class collectionsAnime {
       p: {
         o: [0, 1]
       },
-      // update: t => {
-
-      // },
       e: 'io5',
     })
 
@@ -109,9 +108,9 @@ export default class collectionsAnime {
 
     N.O(bp, 0)
     // N.get('main').style.backgroundColor = this.info.bg
-    const wrapper = N.get('.collections__wrapper')
-    wrapper.style.color = this.info.c
-    wrapper.style.backgroundColor = this.info.bg
+    N.PE.all(this.wrapper)
+    this.wrapper.style.color = this.info.c
+    this.wrapper.style.backgroundColor = this.info.bg
 
     navf.innerHTML = navfB.innerHTML
     navn.innerHTML = navnB.innerHTML
