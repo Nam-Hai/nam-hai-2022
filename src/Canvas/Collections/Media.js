@@ -21,7 +21,6 @@ export default class {
     })
 
     this.getBounds()
-    console.log(this.bounds, this.boundsPixel, this.el);
     this.mesh.setParent(scene)
 
   }

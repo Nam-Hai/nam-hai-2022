@@ -32,8 +32,6 @@ export default class collectionsAnime {
     navnB.style.color = this.info.c
     navfB.style.color = this.info.c
 
-    // stringLetterToDoubleSpan(navfB, 'tooltip__span')
-    // stringLetterToDoubleSpan(navnB, 'tooltip__span')
     let navTitleFlavourBufferSpans = N.getAll('span span', navfB)
     let navTitleNameBufferSpans = N.getAll('span span', navnB)
 

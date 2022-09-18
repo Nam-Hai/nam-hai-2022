@@ -13,6 +13,8 @@ const ASSETS = [
   'collections/travis2.png',
   'collections/wrath1.png',
   'collections/wrath2.png',
+  'collections/Jesperish1.jpg',
+  'collections/Jesperish2.jpg',
   'contact/contact_1.png',
   'contact/contact_2.png',
   'home/home1.jpg',

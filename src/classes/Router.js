@@ -49,10 +49,8 @@ export default class Router {
   }
 
   async transitionOnChange(url, canvas, pageBufferContent) {
-    console.log('UREL', url);
     const key = this.path + ' => ' + url
     let t = transitionMap.get(key)
-    console.log('T transition', t, this.path, url);
     if (t) {
       N.PE.none(document.body)
       await new Promise(s => {
