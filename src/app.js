@@ -11,7 +11,6 @@ class App {
 
     this.createPreloader()
     // this.initPage()
-
   }
 
   initPage() {
