@@ -97,6 +97,7 @@ export default class ressortButton extends Component {
       let link = n === 1 ? this.link : this.link2
       if (this.link) {
         w.setAttribute('href', link)
+        w.setAttribute('aria-label', link)
         w.classList.add('link__spa')
       }
     }
