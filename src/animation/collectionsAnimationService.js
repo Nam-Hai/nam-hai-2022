@@ -106,7 +106,7 @@ class CollectionsService {
         <div class="detail__img__container cI"style="aspect-ratio: 1/1"><img src="detail/d7_5.webp" alt="jardel-5"></div>
         <div class="detail__img__container"style="aspect-ratio: 1/1"><img src="detail/d7_6.webp" alt="jardel-6" ></div>`,
         'dF': 'Typface design',
-        'dN': 'Jardel'
+        'dN': 'Jarde1l'
       },
     ]
   }
