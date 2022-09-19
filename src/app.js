@@ -80,7 +80,7 @@ class App {
       if (!this.mobileState) {
         this.mobile = N.Cr('div')
         this.mobile.classList.add('mobile')
-        this.mobile.innerHTML = 'this portfolio is meant for desktop experience<img src="hero.jpg" alt="hero">'
+        this.mobile.innerHTML = 'this portfolio is meant for desktop experience'
         document.body.appendChild(this.mobile)
       }
       this.mobileState = true

@@ -2,7 +2,6 @@ import { Texture } from 'ogl'
 import { N } from "../../utils/namhai";
 
 const ASSETS = [
-  'hero.jpg',
   'contact/contact_1.png',
   'contact/contact_2.png',
   'collections/cherifkid1.jpg',
