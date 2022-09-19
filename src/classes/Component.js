@@ -17,7 +17,6 @@ export default class Component {
     this.element.setAttribute('data-id', id)
     node.setAttribute('data-id', id)
     this.computeInput(node)
-    // this.create(element)
 
     id++
   }

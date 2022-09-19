@@ -70,13 +70,10 @@ N.complexEase = {
   }
 }
 
-// on peut utiliser les fonction de easing avec Lerp : N.Lerp(y_start, y_target, N.Ease.ease(time/duration))
-/** Interpolation Lineaire */
 N.Lerp = function (xi, xf, t) {
   return (1 - t) * xi + t * xf
 };
 
-/** Fonction inverse de Lerp */
 N.iLerp = function (x, xi, xf) {
   return (x - xi) / (xf - xi)
 }
@@ -85,7 +82,6 @@ N.Clamp = function (x, min, max) {
   return Math.max(Math.min(x, max), min)
 }
 
-/** Remaps a number from one range to another; ie : map from p5.js */
 N.map = function (x, start1, end1, start2, end2) {
   return N.Lerp(start2, end2, N.iLerp(x, start1, end1))
 }
@@ -98,7 +94,6 @@ N.getAll = function (tag, context) {
   const e = context || document;
   return e["querySelectorAll"](tag)
 }
-// return an arry of htmlElement, get ou celui passer en argument
 N.Select = (t) => {
   let el = []
   return N.Is.str(t) ? el = N.getAll(t) : (t instanceof window.NodeList || Array.isArray(t)) ? el = t : el = [t]
@@ -137,10 +132,8 @@ N.Round = (x, decimal) => {
 N.Rand = {
   range: (min, max, step = 1) => N.Round(Math.random() * (max - min) + min, step),
 
-  /** return an array of lenght N, with randomly placed number from 0 to N - 1 */
   uniq: n => {
     const s = [];
-    //creer un list de 1 à n;
     for (let t = 0; t < n; t++) s[t] = t;
     let t = n;
     for (var e, i; t--;) e = ~~(Math.random() * (t + 1)), i = s[t], s[t] = s[e], s[e] = i;
@@ -148,7 +141,6 @@ N.Rand = {
   }
 }
 
-/** shorthand for hasOwnProperty method */
 N.Has = (el, p) => el.hasOwnProperty(p)
 
 N.Is = {
@@ -470,7 +462,6 @@ N.M = class {
     this.raf.stop(), this.delay && this.delay.stop()
   }
   vUpd(t) {
-    ///////////////
 
     let r = t || {}
     let s = N.Has(r, 'reverse') ? 'start' : 'end'
@@ -674,14 +665,12 @@ N.Svg = {
 var PIXEL_STEP = 10;
 var LINE_HEIGHT = 40;
 var PAGE_HEIGHT = 800;
-function normalizeWheel( /*object*/event) /*object*/ {
+function normalizeWheel(event) {
   var sX = 0,
     sY = 0,
-    // spinX, spinY
     pX = 0,
-    pY = 0; // pixelX, pixelY
+    pY = 0;
 
-  // Legacy
   if ('detail' in event) {
     sY = event.detail;
   }
@@ -695,7 +684,6 @@ function normalizeWheel( /*object*/event) /*object*/ {
     sX = -event.wheelDeltaX / 120;
   }
 
-  // side scrolling on FF with DOMMouseScroll
   if ('axis' in event && event.axis === event.HORIZONTAL_AXIS) {
     sX = sY;
     sY = 0;
@@ -713,17 +701,13 @@ function normalizeWheel( /*object*/event) /*object*/ {
 
   if ((pX || pY) && event.deltaMode) {
     if (event.deltaMode == 1) {
-      // delta in LINE units
       pX *= LINE_HEIGHT;
       pY *= LINE_HEIGHT;
     } else {
-      // delta in PAGE units
       pX *= PAGE_HEIGHT;
       pY *= PAGE_HEIGHT;
     }
   }
-
-  // Fall-back if spin cannot be determined
   if (pX && !sX) {
     sX = pX < 1 ? -1 : 1;
   }

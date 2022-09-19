@@ -7,7 +7,6 @@ export default class collectionsNext extends collectionsAnime {
   constructor() {
     collectionsService.increaseCounter()
     super()
-    // N.PE.all(this.button)
   }
 
   canvasAnimation() {

@@ -28,14 +28,12 @@ export default class TransitionDemoHome {
 
         canvas.demo.program.uniforms.radius.value = Math.max(canvas.demo.buttonBounds.width, canvas.demo.buttonBounds.height) * 4
         canvas.demo.program.uniforms.force.value = N.Lerp(-3.5, 0, N.Ease.o3(t.prog))
-        // canvas.demo.program.uniforms.force.value = -2.5
       },
       cb: _ => {
         canvas.onChange(route)
         canvas.demo.program.uniforms.o.value = 0
         canvas.hide(oldRoute)
         N.O(mB, 1)
-        // cb()
       }
     })
     this.tl.from({

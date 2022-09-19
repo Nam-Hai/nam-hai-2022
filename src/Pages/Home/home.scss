@@ -3,7 +3,6 @@
   background-color: white;
 
   grid-fixation {
-    // color: #0D3A95;
     color: black;
   }
   ressort-button {
@@ -12,7 +11,6 @@
     z-index: 5;
     width: 2.5rem;
     height: 2.5rem;
-    // border-radius: 5px;
   }
   ressort-button.c_w {
     position: relative;
@@ -86,8 +84,6 @@
   font-size: 24px;
   line-height: 22px;
   text-transform: uppercase;
-  // color: #FF4A0B;
-  // color: ;
 }
 
 .background__title {
@@ -158,7 +154,6 @@
 }
 .singlespan__container {
   display: inline-block
-  // margin-left: -0.195rem
 }
 
 .home__action__tooltip__wrapper {

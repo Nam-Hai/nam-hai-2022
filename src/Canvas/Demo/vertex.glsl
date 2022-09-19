@@ -13,9 +13,6 @@ uniform vec2 s;
 
 attribute vec2 uv;
 varying vec2 vUv;
-
-// uniform vec2 d;
-
 void main() {
   float x = position.x;
   float y = position.y;

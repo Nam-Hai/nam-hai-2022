@@ -1,5 +1,4 @@
 precision mediump float;
-// varying vec2 v;
 uniform sampler2D tMap;
 
 varying vec2 vUv;

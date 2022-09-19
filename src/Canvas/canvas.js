@@ -134,14 +134,9 @@ class Canvas {
   }
 
   show() {
-    // if (this[this.route] && this[this.route].show) this[this.route].show()
-
     this.raf.run()
   }
   async hide(route) {
-    // if (this[this.route] && this[this.route].hide) {
-    // await this[this.route].hide()
-    // }
     if (this[route] && this[route].hide)
       await this[route].hide()
   }

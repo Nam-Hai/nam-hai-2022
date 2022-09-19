@@ -1,5 +1,4 @@
 [data-template=demo] {
-  // opacity: 0;
 }
 .demo__wrapper {
 
@@ -50,12 +49,9 @@
   > div {
     transform: translateY(-50%);
     position: absolute;
-    // &:nth-child(2) {
-      // opacity: 0;
       span span {
         transform: translateX(105%);
       }
-    // }
   }
 }
 

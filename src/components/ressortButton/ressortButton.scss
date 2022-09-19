@@ -2,7 +2,6 @@ ressort-button {
   display: block;
   width: 2.5rem;
   height: 2.5rem;
-  // margin: 1rem;
   position: relative;
   a {
     background-color: transparent;
@@ -14,15 +13,12 @@ ressort-button {
     height: 100%;
     border-radius: 5px;
     background-color: currentColor;
-  -webkit-touch-callout: none; /* iOS Safari */
-    -webkit-user-select: none; /* Safari */
-     -khtml-user-select: none; /* Konqueror HTML */
-       -moz-user-select: none; /* Old versions of Firefox */
-        -ms-user-select: none; /* Internet Explorer/Edge */
-            user-select: none; /* Non-prefixed version, currently
-                                  supported by Chrome, Edge, Opera and Firefox */
-    // box-shadow: 0  0 100px 0 rgb(255 255 255 / 33%);
-    // opacity: 0.2;
+  -webkit-touch-callout: none;
+    -webkit-user-select: none;
+     -khtml-user-select: none;
+       -moz-user-select: none;
+        -ms-user-select: none;
+            user-select: none;
   }
 }
 

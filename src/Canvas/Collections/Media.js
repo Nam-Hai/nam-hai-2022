@@ -87,8 +87,6 @@ export default class {
 
     this.mesh.position.x = (this.boundsPixel.x - this.canvasSizePixel.width / 2) * this.canvasSize.width / this.canvasSizePixel.width + this.bounds.width / 2
     this.mesh.position.y = (-this.boundsPixel.y + this.canvasSizePixel.height / 2) * this.canvasSize.height / this.canvasSizePixel.height - this.bounds.height / 2
-    // this.mesh.position.x = 0
-    // this.mesh.position.y = 0
   }
 
 

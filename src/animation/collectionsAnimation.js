@@ -105,7 +105,6 @@ export default class collectionsAnime {
     p.style.color = this.info.c
 
     N.O(bp, 0)
-    // N.get('main').style.backgroundColor = this.info.bg
     N.PE.all(this.wrapper)
     this.wrapper.style.color = this.info.c
     this.wrapper.style.backgroundColor = this.info.bg

@@ -6,7 +6,6 @@
   width: 100%;
   background-color: var(--bg-color);
   color: var(--main-color);
-  // position: fixed;
   overflow-y: scroll;
   scrollbar-color: currentColor;
   scrollbar-width: thin;
@@ -15,7 +14,6 @@
     scrollbar-color: currentColor var(--bg-color);
   }
 
-  /* Works on Chrome, Edge, and Safari */
   &::-webkit-scrollbar {
     width: 12px;
   }
@@ -95,7 +93,6 @@
     }
     .gI {
       grid-column: 1/6;
-      // width: 48rem;
     }
   }
 }
@@ -107,7 +104,6 @@
     }
     .gI {
       grid-column: 1/7;
-      // width: 48rem;
     }
   }
 

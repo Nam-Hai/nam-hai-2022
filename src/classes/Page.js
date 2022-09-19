@@ -61,19 +61,5 @@ export default class Page {
   }
 
   async hide() {
-    // return new Promise(res => {
-    //   let motion = new N.M({
-    //     el: this.nodeParent,
-    //     p: {
-    //       o: [1, 0]
-    //     },
-    //     d: 1000,
-    //     cb: () => {
-    //       res()
-    //     }
-    //   })
-    //   motion.play()
-    // })
-
   }
 }

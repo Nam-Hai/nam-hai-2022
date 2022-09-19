@@ -27,8 +27,6 @@ export default class homeFixation {
       })
     })
     fixationState[0] = b
-
-    // this.play()
   }
 
   play() {

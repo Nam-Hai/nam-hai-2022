@@ -1,6 +1,4 @@
 [data-template=contact] {
-  // color: #d35941;
-
   grid-fixation {
     z-index: 1;
     top: unset;
@@ -10,7 +8,6 @@
     .fixation {
       transition: background-color 450ms;
       transition-timing-function: cubic-bezier(1, 0.01, 1, 1);
-      // background-color: transparent;
     }
   }
 
@@ -77,7 +74,6 @@
   font-size: 36px;
   text-transform: uppercase;
   z-index: 1;
-  // color: white;
   font-weight: 400;
   top: 2rem;
   right: 3rem;
@@ -86,11 +82,9 @@
 
   a svg {
     height: 36px;
-    // justify-self:flex-start;
     position: absolute;
     left: 0;
     opacity: 0;
-    // margin-right:  2rem;
     transform: translateX(2rem);
 
     transition: opacity 300ms, transform 300ms;

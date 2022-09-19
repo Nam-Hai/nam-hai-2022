@@ -16,13 +16,9 @@ export default class gridFixation extends Component {
 
   render(node) {
     super.render()
-
     this.fixations = N.getAll('.fixation', node)
-    // let initMain = N.Ga(node, 'data-init')
-    // if (initMain) {
     let initAnimation = new homeFixationInit(this.fixations)
     initAnimation.play()
-    // }
   }
   onMouseUp(e) {
     e.preventDefault()

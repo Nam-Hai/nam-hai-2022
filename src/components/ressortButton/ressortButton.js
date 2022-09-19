@@ -42,8 +42,6 @@ const animeOnMarkerMap2 = new Map([
 export default class ressortButton extends Component {
   constructor({ name, node }) {
 
-    // let color = N.Ga(node, 'color') || 'red'
-
     super({
       name, content, node,
       input: {
@@ -125,9 +123,7 @@ export default class ressortButton extends Component {
   }
   onMouseEnter() {
     this.mouseEnter = true
-    // this.tlFixation.pause()
     new homeFixation().play()
-    // this.tlFixation.play()
   }
   onMouseLeave() {
     if (this.clicked || !this.mouseEnter) return

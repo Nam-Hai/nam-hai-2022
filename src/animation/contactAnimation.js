@@ -33,12 +33,9 @@ export default class ContactAnimation {
       },
       d: 450,
       e: 'o5',
-      // delay: 300,
       cb: _ => {
         linkWrapper.style.color = nextColor
         contactTitle.style.color = nextColor
-
-
       }
     })
     this.tl.from({
@@ -90,7 +87,6 @@ export default class ContactAnimation {
       cb: _ => {
         canvas.contact.program.uniforms.u_time.value = 0;
         canvas.contact.program.uniforms.u_force.value = 0;
-        // this.texture = this.textureBuffer
         [canvas.contact.texture, canvas.contact.textureBuffer] = [canvas.contact.textureBuffer, canvas.contact.texture]
         canvas.contact.program.uniforms.tMap.value = canvas.contact.texture;
         canvas.contact.program.uniforms.tMapBuffer.value = canvas.contact.textureBuffer;

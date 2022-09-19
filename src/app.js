@@ -47,7 +47,6 @@ class App {
 
   createCanvas() {
     this.canvas = canvas
-    // this.canvas = new Canvas({ route: this.router.getRoute() })
     this.canvas.onChange(this.router.getRoute())
   }
 
@@ -117,7 +116,6 @@ class App {
     await this.router.transitionOnChange(url, this.canvas, this.pageBuffer.content)
     this.page = null
 
-    // this.pageBuffer.content.remove()
     this.page = this.pageBuffer
     this.main.setAttribute('style', '')
     this.main.setAttribute('data-template', url)
@@ -129,12 +127,7 @@ class App {
 
     this.main = this.page.content
 
-    // this.page.renderComponents(this.main)
     this.addLinkLinstener(this.main)
-
-
-    // this.canvas.onChange(url)
-
     this.main.setAttribute('data-init', 'false')
 
     this.router.path = url

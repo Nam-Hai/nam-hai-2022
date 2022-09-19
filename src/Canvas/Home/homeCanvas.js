@@ -14,9 +14,6 @@ export default class {
     this.group = new Transform()
     this.hero = N.get('.hero img')
 
-    // this.createMesh()
-    // this.getBounds()
-    // this.group.setParent(this.scene)
   }
 
   createTexture() {
@@ -68,9 +65,6 @@ export default class {
   }
 
   destroy() {
-    // this.group.removeChild(this.mesh)
-    // this.mesh = null;
-    // this.scene.removeChild(this.group)
   }
 
   async hide() {

@@ -145,21 +145,6 @@ export default class {
   }
 
   async hide() {
-    // this.program.uniforms.o.value = 1
-    // await new Promise(res => {
-    //   let motion = new N.M({
-    //     d: 300,
-    //     e: 'o6',
-    //     update: t => {
-    //     },
-    //     cb: () => {
-    //       this.destroy()
-    //       // this.program.uniforms.o.value = 0
-    //       res()
-    //     },
-    //   })
-    //   motion.play()
-    // })
     this.destroy()
   }
 

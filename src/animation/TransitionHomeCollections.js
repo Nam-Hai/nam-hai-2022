@@ -7,7 +7,6 @@ export default class TransitionHomeCollections {
     const mB = N.get('.buffer-main')
 
     mB.classList.add('buffer-main__UP')
-    // mB.setAttribute('data-template', 'collections')
     canvas.onChange('collections')
     const collectionsMedias = canvas.collections.medias
 
