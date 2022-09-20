@@ -56,9 +56,10 @@
 
 .contact__container img{
   position: relative;
-  height: 465px;
+  // height: 465px;
   width: 939px;
   max-width: 90vw;
+  aspect-ratio: 939 / 465;
   display: block;
   cursor: pointer;
 
