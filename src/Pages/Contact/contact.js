@@ -1,4 +1,4 @@
-import ContactAnimation from "../../animation/contactAnimation";
+import ContactAnimation, { contactService } from "../../animation/contactAnimation";
 import homeFixation from "../../animation/homeFixation";
 import { canvas } from "../../Canvas/canvas";
 import Page from "../../classes/Page";
@@ -41,6 +41,10 @@ export default class Contact extends Page {
     this.linksWrapper = N.get('.contact__links', node)
     this.bgBuffer = N.get('.contact__bg__buffer', node)
     this.wrapper = N.get('.contact__wrapper', node)
+    this.wrapper.style.color = contactService.getInfo().c
+    this.wrapper.style.backgroundColor = contactService.getInfo().bg
+    this.bgBuffer.style.color = contactService.getNextInfo().c
+    this.bgBuffer.style.backgroundColor = contactService.getNextInfo().bg
     this.contactTitle = N.get('.contact__title')
     this.contactTitleSpans = N.getAll('span span', this.contactTitle);
     this.linkSpans = N.getAll('span span', this.linksWrapper)

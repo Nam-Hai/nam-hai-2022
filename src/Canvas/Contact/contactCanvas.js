@@ -3,6 +3,7 @@ import { Transform, Plane, Program, Mesh, Texture } from 'ogl'
 import fragment from './fragment.glsl?raw'
 import vertex from './vertex.glsl?raw'
 import { TEXTURE } from "../Preloader/preloaderCanvas"
+import { contactService } from "../../animation/contactAnimation"
 
 export default class {
   constructor({ gl, scene, canvasSize, canvasSizePixel }) {
@@ -52,11 +53,10 @@ export default class {
 
   createTexture() {
     this.texture = new Texture(this.gl)
-    const src = this.hero.getAttribute('data-src')
-    this.texture.image = TEXTURE.get(src).image
+    this.texture.image = TEXTURE.get(contactService.getInfo().texture).image
 
     this.textureBuffer = new Texture(this.gl)
-    this.textureBuffer.image = TEXTURE.get('contact/contact_2.png').image
+    this.textureBuffer.image = TEXTURE.get(contactService.getNextInfo().texture).image
   }
 
   createMesh() {

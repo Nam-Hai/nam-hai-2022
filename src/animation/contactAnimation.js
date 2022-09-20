@@ -1,10 +1,60 @@
 import { canvas } from "../Canvas/canvas";
+import { TEXTURE } from "../Canvas/Preloader/preloaderCanvas";
+import { Texture } from 'ogl'
 import { N } from "../utils/namhai";
 
-let bol = true;
+class ContactService {
+  constructor() {
+    this.index = 0
+    this.textures = ['contact/contact_1.png', 'contact/contact_2.png']
+    this.info = [
+      {
+        texture: 'contact/contact_1.png',
+        c: '#DF7863',
+        bg: '#BD513A',
+      },
+      {
+        texture: 'contact/contact_2.png',
+        bg: "#2B2454",
+        c: "#372F67"
+      },
+      {
+        texture: 'contact/contact_3.png',
+        bg: '#84133B',
+        c: '#AE3560'
+      }
+
+    ]
+  }
+
+  next() {
+    if (this.index + 1 == this.info.length) {
+      this.index = -1
+    }
+    this.index++
+  }
+
+  getTexture() {
+    return TEXTURE.get(this.textures[this.index])
+  }
+
+  getInfo() {
+    return this.info[this.index]
+  }
+  getNextInfo() {
+    if (this.index + 1 == this.info.length) {
+      return this.info[0]
+    }
+    return this.info[this.index + 1]
+  }
+
+}
+export const contactService = new ContactService()
 export default class ContactAnimation {
   constructor(cb, wrapper, bgBuffer, contactTitle, contactTitleSpans, linkSpans, linkWrapper, backButton, gridFixation) {
-    const nextColor = bol ? '#372F67' : '#DF7863'
+    contactService.next()
+    const nextColor = contactService.getInfo().c,
+      nextBg = contactService.getInfo().bg
 
     const r = N.Rand.range(0, 20, 0.01)
     canvas.contact.program.uniforms.u_rand.value = r
@@ -67,14 +117,10 @@ export default class ContactAnimation {
       e: 'i6',
       delay: 700,
       cb: _ => {
-        if (bol) {
-          wrapper.style.backgroundColor = '#2B2454'
-          bgBuffer.style.backgroundColor = '#BD513A'
-        } else {
-          wrapper.style.backgroundColor = '#BD513A'
-          bgBuffer.style.backgroundColor = '#2B2454'
-        }
-        bol = !bol
+
+        wrapper.style.backgroundColor = nextBg
+        bgBuffer.style.backgroundColor = contactService.getNextInfo().bg
+
         N.O(bgBuffer, 0)
       }
     })
@@ -87,7 +133,9 @@ export default class ContactAnimation {
       cb: _ => {
         canvas.contact.program.uniforms.u_time.value = 0;
         canvas.contact.program.uniforms.u_force.value = 0;
-        [canvas.contact.texture, canvas.contact.textureBuffer] = [canvas.contact.textureBuffer, canvas.contact.texture]
+        canvas.contact.texture.image = TEXTURE.get(contactService.getInfo().texture).image
+        canvas.contact.textureBuffer.image = TEXTURE.get(contactService.getNextInfo().texture).image
+
         canvas.contact.program.uniforms.tMap.value = canvas.contact.texture;
         canvas.contact.program.uniforms.tMapBuffer.value = canvas.contact.textureBuffer;
 

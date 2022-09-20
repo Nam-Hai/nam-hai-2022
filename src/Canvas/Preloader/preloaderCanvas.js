@@ -20,6 +20,7 @@ const ASSETS = [
   'collections/jardel2.jpg',
   'contact/contact_1.png',
   'contact/contact_2.png',
+  'contact/contact_3.png',
   'home/home1.jpg',
   'home/home2.jpg',
   'home/home3.jpg',
