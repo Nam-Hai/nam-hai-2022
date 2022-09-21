@@ -90,7 +90,8 @@
   position: absolute;
   width: max-content;
   height: 270px;
-  top: 296px;
+  // top: 296px;
+  top: calc(100% - 700px);
   left: 50%;
   transform: translateX(-50%);
   font-size: 370px;
@@ -106,7 +107,8 @@
   height: 274px;
   left: 50%;
   transform: translateX(-50%);
-  top: 566px;
+  // top: 566px;
+  top: calc(100% - 420px);
 
   > div {
     font-size: 96px;
