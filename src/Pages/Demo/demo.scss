@@ -12,6 +12,16 @@
   .doublespan__container {
     margin-inline: -5px;
   }
+
+
+  ressort-button button {
+    // transition: transform 200ms;
+    transition: box-shadow 200ms;
+    box-shadow: 0 0 0px 0 white;
+  }
+  ressort-button button:hover {
+    box-shadow: 0 0 23px -2px white;
+  }
 }
 
 .demo__number {
