@@ -9,6 +9,7 @@ class App {
     this.main = N.get('.main')
     this.router = new Router()
 
+    this.onResize()
     this.createPreloader()
     // this.initPage()
   }
