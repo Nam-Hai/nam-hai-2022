@@ -140,7 +140,6 @@ export default class ressortButton extends Component {
   }
 
   onMouseDown(e) {
-    console.log(e, e[this.axis]);
     this.coor.velo = 0
     this.coor.acc = 0
     this.raf.stop()
@@ -151,7 +150,6 @@ export default class ressortButton extends Component {
   }
   onMouseMove(e) {
     if (!this.clicked) return
-    console.log(e);
     const a = this.axis
     const delta = -this.passivBounds[a] + e[a] + this.currentOffsetClick
     this.coor.pos = delta / 1.5
@@ -163,7 +161,6 @@ export default class ressortButton extends Component {
     let pos = this.both ? Math.abs(this.coor.pos) : this.coor.pos
     const bD = this.distance > 0 ? pos > this.distance / rForce : pos < this.distance / rForce,
       bP = this.distance > 0 ? this.coor.pos < 0 : this.coor.pos > 0;
-    console.log(pos);
     if (!this.markerOn && bD) {
       this.turnMarker(true, bP)
     }
