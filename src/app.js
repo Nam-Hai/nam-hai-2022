@@ -69,6 +69,9 @@ class App {
 
   addEventListener() {
     window.addEventListener('mousedown', this.onMouseDown.bind(this))
+    window.addEventListener('touchstart', this.onTouchDown.bind(this))
+    window.addEventListener('touchmove', this.onTouchMove.bind(this))
+    window.addEventListener('touchend', this.onMouseUp.bind(this))
     window.addEventListener('mousemove', this.onMouseMove.bind(this))
     window.addEventListener('mouseup', this.onMouseUp.bind(this))
     window.addEventListener('popstate', this.onPopState.bind(this))
@@ -91,6 +94,14 @@ class App {
     canvas.onResize(this.router.path)
   }
 
+  onTouchDown(e) {
+    // let event = { x: e.touches[0].clientX, y: e.touches[0].clientY }
+  }
+
+  onTouchMove(e) {
+    let event = { x: e.touches[0].clientX, y: e.touches[0].clientY }
+    this.onMouseMove(event)
+  }
   onMouseDown(e) {
 
   }
