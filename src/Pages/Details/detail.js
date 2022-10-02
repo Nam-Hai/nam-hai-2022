@@ -37,9 +37,16 @@ export default class Detail extends Page {
 
       const fullSizedImage = new Image()
       fullSizedImage.src = 'detail' + img.getAttribute('src').slice(15)
+      N.O(fullSizedImage, 1)
+      fullSizedImage.alt = img.getAttribute('alt')
+      fullSizedImage.style.transform = 'scale(1.1)'
       fullSizedImage.onload = _ => {
-        img.src = fullSizedImage.src
-        img.style.transform = 'scale(1)'
+        // img.src = fullSizedImage.src
+
+        img.replaceWith(fullSizedImage)
+        setTimeout(_ => {
+          fullSizedImage.style.transform = 'scale(1)'
+        }, 20)
       }
     })
     this.addEventListener()
