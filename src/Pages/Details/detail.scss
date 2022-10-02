@@ -66,12 +66,14 @@
     width: 100%;
     background-color: var(--main-color);
 
+    overflow: hidden;
     display: flex;
   }
   img {
     width: 100%;
     opacity: 0;
-    transition: opacity 300ms;
+    transition: opacity 300ms, transform 300ms;
+    object-fit: cover;
   }
 
   .cI {

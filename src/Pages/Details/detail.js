@@ -30,6 +30,7 @@ export default class Detail extends Page {
 
     const images = N.getAll('img', p)
     Object.values(images).forEach(img => {
+      img.style.transform = 'scale(1.1)'
       img.onload = _ => {
         N.O(img, 1)
       }
@@ -38,6 +39,7 @@ export default class Detail extends Page {
       fullSizedImage.src = 'detail' + img.getAttribute('src').slice(15)
       fullSizedImage.onload = _ => {
         img.src = fullSizedImage.src
+        img.style.transform = 'scale(1)'
       }
     })
     this.addEventListener()
