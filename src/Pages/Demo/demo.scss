@@ -16,8 +16,9 @@
 
   ressort-button button {
     // transition: transform 200ms;
-    transition: box-shadow 200ms;
+    transition: box-shadow 500ms;
     box-shadow: 0 0 0px 0 white;
+
   }
   ressort-button button:hover {
     box-shadow: 0 0 23px -2px white;

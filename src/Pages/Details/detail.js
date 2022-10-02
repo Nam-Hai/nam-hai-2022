@@ -33,6 +33,12 @@ export default class Detail extends Page {
       img.onload = _ => {
         N.O(img, 1)
       }
+
+      const fullSizedImage = new Image()
+      fullSizedImage.src = 'detail' + img.getAttribute('src').slice(15)
+      fullSizedImage.onload = _ => {
+        img.src = fullSizedImage.src
+      }
     })
     this.addEventListener()
   }
