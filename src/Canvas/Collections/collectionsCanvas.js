@@ -8,6 +8,7 @@ import { Clock } from "../../classes/Timer"
 
 export default class {
   constructor({ gl, scene, canvasSize, canvasSizePixel, canvas }) {
+    console.log('constructor Collection ccanvas');
     this.gl = gl
     this.scene = scene
     this.canvasSize = canvasSize
@@ -85,7 +86,8 @@ export default class {
   }
 
   onMouseMove(e) {
-    if (e.x < this.collectionBounds.x || e.x > this.collectionBounds.x + this.collectionBounds.width || e.y < this.collectionBounds.y + this.canvasSizePixel.height || e.y > this.canvasSizePixel.height + this.collectionBounds.y + this.collectionBounds.height) {
+    let bY = this.collectionBounds.y < 0 ? this.collectionBounds.y + this.canvasSizePixel.height : this.collectionBounds.y
+    if (e.x < this.collectionBounds.x || e.x > this.collectionBounds.x + this.collectionBounds.width || e.y < bY || e.y > bY + this.collectionBounds.height) {
       return
     }
     this.oldMouse.copy(this.mouse)
