@@ -15,7 +15,7 @@ class App {
   }
 
   initPage() {
-    const url = 'detail'
+    const url = 'collections'
     window.history.pushState('', 'Nam Hai portfolio', url)
     this.page = this.createPage(url)
 
@@ -108,6 +108,9 @@ class App {
   }
 
   onMouseMove(e) {
+    if (this.canvas) {
+      this.canvas.onMouseMove(e)
+    }
     if (this.page) {
       this.page.onMouseMove(e)
     }

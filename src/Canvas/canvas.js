@@ -75,11 +75,13 @@ class Canvas {
     })
   }
   createCollections() {
+    console.log('this', this, this.update);
     this.collections = new CollectionsCanvas({
       gl: this.gl,
       scene: this.scene,
       canvasSize: this.size,
-      canvasSizePixel: this.sizePixel
+      canvasSizePixel: this.sizePixel,
+      canvas: this
     })
   }
 
@@ -98,6 +100,13 @@ class Canvas {
       const createNewObject = this.mapRouteObject[route].bind(this)
       createNewObject()
 
+    }
+  }
+
+  onMouseMove(e) {
+    let cur = this.getCurrent()
+    if (cur.onMouseMove) {
+      cur.onMouseMove(e)
     }
   }
 
