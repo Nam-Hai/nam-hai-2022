@@ -75,7 +75,6 @@ class Canvas {
     })
   }
   createCollections() {
-    console.log('this', this, this.update);
     this.collections = new CollectionsCanvas({
       gl: this.gl,
       scene: this.scene,

@@ -217,7 +217,6 @@ export default class {
     // this.uVelo.cur = N.Lerp(this.uVelo.cur, this.uVelo.target, !!this.uVelo.target ? 0.1 : 0.05)
     this.uVelo.lerp(this.velo, !!this.velo.len() ? 0.1 : 0.05)
 
-    // console.log(this.uVelo.cur, !!this.uVelo.target);
 
     // this.bufferRenderObject.mesh.program.uniforms.uVelo.value = N.Clamp(this.uVelo.cur, 0, 1)
     this.bufferRenderObject.mesh.program.uniforms.uVelo.value = this.uVelo
