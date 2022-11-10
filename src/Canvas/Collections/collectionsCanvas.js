@@ -252,6 +252,7 @@ export default class {
     this.lastPlane.scale.x = this.canvasSize.width
     this.bufferRenderObject.mesh.scale.x = this.canvasSize.width
     this.bufferRenderObject.mesh.scale.y = this.canvasSize.height
+    this.bufferRenderObject.mesh.program.uniforms.resolution.value.set(this.collectionBounds.width, this.collectionBounds.height)
     this.getBounds()
   }
 
