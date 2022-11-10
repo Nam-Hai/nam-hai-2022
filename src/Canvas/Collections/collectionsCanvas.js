@@ -8,7 +8,6 @@ import { Clock } from "../../classes/Timer"
 
 export default class {
   constructor({ gl, scene, canvasSize, canvasSizePixel, canvas }) {
-    console.log('constructor Collection ccanvas');
     this.gl = gl
     this.scene = scene
     this.canvasSize = canvasSize
