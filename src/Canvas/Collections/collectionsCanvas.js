@@ -261,6 +261,9 @@ export default class {
   }
 
   destroy() {
+    this.canvas.raf.stop()
+    this.canvas.raf = new N.RafR(this.canvas.update)
+    this.canvas.raf.run()
     this.medias.forEach(m => {
       m.scene.removeChild(m.mesh)
       m = null

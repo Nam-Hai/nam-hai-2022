@@ -134,7 +134,6 @@ class Canvas {
   }
 
   update() {
-
     this.renderer.render({
       camera: this.camera,
       scene: this.scene

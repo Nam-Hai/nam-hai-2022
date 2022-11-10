@@ -17,7 +17,7 @@ export default class homeFixationInit {
           },
           cb: _ => fixationInit = true,
           el: fixation,
-          delay: indexToDelay[index] * 0,
+          delay: indexToDelay[index] * 10 + 1600,
           e: 'io5',
         })
       })
