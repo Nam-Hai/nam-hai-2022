@@ -138,6 +138,23 @@ $background-color: #171717;
   }
 
 }
+@media screen and (max-height: 770px) {
+  .display__container {
+    img {
+      height: calc(70vh - 5rem);
+    }
+  }
+
+}
+
+@media screen and (min-height: 1000px) {
+  .display__container {
+    img {
+      height: 70vh;
+    }
+  }
+
+}
 
 .nav__page__wrapper {
   position: absolute;
