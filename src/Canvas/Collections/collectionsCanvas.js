@@ -261,6 +261,7 @@ export default class {
   }
 
   destroy() {
+    this.scene.removeChild(this.lastPlane)
     this.canvas.raf.stop()
     this.canvas.raf = new N.RafR(this.canvas.update)
     this.canvas.raf.run()

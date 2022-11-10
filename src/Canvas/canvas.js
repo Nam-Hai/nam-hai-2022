@@ -105,7 +105,7 @@ class Canvas {
 
   onMouseMove(e) {
     let cur = this.getCurrent()
-    if (cur.onMouseMove) {
+    if (cur && cur.onMouseMove) {
       cur.onMouseMove(e)
     }
   }
