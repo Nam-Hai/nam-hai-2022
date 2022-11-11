@@ -63,7 +63,7 @@ export default class TransitionHomeCollections {
         mesh.setParent(this.canvas.scene)
         this.tl.from({
           d: 1000,
-          e: 'io2',
+          e: 'io3',
           update: t => {
             mesh.scale.x = this.canvas.size.width * (1 - t.progE)
             mesh.scale.y = this.canvas.size.height * (1 - t.progE)
