@@ -27,6 +27,9 @@ export default class collectionsPrevious extends collectionsAnime {
     mB.mesh.scale.x = 0
     mB2.mesh.scale.x = 0
 
+    this.canvas.collections.mousemoveON = false
+    const collectionBounds = this.canvas.collections.collectionBounds
+
     this.tl.from({
       d: d,
       e: 'i2',
@@ -56,6 +59,9 @@ export default class collectionsPrevious extends collectionsAnime {
         mB.program.uniforms.s.value = [(hwRatio) / nT, 1]
         mB.program.uniforms.t.value = [(-.5 + nT / 2) / hwRatio, 0]
 
+        this.canvas.collections.velo.needsUpdate = true
+        this.canvas.collections.velo.set(1)
+        this.canvas.collections.bufferRenderObject.mesh.program.uniforms.x.value = N.Lerp(collectionBounds.x, collectionBounds.x + collectionBounds.width / 2, t.progE) / this.canvas.sizePixel.width
       },
     })
     this.tl.from({
@@ -80,6 +86,9 @@ export default class collectionsPrevious extends collectionsAnime {
         mB2.program.uniforms.t.value = [(-0.5 + nT / 2) / hwRatio, 0]
 
 
+        this.canvas.collections.velo.needsUpdate = true
+        this.canvas.collections.velo.set(0.8)
+        this.canvas.collections.bufferRenderObject.mesh.program.uniforms.x.value = N.Lerp(collectionBounds.x + collectionBounds.width / 2, collectionBounds.x + collectionBounds.width, t.progE) / this.canvas.sizePixel.width
         if (t.prog > .7) {
 
           m.program.uniforms.force.value = N.map(t.prog, 0.7, 1, force, 0)
@@ -96,6 +105,7 @@ export default class collectionsPrevious extends collectionsAnime {
         mB.mesh.scale.x = 0
         mB2.mesh.scale.x = 0
 
+        this.canvas.collections.mousemoveON = true
         N.PE.all(this.button)
       }
     })

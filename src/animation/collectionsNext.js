@@ -17,6 +17,9 @@ export default class collectionsNext extends collectionsAnime {
       collectionsService.getBufferImg(mB, index)
     })
 
+    this.canvas.collections.mousemoveON = false
+
+
     let mediasBuffer = this.canvas.collections.mediasBuffer
     const mB = mediasBuffer[1], mB2 = mediasBuffer[0]
     let medias = this.canvas.collections.medias
@@ -25,11 +28,11 @@ export default class collectionsNext extends collectionsAnime {
     let m2 = medias[0]
 
     const hwRatio = m.bounds.height / m.bounds.width
+    const collectionBounds = this.canvas.collections.collectionBounds
     this.tl.from({
       d: d,
       e: 'i2',
       update: (t) => {
-
         if (t.prog < .3) {
 
           m.program.uniforms.force.value = N.map(t.prog, 0, 0.3, 0, force)
@@ -54,6 +57,10 @@ export default class collectionsNext extends collectionsAnime {
         mB.program.uniforms.s.value = [hwRatio / nT, 1]
         mB.program.uniforms.t.value = [(.5 - nT / 2) / hwRatio, 0]
 
+        this.canvas.collections.velo.needsUpdate = true
+        this.canvas.collections.velo.set(-1)
+        this.canvas.collections.bufferRenderObject.mesh.program.uniforms.x.value = N.Lerp(collectionBounds.x + collectionBounds.width, collectionBounds.x + collectionBounds.width / 2, t.progE) / this.canvas.sizePixel.width
+
       },
     })
     this.tl.from({
@@ -76,6 +83,9 @@ export default class collectionsNext extends collectionsAnime {
         mB2.program.uniforms.s.value = [hwRatio / nT, 1]
         mB2.program.uniforms.t.value = [(0.5 - nT / 2) / hwRatio, 0]
 
+        this.canvas.collections.velo.needsUpdate = true
+        this.canvas.collections.velo.set(-0.8)
+        this.canvas.collections.bufferRenderObject.mesh.program.uniforms.x.value = N.Lerp(collectionBounds.x + collectionBounds.width / 2, collectionBounds.x, t.progE) / this.canvas.sizePixel.width
 
         if (t.prog > .7) {
 
@@ -92,6 +102,9 @@ export default class collectionsNext extends collectionsAnime {
         m2.setScale()
         mB.mesh.scale.x = 0
         mB2.mesh.scale.x = 0
+
+
+        this.canvas.collections.mousemoveON = true
 
         N.PE.all(this.button)
       }

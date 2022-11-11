@@ -14,6 +14,7 @@ export default class {
     this.canvasSizePixel = canvasSizePixel
 
     this.group = new Transform()
+    this.mousemoveON = true
 
     this.collectionsImg = N.getAll('.display__container img')
     this.geometry = new Plane(this.gl, {
@@ -53,6 +54,7 @@ export default class {
         this.velo.set(0)
       }
       this.velo.needsUpdate = false
+      console.log(this.velo);
 
       this.uVelo.lerp(this.velo, !!this.velo.len() ? 0.1 : 0.1)
 
@@ -91,6 +93,7 @@ export default class {
   }
 
   onMouseMove(e) {
+    if (!this.mousemoveON) return
     let bY = this.collectionBounds.y < 0 ? this.collectionBounds.y + this.canvasSizePixel.height : this.collectionBounds.y
     if (e.x < this.collectionBounds.x || e.x > this.collectionBounds.x + this.collectionBounds.width || e.y < bY || e.y > bY + this.collectionBounds.height) {
       return
