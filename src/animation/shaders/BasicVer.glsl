@@ -4,7 +4,6 @@ attribute vec3 position;
 
 uniform mat4 modelViewMatrix;
 uniform mat4 projectionMatrix;
-uniform sampler2D tDist;
 varying vec2 vUv;
 uniform float f;
 
@@ -12,8 +11,10 @@ void main() {
   vUv = uv;
 
   vec4 newPos = modelViewMatrix*   vec4(position, 1.0);
-  vec4 dist = texture2D(tDist, vec2(newPos.x + 1., -newPos.y +1.) );
-  newPos.z += dist.r * f * 4.5;
+  vec4 projectedPos = projectionMatrix * newPos;
+
+  newPos.z += (sin((newPos.x + newPos.y) * PI) * .5 + 1. ) * f * 3.;
+  newPos.x -= (sin((newPos.x + newPos.y) * PI) * .5 + 1. ) * f * 0.3;
   gl_Position =projectionMatrix * newPos;
 }
 

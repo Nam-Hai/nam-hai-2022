@@ -12,12 +12,7 @@ export default class TransitionHomeCollections {
 
     this.gl = canvas.gl
     this.tl = new N.TL()
-    let distTexture = new Texture(this.gl)
-    let distImage = new window.Image()
-    distImage.src = 'distTexture.jpg'
-    distImage.onload = _ => {
-      distTexture.image = distImage
-    }
+
 
     this.canvas = canvas
 
@@ -32,9 +27,6 @@ export default class TransitionHomeCollections {
         tMap: {
           value: new Texture(this.gl)
         },
-        tDist: {
-          value: distTexture
-        },
         f: {
           value: 0
         }
@@ -43,8 +35,8 @@ export default class TransitionHomeCollections {
 
     let mesh = new Mesh(this.gl, {
       geometry: new Plane(this.gl, {
-        heightSegments: 20,
-        widthSegments: 20
+        heightSegments: 50,
+        widthSegments: 50
       }),
       program
     })
@@ -71,7 +63,7 @@ export default class TransitionHomeCollections {
         mesh.setParent(this.canvas.scene)
         this.tl.from({
           d: 1000,
-          e: 'io3',
+          e: 'io2',
           update: t => {
             mesh.scale.x = this.canvas.size.width * (1 - t.progE)
             mesh.scale.y = this.canvas.size.height * (1 - t.progE)
