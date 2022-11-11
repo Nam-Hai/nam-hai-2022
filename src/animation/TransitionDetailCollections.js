@@ -21,7 +21,6 @@ export default class TransitionHomeCollections {
 
     this.canvas = canvas
 
-    console.log(this.canvas.size);
     let program = new Program(this.gl, {
       fragment: BasicFrag,
       vertex: BasicVer,
