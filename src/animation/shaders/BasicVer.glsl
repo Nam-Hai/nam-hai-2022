@@ -13,7 +13,7 @@ void main() {
 
   vec4 newPos = modelViewMatrix*   vec4(position, 1.0);
   vec4 dist = texture2D(tDist, vec2(newPos.x + 1., -newPos.y +1.) );
-  newPos.z += dist.r * f * 3.;
+  newPos.z += dist.r * f * 4.5;
   gl_Position =projectionMatrix * newPos;
 }
 

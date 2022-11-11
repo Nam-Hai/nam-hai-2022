@@ -78,7 +78,7 @@ export default class TransitionHomeCollections {
             mesh.position.x = -this.canvas.size.width * (3 / 5) * t.progE
             mesh.position.y = this.canvas.size.height * (3 / 5) * t.progE
 
-            mesh.program.uniforms.f.value = t.progE
+            mesh.program.uniforms.f.value = N.Clamp(t.progE * 2, 0, 1)
           },
           cb: _ => {
             this.canvas.scene.removeChild(mesh)
