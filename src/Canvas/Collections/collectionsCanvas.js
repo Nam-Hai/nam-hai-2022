@@ -46,6 +46,7 @@ export default class {
 
 
   }
+
   init(s) {
     this.canvas.raf.stop()
     this.canvas.raf = new N.RafR(() => {

@@ -55,10 +55,8 @@ export default class TransitionHomeCollections {
         this.canvas.collections.getBounds()
         this.canvas.onChange('collections')
 
-        await new Promise(s => {
 
-          this.canvas.collections.init(s)
-        })
+        this.canvas.collections.init()
         // this.canvas.hide(oldRoute)
         mesh.setParent(this.canvas.scene)
         this.tl.from({
@@ -74,6 +72,7 @@ export default class TransitionHomeCollections {
           },
           cb: _ => {
             this.canvas.scene.removeChild(mesh)
+            this.canvas.collections.init()
             cb()
           }
         })
