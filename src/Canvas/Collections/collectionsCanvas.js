@@ -43,6 +43,9 @@ export default class {
 
     // this.group.setParent(this.scene)
 
+
+  }
+  init(s) {
     this.canvas.raf.stop()
     this.canvas.raf = new N.RafR(() => {
       if (!this.velo.needsUpdate) {
@@ -56,17 +59,17 @@ export default class {
       this.bufferRenderObject.mesh.program.uniforms.uVelo.value = this.uVelo
 
       this.canvas.renderer.render({
-        camera: canvas.camera,
+        camera: this.canvas.camera,
         scene: this.bufferRenderObject.scene,
         target: this.mask.write,
         clear: false
       })
       this.mask.swap()
 
-      canvas.renderer.render({
+      this.canvas.renderer.render({
         scene: this.group,
         target: this.mediaRenderTarget,
-        camera: canvas.camera
+        camera: this.canvas.camera
       })
 
 
@@ -76,12 +79,15 @@ export default class {
 
       this.lastPlane.program.uniforms.tMap.value = this.mediaRenderTarget.texture
 
-      canvas.renderer.render({
+      this.canvas.renderer.render({
         scene: this.scene,
-        camera: canvas.camera,
+        camera: this.canvas.camera,
       })
     })
     this.canvas.raf.run()
+    if (s) {
+      s()
+    }
   }
 
   onMouseMove(e) {

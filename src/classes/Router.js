@@ -11,10 +11,12 @@ import TransitionContactHome from '../animation/TransitionContactHome';
 import { N } from '../utils/namhai';
 import TransitionPreloaderDemo from '../animation/TransitionPreloaderDemo';
 import Detail from '../Pages/Details/detail';
+import TransitionDetailCollections from '../animation/TransitionDetailCollections'
 
 const transitionMap = new Map([
   ['home => collections', TransitionHomeCollections],
   ['collections => home', TransitionCollectionsHome],
+  ['detail => collections', TransitionDetailCollections],
   ['demo => home', TransitionDemoHome],
   ['home => contact', TransitionHomeContact],
   ['contact => home', TransitionContactHome],
@@ -54,7 +56,7 @@ export default class Router {
     if (t) {
       N.PE.none(document.body)
       await new Promise(s => {
-        t = new t({ cb: s, canvas, oldRoute: this.path, route: url })
+        t = new t({ cb: s, canvas, oldRoute: this.path, route: url, pageBufferContent })
         t.play()
       })
       N.PE.all(document.body)

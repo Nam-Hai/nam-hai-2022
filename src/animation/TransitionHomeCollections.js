@@ -8,6 +8,7 @@ export default class TransitionHomeCollections {
 
     mB.classList.add('buffer-main__UP')
     canvas.onChange('collections')
+    canvas.collections.init()
     const collectionsMedias = canvas.collections.medias
 
     const boundsY = collectionsMedias[0].boundsPixel
