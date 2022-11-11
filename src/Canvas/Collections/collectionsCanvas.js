@@ -54,7 +54,6 @@ export default class {
         this.velo.set(0)
       }
       this.velo.needsUpdate = false
-      console.log(this.velo);
 
       this.uVelo.lerp(this.velo, !!this.velo.len() ? 0.1 : 0.1)
 
