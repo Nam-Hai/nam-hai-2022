@@ -8,7 +8,7 @@ void main() {
     // vec4 texture = texture2D(tMap,vUv);
     // vec4 gridflow = texture2D(tGridFlow, vUv);
     // gl_FragColor = gridflow;
-  float p = 89.;
+  float p = 30.;
 
   vec4 gridFlow = texture2D(tGridFlow, vUv);
 
