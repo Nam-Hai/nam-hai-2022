@@ -59,10 +59,12 @@ export default class TransitionHomeCollections {
       }),
       program
     })
+
+    const borderWidth = 1.07
     mesh.scale.x = this.canvas.size.width * (1)
     mesh.scale.y = this.canvas.size.height * (1)
-    whiteMesh.scale.x = this.canvas.size.width * 1.02
-    whiteMesh.scale.y = this.canvas.size.height * 1.02
+    whiteMesh.scale.x = this.canvas.size.width * borderWidth
+    whiteMesh.scale.y = this.canvas.size.height * borderWidth
     whiteMesh.position.z = -0.1
     html2canvas(N.get('.main')).then((canvas) => {
       const base64image = canvas.toDataURL("image/png");
@@ -86,8 +88,8 @@ export default class TransitionHomeCollections {
           d: 1000,
           e: 'io3',
           update: t => {
-            whiteMesh.scale.x = this.canvas.size.width * 1.1 * (1 - t.progE)
-            whiteMesh.scale.y = this.canvas.size.height * 1.1 * (1 - t.progE)
+            whiteMesh.scale.x = this.canvas.size.width * borderWidth * (1 - t.progE)
+            whiteMesh.scale.y = this.canvas.size.height * borderWidth * (1 - t.progE)
             whiteMesh.position.x = -this.canvas.size.width * (3 / 5) * t.progE
             whiteMesh.position.y = this.canvas.size.height * (3 / 5) * t.progE
             whiteMesh.program.uniforms.f.value = N.Clamp(t.progE * 2, 0, 1)
