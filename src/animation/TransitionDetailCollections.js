@@ -1,6 +1,7 @@
 import { N } from "../utils/namhai";
 import { Texture, Program, Plane, Mesh } from 'ogl'
 import BasicFrag from './shaders/BasicFrag.glsl?raw'
+import WhiteFrag from './shaders/WhiteFrag.glsl?raw'
 import BasicVer from './shaders/BasicVer.glsl?raw'
 
 export default class TransitionHomeCollections {
@@ -19,7 +20,6 @@ export default class TransitionHomeCollections {
     let program = new Program(this.gl, {
       fragment: BasicFrag,
       vertex: BasicVer,
-      // depthTest: false,
       uniforms: {
         resolution: {
           value: [this.canvas.size.width, this.canvas.size.height]
@@ -33,6 +33,25 @@ export default class TransitionHomeCollections {
       }
     })
 
+    let whiteMesh = new Mesh(this.gl, {
+      geometry: new Plane(this.gl, {
+        heightSegments: 50,
+        widthSegments: 50
+      }),
+      program: new Program(this.gl, {
+        fragment: WhiteFrag,
+        vertex: BasicVer,
+        uniforms: {
+          resolution: {
+            value: [this.canvas.size.width, this.canvas.size.height]
+          },
+          f: {
+            value: 0
+          }
+        }
+      })
+    })
+
     let mesh = new Mesh(this.gl, {
       geometry: new Plane(this.gl, {
         heightSegments: 50,
@@ -42,6 +61,9 @@ export default class TransitionHomeCollections {
     })
     mesh.scale.x = this.canvas.size.width * (1)
     mesh.scale.y = this.canvas.size.height * (1)
+    whiteMesh.scale.x = this.canvas.size.width * 1.02
+    whiteMesh.scale.y = this.canvas.size.height * 1.02
+    whiteMesh.position.z = -0.1
     html2canvas(N.get('.main')).then((canvas) => {
       const base64image = canvas.toDataURL("image/png");
       let image = new window.Image()
@@ -58,11 +80,18 @@ export default class TransitionHomeCollections {
 
         this.canvas.collections.init()
         // this.canvas.hide(oldRoute)
+        whiteMesh.setParent(this.canvas.scene)
         mesh.setParent(this.canvas.scene)
         this.tl.from({
           d: 1000,
           e: 'io3',
           update: t => {
+            whiteMesh.scale.x = this.canvas.size.width * 1.1 * (1 - t.progE)
+            whiteMesh.scale.y = this.canvas.size.height * 1.1 * (1 - t.progE)
+            whiteMesh.position.x = -this.canvas.size.width * (3 / 5) * t.progE
+            whiteMesh.position.y = this.canvas.size.height * (3 / 5) * t.progE
+            whiteMesh.program.uniforms.f.value = N.Clamp(t.progE * 2, 0, 1)
+
             mesh.scale.x = this.canvas.size.width * (1 - t.progE)
             mesh.scale.y = this.canvas.size.height * (1 - t.progE)
             mesh.position.x = -this.canvas.size.width * (3 / 5) * t.progE
