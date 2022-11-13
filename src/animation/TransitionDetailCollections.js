@@ -102,6 +102,7 @@ export default class TransitionHomeCollections {
             mesh.program.uniforms.f.value = N.Clamp(t.progE * 2, 0, 1)
           },
           cb: _ => {
+            this.canvas.scene.removeChild(whiteMesh)
             this.canvas.scene.removeChild(mesh)
             this.canvas.collections.init()
             cb()
