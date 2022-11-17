@@ -95,7 +95,7 @@ canvas {
   background-color: black;
   color: white;
   text-transform: uppercase;
-  font-size: 3.5rem;
+  font-size: 3rem;
   padding: 2rem;
   display: flex;
   flex-direction: column;
@@ -107,6 +107,7 @@ canvas {
 
   justify-content: space-between;
   .mobile-footer {
+    font-size: 4.5rem;
     display: flex;
     flex-direction: column;
   }
