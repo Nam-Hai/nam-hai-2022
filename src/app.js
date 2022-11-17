@@ -88,7 +88,6 @@ class App {
 
 
         document.body.appendChild(this.mobile)
-        // this.mobile.appendChild(this.footer)
       }
       this.mobileState = true
     } else if (this.mobileState) {
