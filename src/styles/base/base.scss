@@ -101,7 +101,13 @@ canvas {
   flex-direction: column;
 
   img {
-    margin-top: auto;
+    margin-bottom: auto;
     width: 100%;
+  }
+
+  justify-content: space-between;
+  .mobile-footer {
+    display: flex;
+    flex-direction: column;
   }
 }
