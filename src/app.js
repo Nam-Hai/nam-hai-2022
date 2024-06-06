@@ -84,7 +84,7 @@ class App {
       if (!this.mobileState) {
         this.mobile = N.Cr('div')
         this.mobile.classList.add('mobile')
-        this.mobile.innerHTML = 'this portfolio is meant for desktop experience<img src="home/home4.jpg"><div class="mobile-footer"><a href="mailto:lucas.tran@imt-atlantique.net">mail</a><a href="https://www.linkedin.com/in/tran-lucas/" target="_blank">Linkedin</a></div>'
+        this.mobile.innerHTML = 'this portfolio is meant for desktop experience<img src="home/home4.jpg"><div class="mobile-footer"><a href="mailto:contact@namhai.fr">mail</a><a href="https://www.linkedin.com/in/tran-lucas/" target="_blank">Linkedin</a></div>'
 
 
         document.body.appendChild(this.mobile)
